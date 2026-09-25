@@ -1,5 +1,5 @@
 import { sql } from "drizzle-orm";
-import { int, sqliteTable, text } from "drizzle-orm/sqlite-core";
+import { int, sqliteTable, text, uniqueIndex } from "drizzle-orm/sqlite-core";
 
 // The schema is the ground truth for the database. To change it: edit here,
 // run `pnpm db:generate` to turn the diff into a migration under drizzle/,
@@ -16,3 +16,32 @@ export const messages = sqliteTable("messages", {
 });
 
 export type Message = typeof messages.$inferSelect;
+
+// A teaching period. Rows are reference data seeded by migration (dates from
+// the ANU university calendar); the app never writes them.
+export const semesters = sqliteTable("semesters", {
+  id: text().primaryKey(), // e.g. "2026-S2"
+  label: text().notNull(), // e.g. "Second Semester, 2026"
+  startsOn: text("starts_on").notNull(), // ISO date, first teaching day
+  endsOn: text("ends_on").notNull(), // ISO date, last exam day
+});
+
+// One course a student has put in their plan for a semester.
+export const plannedCourses = sqliteTable(
+  "planned_courses",
+  {
+    id: int().primaryKey({ autoIncrement: true }),
+    semesterId: text("semester_id")
+      .notNull()
+      .references(() => semesters.id),
+    code: text().notNull(),
+    title: text().notNull(),
+    createdAt: text("created_at")
+      .notNull()
+      .default(sql`(datetime('now'))`),
+  },
+  (t) => [uniqueIndex("planned_courses_semester_code").on(t.semesterId, t.code)],
+);
+
+export type Semester = typeof semesters.$inferSelect;
+export type PlannedCourse = typeof plannedCourses.$inferSelect;

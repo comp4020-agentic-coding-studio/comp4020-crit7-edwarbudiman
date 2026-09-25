@@ -1,40 +1,267 @@
+/* Canvas (canvas.anu.edu.au) tokens, measured from the live site. */
+:root {
+  --rail: #000;
+  --rail-w: 54px;
+  --gold: #be830e;
+  --ink: #273540;
+  --ink-strong: #000;
+  --muted: #666;
+  --link: #146ebd;
+  --line: #e8eaec;
+  --surface: #fff;
+  --surface-2: #f5f5f5;
+  --crumb-h: 72px;
+  color-scheme: light;
+}
+
+* { box-sizing: border-box; }
+
 body {
   margin: 0;
-  padding: 2rem;
-  font-family: system-ui, sans-serif;
-  line-height: 1.6;
-  color: #1a1a1a;
+  background: var(--surface);
+  color: var(--ink-strong);
+  font-family: "Lato Extended", Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
 }
 
-main {
-  max-width: 40rem;
-  margin: 0 auto;
-}
+a { color: var(--link); }
 
-a {
-  color: #0b5fff;
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  z-index: 10;
+  padding: 0.5rem 1rem;
+  background: var(--surface);
 }
+.skip-link:focus { left: calc(var(--rail-w) + 8px); }
 
-form {
+.app { display: flex; min-height: 100vh; }
+
+/* ---- global nav rail ---------------------------------------------------- */
+.global-nav {
+  position: sticky;
+  top: 0;
+  flex: 0 0 var(--rail-w);
+  height: 100vh;
+  background: var(--rail);
+}
+.global-nav .brand {
+  display: grid;
+  place-items: center;
+  height: 74px;
+}
+.global-nav ul { list-style: none; margin: 0; padding: 0; }
+.global-nav li a,
+.global-nav li button {
+  display: grid;
+  width: 100%;
+  border: 0;
+  background: none;
+  font: inherit;
+  cursor: pointer;
+  place-items: center;
+  gap: 2px;
+  height: 64px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 11px;
+}
+.global-nav li :is(a, button) span {
+  /* Canvas shows labels only when the rail is expanded; keep them for screen
+     readers and show on hover as a tooltip-ish chip. */
+  position: absolute;
+  left: calc(var(--rail-w) + 4px);
+  padding: 2px 8px;
+  border-radius: 3px;
+  background: var(--gold);
+  font-size: 14px;
+  white-space: nowrap;
+  clip-path: inset(50%);
+}
+.global-nav li :is(a, button):hover span,
+.global-nav li :is(a, button):focus-visible span { clip-path: none; }
+.global-nav li :is(a, button):hover { background: #1a1a1a; }
+.global-nav li :is(a, button).active,
+.global-nav li button.tray-open { background: var(--surface); color: var(--gold); }
+/* while a drawer is open, only its button reads as selected */
+.global-nav:has(.tray-open) li :is(a, button).active:not(.tray-open) { background: none; color: #fff; }
+.global-nav li button.tray-open span { clip-path: inset(50%); }
+
+/* ---- drawers (Canvas "trays") ------------------------------------------ */
+.drawer {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: var(--rail-w);
+  z-index: 20;
+  width: min(386px, calc(100vw - var(--rail-w)));
+  padding: 0 1.5rem 2rem;
+  overflow-y: auto;
+  background: var(--surface);
+  box-shadow: 2px 0 12px rgb(0 0 0 / 0.18);
+  transform: translateX(-100%);
+  opacity: 0;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+.drawer.is-open { transform: none; opacity: 1; }
+.drawer header {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 1.25rem 0 1rem;
+  border-bottom: 1px solid var(--line);
+}
+.drawer h2 { margin: 0.25rem 0 0; font-size: 1.6rem; font-weight: 700; color: var(--ink-strong); }
+.drawer h3 {
+  margin: 1.25rem 0 0.5rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--line);
+  color: var(--gold);
+  font-size: 1rem;
+}
+.drawer-close {
+  width: 28px;
+  height: 28px;
+  border: 1px solid var(--ink);
+  border-radius: 2px;
+  background: none;
+  font-size: 14px;
+  cursor: pointer;
+}
+.drawer-term { margin: 1rem 0; font-size: 14px; color: var(--muted); }
+.drawer-list { list-style: none; margin: 0.75rem 0 0; padding: 0; }
+.drawer-list li { margin-bottom: 1rem; }
+.drawer-list a { font-size: 1.05rem; text-decoration: none; }
+.drawer-list a:hover { text-decoration: underline; }
+.drawer-list small { display: block; font-size: 13px; color: var(--ink); }
+.drawer-empty { margin: 1rem 0; color: var(--muted); }
+.drawer-empty a { display: inline-block; margin-top: 0.25rem; }
+
+/* ---- crumb header ------------------------------------------------------- */
+.wrapper { flex: 1; min-width: 0; }
+.crumbs {
+  display: flex;
   align-items: center;
-  margin-block: 1.5rem;
+  gap: 1.25rem;
+  height: var(--crumb-h);
+  padding: 0 1.5rem;
+  border-bottom: 1px solid var(--line);
+}
+.crumb-trail { display: flex; gap: 0.5rem; align-items: center; font-size: 18px; color: var(--ink); }
+.crumb-trail a { color: var(--link); text-decoration: none; }
+.crumb-trail a:hover { text-decoration: underline; }
+
+.content { min-width: 0; max-width: 72rem; padding: 1.5rem 1.5rem 3rem; }
+.content h1 { margin: 0.5rem 0 1.5rem; color: var(--muted); font-size: 1.8rem; font-weight: 700; }
+.content h2 { color: var(--gold); font-size: 2rem; font-weight: 400; margin: 2rem 0 0.75rem; }
+.content h3 { color: var(--ink); font-size: 1.25rem; }
+
+/* ---- course view: hamburger + section menu ------------------------------ */
+.nav-toggle {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border: 0;
+  border-radius: 3px;
+  background: none;
+  color: var(--link);
+  cursor: pointer;
+}
+.nav-toggle:hover { background: var(--surface-2); }
+.course-columns {
+  display: grid;
+  grid-template-columns: 192px minmax(0, 1fr);
+  gap: 0 2rem;
+  padding-left: 1.5rem;
+}
+.course-columns .content { padding-left: 0; }
+[data-course-nav="collapsed"] .course-columns { grid-template-columns: minmax(0, 1fr); }
+[data-course-nav="collapsed"] .course-nav { display: none; }
+.course-nav { padding-top: 1.5rem; }
+.course-nav .term { margin: 0.5rem 0 0.75rem 0.4rem; font-size: 11px; font-style: italic; color: var(--ink); }
+.course-nav ul { list-style: none; margin: 0; padding: 0; }
+.course-nav a {
+  display: block;
+  padding: 0.35rem 0.4rem;
+  border-left: 2px solid transparent;
+  color: var(--link);
+  text-decoration: none;
+}
+.course-nav a:hover { text-decoration: underline; }
+.course-nav a.active { border-left-color: var(--ink); color: var(--ink); font-weight: 700; }
+
+/* ---- shared bits -------------------------------------------------------- */
+.placeholder {
+  padding: 2rem;
+  border: 1px dashed #c7cdd1;
+  border-radius: 3px;
+  color: var(--muted);
+  text-align: center;
 }
 
-input {
-  flex: 1;
-  min-width: 12rem;
-  padding: 0.4rem 0.6rem;
+/* ---- phone: rail becomes a top bar, sidebar stacks ---------------------- */
+@media (max-width: 767px) {
+  .app { flex-direction: column; }
+  .global-nav {
+    position: static;
+    display: flex;
+    align-items: center;
+    height: auto;
+    padding: 0 8px;
+  }
+  .global-nav .brand { height: 54px; width: 44px; }
+  .global-nav ul { display: flex; flex: 1; justify-content: space-around; }
+  .global-nav li :is(a, button) { height: 54px; width: 54px; }
+  .drawer { top: 54px; left: 0; width: 100vw; }
+  .global-nav li :is(a, button) span { display: none; }
+  .crumbs { height: 56px; padding: 0 16px; gap: 0.75rem; }
+  .crumb-trail { font-size: 16px; }
+  .content { padding: 1rem 16px 2rem; }
+  .course-columns { grid-template-columns: minmax(0, 1fr); padding-left: 0; }
+  .course-columns .content { padding-left: 16px; }
+  [data-course-nav="open"] .course-nav { padding: 0 16px; border-bottom: 1px solid var(--line); }
+  .content h2 { font-size: 1.6rem; }
+}
+
+/* ---- plan page ---------------------------------------------------------- */
+.term-dates { margin-top: -1rem; color: var(--muted); }
+.add-course { display: grid; gap: 0.35rem; max-width: 28rem; }
+.add-course label { font-size: 14px; font-weight: 700; color: var(--ink); }
+.add-course input {
+  padding: 0.45rem 0.6rem;
+  border: 1px solid #c7cdd1;
+  border-radius: 3px;
   font: inherit;
 }
-
-button {
+.add-course button,
+.plan-list button {
+  justify-self: start;
   padding: 0.4rem 1rem;
+  border: 1px solid #c7cdd1;
+  border-radius: 3px;
+  background: var(--surface-2);
+  color: var(--ink);
   font: inherit;
+  cursor: pointer;
 }
-
-#messages {
-  padding-inline-start: 1.2rem;
+.add-course button { margin-top: 0.75rem; }
+.add-course button:hover,
+.plan-list button:hover { background: #e9eaeb; }
+.plan-list { list-style: none; margin: 0; padding: 0; max-width: 40rem; }
+.plan-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--line);
+}
+.notice {
+  max-width: 28rem;
+  padding: 0.6rem 0.9rem;
+  border-left: 4px solid #0b874b;
+  background: #eef8f2;
 }

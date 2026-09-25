@@ -8,6 +8,20 @@
       "when": 1784173013185,
       "tag": "0000_dry_captain_flint",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1790300512727,
+      "tag": "0001_serious_zarda",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1790300513336,
+      "tag": "0002_seed_semesters",
+      "breakpoints": true
     }
   ]
 }

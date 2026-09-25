@@ -1,0 +1,36 @@
+---
+// A course the student has in a plan, in Canvas's course view. Only Home has
+// content for now; the other sections are placeholders.
+import CanvasLayout from "../../../layouts/CanvasLayout.astro";
+import { COURSE_SECTIONS, sectionHref } from "../../../lib/course-sections";
+import { getPlannedCourse } from "../../../lib/plans";
+
+const course = getPlannedCourse(Number(Astro.params.id));
+const section = COURSE_SECTIONS.find((s) => s.slug === (Astro.params.section ?? ""));
+if (!course || !section) return new Response("Not found", { status: 404 });
+---
+
+<CanvasLayout
+  title={`${section.label} · ${course.code}`}
+  crumb={course.code}
+  sections={{
+    name: course.code,
+    term: course.semester.label,
+    items: COURSE_SECTIONS.map((s) => ({ href: sectionHref(course.id, s), label: s.label })),
+    current: COURSE_SECTIONS.indexOf(section),
+  }}
+>
+  {
+    section.slug === "" ? (
+      <>
+        <h1>{course.title}</h1>
+        <p class="term-dates">{course.code} · {course.semester.label}</p>
+      </>
+    ) : (
+      <>
+        <h1>{section.label}</h1>
+        <div class="placeholder">Nothing here yet.</div>
+      </>
+    )
+  }
+</CanvasLayout>

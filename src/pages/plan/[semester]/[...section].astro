@@ -1,0 +1,72 @@
+---
+// A semester plan, in Canvas's course view: Overview (deliberately blank for
+// now) and Add Course, where courses go into and out of the plan.
+import CanvasLayout from "../../../layouts/CanvasLayout.astro";
+import { coursesFor, currentSemester, formatRange, getSemester } from "../../../lib/plans";
+
+const semester = getSemester(Astro.params.semester ?? "");
+const sections = [
+  { slug: "", label: "Overview" },
+  { slug: "add", label: "Add Course" },
+];
+const current = sections.findIndex((s) => s.slug === (Astro.params.section ?? ""));
+if (!semester || current === -1) return new Response("Not found", { status: 404 });
+
+const isCurrent = currentSemester()?.id === semester.id;
+const courses = current === 1 ? coursesFor(semester.id) : [];
+const added = Astro.url.searchParams.get("added");
+const base = `/plan/${semester.id}/`;
+---
+
+<CanvasLayout
+  title={`${sections[current]!.label} · ${semester.label}`}
+  crumb={semester.label}
+  sections={{
+    name: semester.label,
+    term: formatRange(semester),
+    items: sections.map((s) => ({ href: base + (s.slug ? `${s.slug}/` : ""), label: s.label })),
+    current,
+  }}
+>
+  {
+    current === 0 ? (
+      <>
+        <h1>{semester.label}</h1>
+        <p class="term-dates">{formatRange(semester)}{isCurrent && " · Current semester"}</p>
+      </>
+    ) : (
+      <>
+        <h1>Add Course</h1>
+        {added && <p class="notice" role="status">Added {added} to {semester.label}.</p>}
+        <form method="post" action="/api/plan" class="add-course">
+          <input type="hidden" name="semester" value={semester.id} />
+          <label for="code">Course code</label>
+          <input id="code" name="code" required maxlength="12" placeholder="COMP1100" />
+          <label for="title">Course title</label>
+          <input id="title" name="title" required maxlength="200" placeholder="Programming as Problem Solving" />
+          <button type="submit">Add to plan</button>
+        </form>
+
+        <h2>In this plan</h2>
+        {courses.length === 0 ? (
+          <p class="placeholder">No courses in this plan yet.</p>
+        ) : (
+          <ul class="plan-list">
+            {courses.map((c) => (
+              <li>
+                <a href={`/courses/${c.id}/`}>
+                  <strong>{c.code}</strong> {c.title}
+                </a>
+                <form method="post" action="/api/plan">
+                  <input type="hidden" name="semester" value={semester.id} />
+                  <input type="hidden" name="remove" value={c.id} />
+                  <button type="submit" aria-label={`Remove ${c.code}`}>Remove</button>
+                </form>
+              </li>
+            ))}
+          </ul>
+        )}
+      </>
+    )
+  }
+</CanvasLayout>

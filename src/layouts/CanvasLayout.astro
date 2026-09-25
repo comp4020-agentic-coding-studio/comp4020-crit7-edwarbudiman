@@ -1,0 +1,146 @@
+---
+// The Canvas shell every page sits in: the global nav rail (with its drawers),
+// a crumb header and the content. A page with sections of its own — a course,
+// a semester plan — passes `sections`, and like a Canvas course it gains the
+// hamburger and a section menu beside the content. Pages without sections get
+// neither. Measurements and colours are taken from canvas.anu.edu.au.
+import "../styles.css";
+import GlobalNav from "../components/GlobalNav.astro";
+
+export interface SectionMenu {
+  name: string; // crumb root, e.g. "COMP2100"
+  term: string; // small italic line above the menu
+  items: { href: string; label: string }[]; // first item is the home section
+  current: number; // index into items
+}
+
+interface Props {
+  title: string;
+  crumb: string;
+  sections?: SectionMenu;
+}
+
+const { title, crumb, sections: course } = Astro.props;
+const path = Astro.url.pathname;
+---
+
+<!doctype html>
+<html lang="en-AU">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title} · ANU Course Planner</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap"
+    />
+  </head>
+  <body>
+    <a class="skip-link" href="#content">Skip to content</a>
+    <div class="app">
+      <GlobalNav path={path} />
+      <div class="wrapper">
+        <header class="crumbs">
+          {
+            course && (
+              <button
+                class="nav-toggle"
+                type="button"
+                aria-controls="course-nav"
+                aria-expanded="true"
+                aria-label="Toggle section navigation"
+              >
+                <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+                  <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="1.6" />
+                </svg>
+              </button>
+            )
+          }
+          <nav aria-label="breadcrumb" class="crumb-trail">
+            {
+              course ? (
+                <>
+                  <a href={course.items[0]!.href}>{course.name}</a>
+                  {course.current > 0 && (
+                    <>
+                      <span aria-hidden="true">›</span>
+                      <span aria-current="page">{course.items[course.current]!.label}</span>
+                    </>
+                  )}
+                </>
+              ) : (
+                <>
+                  <a href="/">Course Planner</a>
+                  <span aria-hidden="true">›</span>
+                  <span aria-current="page">{crumb}</span>
+                </>
+              )
+            }
+          </nav>
+        </header>
+        {
+          course ? (
+            <div class="course-columns">
+              <nav id="course-nav" class="course-nav" aria-label="course">
+                <p class="term">{course.term}</p>
+                <ul>
+                  {course.items.map((item, i) => (
+                    <li>
+                      <a
+                        href={item.href}
+                        class:list={{ active: i === course.current }}
+                        aria-current={i === course.current ? "page" : undefined}
+                      >
+                        {item.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+              <main id="content" class="content">
+                <slot />
+              </main>
+            </div>
+          ) : (
+            <main id="content" class="content">
+              <slot />
+            </main>
+          )
+        }
+      </div>
+    </div>
+    {
+      course && (
+        <script>
+          // Canvas's hamburger collapses the course menu; remember the choice
+          // per viewer. Storage can be missing (private windows), so fail
+          // quietly. On a phone the menu starts closed.
+          const root = document.documentElement;
+          const toggle = document.querySelector<HTMLButtonElement>(".nav-toggle");
+          const mobile = window.matchMedia("(max-width: 767px)");
+          let collapsed = mobile.matches;
+          if (!mobile.matches) {
+            try {
+              collapsed = localStorage.getItem("course-nav") === "collapsed";
+            } catch {}
+          }
+          const apply = () => {
+            root.dataset.courseNav = collapsed ? "collapsed" : "open";
+            toggle?.setAttribute("aria-expanded", String(!collapsed));
+          };
+          apply();
+          toggle?.addEventListener("click", () => {
+            collapsed = !collapsed;
+            apply();
+            if (!mobile.matches) {
+              try {
+                localStorage.setItem("course-nav", collapsed ? "collapsed" : "open");
+              } catch {}
+            }
+          });
+        </script>
+      )
+    }
+  </body>
+</html>

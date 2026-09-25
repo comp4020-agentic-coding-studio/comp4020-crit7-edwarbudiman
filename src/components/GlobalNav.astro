@@ -1,0 +1,170 @@
+---
+// Canvas's black global-navigation rail. Dashboard is a plain link; Current
+// Courses and Course Planner open drawers beside the rail, the way Canvas's
+// Courses tray does.
+import { coursesFor, currentSemester, formatRange, previousPlans } from "../lib/plans";
+
+interface Props {
+  path: string;
+}
+const { path } = Astro.props;
+
+const current = currentSemester();
+const currentCourses = current ? coursesFor(current.id) : [];
+const previous = previousPlans();
+
+const icons = {
+  dashboard:
+    '<path d="M4 17a8 8 0 1 1 16 0" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M12 17l4-5" stroke="currentColor" stroke-width="1.6"/><path d="M4 17h16" stroke="currentColor" stroke-width="1.6"/>',
+  courses:
+    '<rect x="5" y="3" width="14" height="18" rx="1" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M8 7h8M8 11h8M8 15h5" stroke="currentColor" stroke-width="1.6"/>',
+  planner:
+    '<rect x="3" y="5" width="18" height="16" rx="1" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M3 9h18M8 3v4M16 3v4M7 13h3M14 13h3M7 17h3" stroke="currentColor" stroke-width="1.6"/>',
+};
+const courseCount = (n: number) => (n === 0 ? "No courses planned" : n === 1 ? "1 course" : `${n} courses`);
+---
+
+<nav class="global-nav" aria-label="global">
+  <a href="/" class="brand" aria-label="ANU Course Planner home">
+    <svg viewBox="0 0 32 32" width="32" height="32" aria-hidden="true">
+      <path d="M4 4h24v14c0 6-6 10-12 11C10 28 4 24 4 18z" fill="#be830e"></path>
+      <path d="M9 14h14M9 18h14M11 22h10" stroke="#fff" stroke-width="1.4"></path>
+    </svg>
+  </a>
+  <ul>
+    <li>
+      <a href="/" class:list={{ active: path === "/" }} aria-current={path === "/" ? "page" : undefined}>
+        <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true" set:html={icons.dashboard} />
+        <span>Dashboard</span>
+      </a>
+    </li>
+    <li>
+      <button type="button" data-drawer="drawer-current" aria-controls="drawer-current" aria-expanded="false">
+        <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true" set:html={icons.courses} />
+        <span>Current Courses</span>
+      </button>
+    </li>
+    <li>
+      <button
+        type="button"
+        data-drawer="drawer-planner"
+        aria-controls="drawer-planner"
+        aria-expanded="false"
+        class:list={{ active: path.startsWith("/plan") }}
+      >
+        <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true" set:html={icons.planner} />
+        <span>Course Planner</span>
+      </button>
+    </li>
+  </ul>
+</nav>
+
+<section id="drawer-current" class="drawer" aria-labelledby="drawer-current-title" hidden>
+  <header>
+    <h2 id="drawer-current-title">Current Courses</h2>
+    <button type="button" class="drawer-close" aria-label="Close Current Courses">✕</button>
+  </header>
+  {current && <p class="drawer-term">{current.label}<br />{formatRange(current)}</p>}
+  {
+    currentCourses.length === 0 ? (
+      <div class="drawer-empty">
+        <p>You need to choose your first courses for this semester.</p>
+        {current && <a href={`/plan/${current.id}/`}>Plan {current.label}</a>}
+      </div>
+    ) : (
+      <ul class="drawer-list">
+        {currentCourses.map((c) => (
+          <li>
+            <a href={`/courses/${c.id}/`}>{c.title}</a>
+            <small>{c.code}</small>
+            <small>Term: {current?.label}</small>
+          </li>
+        ))}
+      </ul>
+    )
+  }
+</section>
+
+<section id="drawer-planner" class="drawer" aria-labelledby="drawer-planner-title" hidden>
+  <header>
+    <h2 id="drawer-planner-title">Course Planner</h2>
+    <button type="button" class="drawer-close" aria-label="Close Course Planner">✕</button>
+  </header>
+  <h3>Plan for current semester</h3>
+  {
+    current ? (
+      <ul class="drawer-list">
+        <li>
+          <a href={`/plan/${current.id}/`}>{current.label}</a>
+          <small>{formatRange(current)}</small>
+          <small>{courseCount(currentCourses.length)}</small>
+        </li>
+      </ul>
+    ) : (
+      <p class="drawer-empty">No semester is running.</p>
+    )
+  }
+  <h3>Plans for previous semesters</h3>
+  {
+    previous.length === 0 ? (
+      <p class="drawer-empty">No previous semesters.</p>
+    ) : (
+      <ul class="drawer-list">
+        {previous.map((s) => (
+          <li>
+            <a href={`/plan/${s.id}/`}>{s.label}</a>
+            <small>{formatRange(s)}</small>
+            <small>{courseCount(s.courses.length)}</small>
+          </li>
+        ))}
+      </ul>
+    )
+  }
+</section>
+
+<script>
+  // One drawer open at a time. Clicking its rail button again, the ✕, Escape,
+  // or anywhere outside closes it; focus returns to the rail button.
+  const buttons = [...document.querySelectorAll<HTMLButtonElement>("[data-drawer]")];
+  let open: { drawer: HTMLElement; button: HTMLButtonElement } | null = null;
+
+  const close = (restoreFocus = true) => {
+    if (!open) return;
+    const { drawer, button } = open;
+    drawer.classList.remove("is-open");
+    button.setAttribute("aria-expanded", "false");
+    button.classList.remove("tray-open");
+    // wait for the slide-out before removing it from the accessibility tree
+    setTimeout(() => {
+      if (!drawer.classList.contains("is-open")) drawer.hidden = true;
+    }, 200);
+    if (restoreFocus) button.focus();
+    open = null;
+  };
+
+  const show = (button: HTMLButtonElement) => {
+    const drawer = document.getElementById(button.dataset.drawer!);
+    if (!drawer) return;
+    close(false);
+    drawer.hidden = false;
+    requestAnimationFrame(() => drawer.classList.add("is-open"));
+    button.setAttribute("aria-expanded", "true");
+    button.classList.add("tray-open");
+    drawer.querySelector<HTMLElement>(".drawer-close")?.focus();
+    open = { drawer, button };
+  };
+
+  for (const button of buttons) {
+    button.addEventListener("click", () => (open?.button === button ? close() : show(button)));
+  }
+  for (const x of document.querySelectorAll(".drawer-close")) {
+    x.addEventListener("click", () => close());
+  }
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") close();
+  });
+  document.addEventListener("click", (e) => {
+    const target = e.target as Node;
+    if (open && !open.drawer.contains(target) && !open.button.contains(target)) close(false);
+  });
+</script>
