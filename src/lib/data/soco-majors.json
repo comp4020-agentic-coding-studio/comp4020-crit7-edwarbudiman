@@ -1,0 +1,162 @@
+{
+  "_source": "ANU Programs and Courses (programsandcourses.anu.edu.au) — major pages for the computing majors students can complete as part of the Bachelor of Computing.",
+  "_fetchedOn": "2026-09-25",
+  "_year": 2027,
+  "majors": [
+    {
+      "code": "COMS-MAJ",
+      "title": "Computer Systems Major",
+      "url": "https://programsandcourses.anu.edu.au/major/COMS-MAJ",
+      "minUnits": 48,
+      "courseCodes": [
+        "COMP2310",
+        "COMP3300",
+        "COMP3310",
+        "COMP3320",
+        "COMP3610",
+        "COMP4045",
+        "COMP4300",
+        "COMP4712",
+        "ENGN1218",
+        "ENGN2218",
+        "ENGN4213"
+      ],
+      "requirementsText": "The COMS major requires the completion of 48 units, of which:\nA maximum of 18 units may come from completion of 1000-level courses\nA minimum of 18 units must come from completion of 3000 and 4000-level courses\n24 units from completion of the following compulsory courses:\nCOMP2310 Systems Networks and Concurrency\nCOMP3300 Operating Systems Implementation\nCOMP3310 Computer Networks\nENGN4213 Digital Systems and Microprocessors\nA minimum of 6 units from the completion of a course from the following list:\nCOMP3320 High Performance Scientific Computation \nCOMP3610 Principles of Programming Languages \nA maximum of 18 units from completion of courses from the following list:\nCOMP4045 Advanced Topics in Computer Systems\nCOMP4300 Parallel Systems\nCOMP4712 Compiler Construction \nENGN1218 Introduction to Electronics\nENGN2218 Electronic Systems and Design\nThis Major is incompatible with the Systems and Architecture Specialisation."
+    },
+    {
+      "code": "CSEC-MAJ",
+      "title": "Cyber Security Major",
+      "url": "https://programsandcourses.anu.edu.au/major/CSEC-MAJ",
+      "minUnits": 48,
+      "courseCodes": [
+        "COMP2120",
+        "COMP2310",
+        "COMP2700",
+        "COMP3300",
+        "COMP3310",
+        "COMP3704",
+        "COMP4011",
+        "COMP4045",
+        "COMP4130",
+        "COMP4703",
+        "COMP4712",
+        "CRIM2010",
+        "MATH3301"
+      ],
+      "requirementsText": "This major requires the completion of 48 units, including,\nA minimum of 18 units from completion of 3000 or 4000 level courses.\n36 units from completion of the following compulsory courses:\nCOMP2120 Software Engineering\nCOMP2310 Systems Networks, and Concurrency\nCOMP2700 Cyber Security Foundations\nCOMP3300 Operating Systems Implementation\nCOMP3310 Computer Networks\nCOMP3704 Network Security\nA minimum of 6 units from completion of courses from the following list:\nCOMP4130 Managing Software Quality and Process\nCOMP4703 Vulnerability Research and Exploit Mitigation\nA maximum of 6 units from completion of courses from the following list:\nCOMP4011 Advanced Topics in Formal Methods and Programming Languages\nCOMP4045 Advanced Topics in Computer Systems\nCOMP4712 Compiler Construction\nCRIM2010 Cybercrime: An Introduction \nMATH3301 Number Theory and Cryptography"
+    },
+    {
+      "code": "DTSC-MAJ",
+      "title": "Data Science Major",
+      "url": "https://programsandcourses.anu.edu.au/major/DTSC-MAJ",
+      "minUnits": 48,
+      "courseCodes": [
+        "COMP2120",
+        "COMP2700",
+        "COMP3430",
+        "COMP3670",
+        "COMP4425",
+        "COMP4650",
+        "COMP4880",
+        "MATH2307",
+        "SOCR3001",
+        "STAT1003"
+      ],
+      "requirementsText": "The DTSC major requires the completion of 48 units, of which:\nA maximum of 18 units may come from completion of 1000-level courses\nA minimum of 18 units must come from completion of 3000 and 4000-level courses\n12 units from completion of the following compulsory courses:\nCOMP3430 Data Wrangling \nCOMP4425 Data Mining \n36 units from completion of courses from the following list:\nCOMP2120 Software Engineering \nCOMP2700 Cyber Security Foundations \nCOMP3670 Introduction to Machine Learning \nCOMP4650 Document Analysis \nCOMP4880 Computational Methods for Network Science \nMATH2307 Bioinformatics and Biological Modelling  \nSOCR3001 Data for Decision Making\nSTAT1003 Statistical Techniques  \nThis major is not available to BADAN students."
+    },
+    {
+      "code": "HCCC-MAJ",
+      "title": "Human-Centred and Creative Computing Major",
+      "url": "https://programsandcourses.anu.edu.au/major/HCCC-MAJ",
+      "minUnits": 48,
+      "courseCodes": [
+        "ARTH2181",
+        "COMP1720",
+        "COMP2120",
+        "COMP3540",
+        "COMP3670",
+        "COMP3900",
+        "COMP4020",
+        "COMP4350",
+        "COMP4528",
+        "COMP4610",
+        "DESN2002",
+        "DESN2004",
+        "DESN2006",
+        "DESN2008",
+        "DESN2010",
+        "MGMT2009",
+        "MUSI1110",
+        "MUSI3309",
+        "SOCR3001",
+        "SOCY2038",
+        "SOCY2166"
+      ],
+      "requirementsText": "The HCCC major requires the completion of 48 units, of which:\nA maximum of 18 units may come from completion of 1000-level courses\nA minimum of 18 units must come from completion of 3000 and 4000-level courses\n6 units from completion of the following compulsory courses:\nCOMP3900 Human-Computer Interaction \nA minimum of 12 units from completion of Advanced HCCC courses from the following list:\nCOMP3540 Game Development\nCOMP4020 Advanced Topics in Human-Centred and Creative Computing\nCOMP4350 Sound and Music Computing\nCOMP4528 Computer Vision\nCOMP4610 Computer Graphics\nA maximum of 30 units from completion of courses from the following list:\nARTH2181 Digital Approaches to Art History and Curatorship\nCOMP1720 Art and Interaction Computing\nCOMP2120 Software Engineering\nCOMP3670 Introduction to Machine Learning\nDESN2002 Foundations of Creative Code\nDESN2004 Autonomous Agents: Natural and Algorithmic Systems in Art and Design \nDESN2006 Front-End Web: Crafting Online Experience\nDESN2008 Design Thinking: Human-Centred Design Methodologies\nDESN2010 Making Creative and Critical Technologies: Physical Computing for Design and Art \nMGMT2009 Design Thinking: Human-Centred Innovation \nMUSI1110 Introduction to Music Technology \nMUSI3309 Digital Music: Platforms, Content and AI\nSOCR3001 Data for Decision Making\nSOCY2038 Introduction to Quantitative Research Methods\nSOCY2166 Social Science of the Internet\nThis Major is incompatible with the Human-Centred and Creative Computing Specialisation and the Human-Centred and Creative Computing Minor."
+    },
+    {
+      "code": "INFS-MAJ",
+      "title": "Information Systems Major",
+      "url": "https://programsandcourses.anu.edu.au/major/INFS-MAJ",
+      "minUnits": 48,
+      "courseCodes": [
+        "COMP2120",
+        "COMP3425",
+        "COMP3430",
+        "COMP3900",
+        "COMP4650",
+        "INFS1001",
+        "INFS2024",
+        "INFS3002",
+        "INFS3024",
+        "INFS3059"
+      ],
+      "requirementsText": "The INFS major requires the completion of 48 units, which must consist of:\nA maximum of 18 units may come from completion of 1000-level courses\nA minimum of 18 units must come from completion of 3000 and 4000-level courses\n30 units from the completion of the following compulsory courses:\nCOMP2120 Software Engineering (6 units)\nINFS1001 Business Information Systems (6 units)\nINFS2024 Information Systems Analysis (6 units)\nINFS3024 Information Systems Management (6 units)\nINFS3059 Project Management and Information Systems (6 units)\n18 units from the completion of courses from the following list:\nCOMP3425 Data Mining (6 units)\nCOMP3430 Data Wrangling (6 units)\nCOMP3900 Human Computer Interface Design and Evaluation (6 units)\nCOMP4650 Document Analysis (6 units)\nINFS3002 Enterprise Systems in Business (6 units)\nThis major is incompatible with the Business Information Systems Major."
+    },
+    {
+      "code": "INSY-MAJ",
+      "title": "Intelligent Systems Major",
+      "url": "https://programsandcourses.anu.edu.au/major/INSY-MAJ",
+      "minUnits": 48,
+      "courseCodes": [
+        "COMP2620",
+        "COMP3242",
+        "COMP3600",
+        "COMP3620",
+        "COMP3670",
+        "COMP4528",
+        "COMP4610",
+        "COMP4620",
+        "COMP4650",
+        "COMP4670",
+        "COMP4680",
+        "COMP4691"
+      ],
+      "requirementsText": "The INSY major requires the completion of 48 units, of which:\nA maximum of 18 units may come from completion of 1000-level courses\nA minimum of 18 units must come from completion of 3000 and 4000-level courses\n18 units from completion of the following compulsory courses:\nCOMP2620 Logic\nCOMP3620 Artificial Intelligence\nCOMP3670 Introduction to Machine Learning\nA minimum of 12 units from completion of Intelligent Systems courses from the following list:\nCOMP3242 Deep Learning\nCOMP3600 Algorithms\nCOMP4620 Advanced Topics in Artificial Intelligence\nCOMP4670 Statistical Machine Learning\nCOMP4680 Advanced Topics in Machine Learning\nCOMP4691 Optimisation\nA maximum of 18 units from completion of courses from the following list:\nCOMP4528 Computer Vision\nCOMP4610 Computer Graphics\nCOMP4650 Document Analysis\nThis Major is incompatible with the Artificial Intelligence Specialisation and the Machine Learning Specialisation and the Intelligent Systems Specialisation."
+    },
+    {
+      "code": "SOFT-MAJ",
+      "title": "Software Development Major",
+      "url": "https://programsandcourses.anu.edu.au/major/SOFT-MAJ",
+      "minUnits": 48,
+      "courseCodes": [
+        "ASIA3032",
+        "COMP2120",
+        "COMP2700",
+        "COMP3500",
+        "COMP3600",
+        "COMP3610",
+        "COMP3900",
+        "COMP4130",
+        "ENGN1211",
+        "ENGN2300",
+        "INFS3002",
+        "INFS3024",
+        "INFS3059",
+        "MGMT2009",
+        "SCOM3029"
+      ],
+      "requirementsText": "The SOFT major requires the completion of 48 units, which must consist of:\nA maximum of 18 units may come from completion of 1000-level courses\nA minimum of 18 units must come from completion of 3000 and 4000-level courses\n24 units from the completion of the following compulsory courses:\nCOMP2120 Software Engineering (6 units) \nCOMP3500 Software Engineering Project (6+6 units)\nCOMP4130 Managing Software Quality and Process (6 units)\nA minimum of 12 units from the following list:\nCOMP3600 Algorithms (6 units)\nCOMP3610 Principles of Programming Languages (6 units)\nCOMP3900 Human-Computer Interaction (6 units)\nINFS3024 Information Systems Management (6 units)\nINFS3059 Project Management and Information Systems (6 units)\nA maximum of 12 units from the following list:\nASIA3032 Technology and Society in Asia (6 units)\nCOMP2700 Cyber Security Foundations (6 units) \nENGN1211 Engineering Design 1: Discovering Engineering\nENGN2300 Engineering Design 2: Systems Approaches for Design\nINFS3002 Enterprise Systems in Business (6 units)\nMGMT2009 Design Thinking: Human-Centred Innovation (6 units)\nSCOM3029 Science Communication and Planetary Crises (6 units)\nThe SOFT-MAJ is not available to Bachelor of Engineering in Software Engineering(AENSE/ASENG) or Bachelor of Advanced Computing(AACOM) or Bachelor of Advanced Computing Research and Development (AACRD) students."
+    }
+  ]
+}

@@ -2,7 +2,9 @@
 // Canvas's black global-navigation rail. Dashboard is a plain link; Current
 // Courses and Course Planner open drawers beside the rail, the way Canvas's
 // Courses tray does.
-import { coursesFor, currentSemester, formatRange, previousPlans } from "../lib/plans";
+import { getProgram } from "../lib/catalogue";
+import { coursesFor, currentSemester, formatRange, isSubmitted, previousPlans, upcomingPlans } from "../lib/plans";
+import { getStudent } from "../lib/student";
 
 interface Props {
   path: string;
@@ -10,8 +12,13 @@ interface Props {
 const { path } = Astro.props;
 
 const current = currentSemester();
-const currentCourses = current ? coursesFor(current.id) : [];
+const selected = current ? coursesFor(current.id) : [];
+// Current Courses are the ones enrolled in: a selection counts once submitted.
+const currentCourses = current && isSubmitted(current.id) ? selected : [];
 const previous = previousPlans();
+const upcoming = upcomingPlans();
+const student = getStudent();
+const program = getProgram(student.programCode);
 
 const icons = {
   dashboard:
@@ -69,6 +76,7 @@ const courseCount = (n: number) => (n === 0 ? "No courses planned" : n === 1 ? "
     currentCourses.length === 0 ? (
       <div class="drawer-empty">
         <p>You need to choose your first courses for this semester.</p>
+        {selected.length > 0 && <p>{selected.length} selected, not submitted yet.</p>}
         {current && <a href={`/plan/${current.id}/`}>Plan {current.label}</a>}
       </div>
     ) : (
@@ -90,6 +98,11 @@ const courseCount = (n: number) => (n === 0 ? "No courses planned" : n === 1 ? "
     <h2 id="drawer-planner-title">Course Planner</h2>
     <button type="button" class="drawer-close" aria-label="Close Course Planner">✕</button>
   </header>
+  <p class="drawer-term">
+    {program ? program.title : "No program chosen yet"}
+    <br />
+    <a href="/profile/">{program ? "Change program" : "Choose your program"}</a>
+  </p>
   <h3>Plan for current semester</h3>
   {
     current ? (
@@ -97,11 +110,27 @@ const courseCount = (n: number) => (n === 0 ? "No courses planned" : n === 1 ? "
         <li>
           <a href={`/plan/${current.id}/`}>{current.label}</a>
           <small>{formatRange(current)}</small>
-          <small>{courseCount(currentCourses.length)}</small>
+          <small>{courseCount(selected.length)}{selected.length > 0 && !currentCourses.length && " (not submitted)"}</small>
         </li>
       </ul>
     ) : (
       <p class="drawer-empty">No semester is running.</p>
+    )
+  }
+  {
+    upcoming.length > 0 && (
+      <>
+        <h3>Plan ahead</h3>
+        <ul class="drawer-list">
+          {upcoming.map((s) => (
+            <li>
+              <a href={`/plan/${s.id}/add/`}>{s.label}</a>
+              <small>{formatRange(s)}</small>
+              <small>{courseCount(s.courses.length)}</small>
+            </li>
+          ))}
+        </ul>
+      </>
     )
   }
   <h3>Plans for previous semesters</h3>

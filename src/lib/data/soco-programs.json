@@ -1,0 +1,144 @@
+{
+  "_source": "ANU Programs and Courses (programsandcourses.anu.edu.au) — program pages for the School of Computing's award programs.",
+  "_fetchedOn": "2026-09-25",
+  "_year": 2027,
+  "_note": "The Bachelor of Computing's 48-unit major requirement can be satisfied by one of the computing majors listed under each program's 'majors' array; the courses each major requires are in soco-majors.json, keyed by major code.",
+  "programs": [
+    {
+      "code": "BCOMP",
+      "title": "Bachelor of Computing",
+      "level": "undergraduate",
+      "url": "https://programsandcourses.anu.edu.au/program/bcomp",
+      "cricosCode": "112692B",
+      "minUnits": 144,
+      "duration": "3 year full-time",
+      "selectionRank": 80,
+      "compulsoryCourses": [
+        "COMP1600",
+        "COMP2100",
+        "COMP2300",
+        "COMP2400"
+      ],
+      "majorsFile": "soco-majors.json",
+      "majors": [
+        {
+          "code": "COMS-MAJ",
+          "title": "Computer Systems Major",
+          "url": "https://programsandcourses.anu.edu.au/major/COMS-MAJ"
+        },
+        {
+          "code": "CSEC-MAJ",
+          "title": "Cyber Security Major",
+          "url": "https://programsandcourses.anu.edu.au/major/CSEC-MAJ"
+        },
+        {
+          "code": "DTSC-MAJ",
+          "title": "Data Science Major",
+          "url": "https://programsandcourses.anu.edu.au/major/DTSC-MAJ"
+        },
+        {
+          "code": "HCCC-MAJ",
+          "title": "Human-Centred and Creative Computing Major",
+          "url": "https://programsandcourses.anu.edu.au/major/HCCC-MAJ"
+        },
+        {
+          "code": "INFS-MAJ",
+          "title": "Information Systems Major",
+          "url": "https://programsandcourses.anu.edu.au/major/INFS-MAJ"
+        },
+        {
+          "code": "INSY-MAJ",
+          "title": "Intelligent Systems Major",
+          "url": "https://programsandcourses.anu.edu.au/major/INSY-MAJ"
+        },
+        {
+          "code": "SOFT-MAJ",
+          "title": "Software Development Major",
+          "url": "https://programsandcourses.anu.edu.au/major/SOFT-MAJ"
+        }
+      ],
+      "requirements": [
+        "144 units total.",
+        "A minimum of 12 units must come from courses tagged Transdisciplinary Problem-Solving.",
+        "A minimum of 24 units must come from 3000- and 4000-level COMP courses.",
+        "A maximum of 60 units may come from 1000-level courses.",
+        "A minimum of 96 units from completion of courses from the following lists:",
+        "  6 units from one of: COMP1100 Programming as Problem Solving, COMP1130 Programming as Problem Solving (Advanced).",
+        "  6 units from one of: COMP1110 Structured Programming, COMP1140 Structured Programming (Advanced).",
+        "  6 units from one of: MATH1005 Discrete Mathematical Models, MATH2222 Introduction to Mathematical Thinking: Problem-Solving and Proofs.",
+        "  24 units from the compulsory courses: COMP1600 Foundations of Computing, COMP2100 Software Construction, COMP2300 Computer Architecture, COMP2400 Relational Databases.",
+        "  48 units from courses in the subject area COMP Computer Science, OR completion of one of the computing majors: COMS-MAJ Computer Systems, CSEC-MAJ Cyber Security, DTSC-MAJ Data Science, HCCC-MAJ Human-Centred and Creative Computing, INFS-MAJ Information Systems, INSY-MAJ Intelligent Systems, SOFT-MAJ Software Development.",
+        "  AND 6 units from an ICT-related list: ARTH2181, ASIA3032, DESN2010, ENGN1211, ENVS2015, INFS2024, INFS3002, INFS3024, MATH1013, MATH1115, MATH2301, MATH2307, MGMT2009, MUSI3309, SCOM3029, SOCY2038, SOCY2166, STAT1003, STAT1008.",
+        "A minimum of 48 units from elective courses offered by ANU."
+      ],
+      "requirementsText": "The Bachelor of Computing requires completion of 144 units, of which:\nA minimum of 12 units must come from completion of courses tagged as Transdisciplinary Problem-Solving\nA minimum of 24 units must come from completion of 3000 and 4000-level COMP courses\nA maximum of 60 units may come from completion of 1000-level courses\nA minimum of 96 units from completion of courses from the following lists:\n6 units from completion of a course from the following list:\nCOMP1100 Programming as Problem Solving (6 units)\nCOMP1130 Programming as Problem Solving (Advanced) (6 units)\n6 units from completion of a course from the following list:\nCOMP1110 Structured Programming (6 units)\nCOMP1140 Structured Programming (Advanced) (6 units)\n6 units from completion of a course from the following list:\nMATH1005 Discrete Mathematical Models (6 units)\nMATH2222 Introduction to Mathematical Thinking: Problem-Solving and Proofs (6 units)\n24 units from the completion of the following compulsory courses:\nCOMP1600 Foundations of Computing (6 units)\nCOMP2100 Software Construction (6 units)\nCOMP2300 Computer Architecture (6 units)\nCOMP2400 Relational Databases (6 units)\n48 units from completion of courses from the subject area COMP Computer Science\nOR completion of one of the following computing majors:\nCOMS-MAJ Computer systems\nCSEC-MAJ Cyber Security\nDTSC-MAJ Data Science\nHCCC-MAJ Human-Centred and Creative Computing\nINFS-MAJ Information Systems\nINSY-MAJ Intelligent Systems\nSOFT-MAJ Software Development\nAND\n6 units from completion of Information and Communications Technology-related courses from the following list:\nARTH2181 Digital Approaches to Art History and Curatorship (6 units)\nASIA3032 Digital Asia: Technology and Society (6 units)\nDESN2010 Making Creative and Critical Technologies: Physical Computing for Design and Art (6 units)\nENGN1211 Engineering Design 1: Discovering Engineering (6 units)\nENVS2015 GIS and Spatial Analysis\nINFS2024 Information Systems Analysis (6 units)\nINFS3002 Enterprise Systems in Business (6 units)\nINFS3024 Information Systems Management (6 units)\nMATH1013 Mathematics and Applications 1 (6 units)\nMATH1115 Advanced Mathematics and Applications 1 (6 units)\nMATH2301 Games, Graphs and Machines (6 units)\nMATH2307 Bioinformatics and Biological Modelling (6 units)\nMGMT2009 Design Thinking: Human-Centred Innovation (6 units)\nMUSI3309 Music and Digital Media (6 units)\nSCOM3029 Science Communication and Planetary Crises (6 units)\nSOCY2038 Introduction to Quantitative Research Methods (6 units)\nSOCY2166 Social Science of the Internet (6 units)\nSTAT1003 Statistical Techniques (6 units)\nSTAT1008 Quantitative Research Methods (6 units)\nA minimum of 48 units from completion of elective courses offered by ANU"
+    },
+    {
+      "code": "7706XMCOMP",
+      "title": "Master of Computing",
+      "level": "postgraduate",
+      "url": "https://programsandcourses.anu.edu.au/program/7706xmcomp",
+      "cricosCode": "078940M",
+      "minUnits": 96,
+      "duration": "2 year full-time",
+      "compulsoryCourses": [
+        "COMP6120",
+        "COMP6442",
+        "COMP7710",
+        "COMP8280"
+      ],
+      "capstoneCourses": [
+        "COMP8715",
+        "COMP8830"
+      ],
+      "specialisations": [
+        {
+          "name": "Artificial Intelligence",
+          "url": "https://programsandcourses.anu.edu.au/2027/specialisation/ARTIF-SPEC",
+          "code": "ARTIF-SPEC"
+        },
+        {
+          "name": "Computational Foundations",
+          "url": "https://programsandcourses.anu.edu.au/2027/specialisation/COMP-SPEC",
+          "code": "COMP-SPEC"
+        },
+        {
+          "name": "Computer Systems",
+          "url": "https://programsandcourses.anu.edu.au/2027/specialisation/CMSY-SPEC",
+          "code": "CMSY-SPEC"
+        },
+        {
+          "name": "Data Science",
+          "url": "https://programsandcourses.anu.edu.au/2027/specialisation/DTSC-SPEC",
+          "code": "DTSC-SPEC"
+        },
+        {
+          "name": "Human Centred and Creative Computing",
+          "url": "https://programsandcourses.anu.edu.au/2027/specialisation/HCCM-SPEC",
+          "code": "HCCM-SPEC"
+        },
+        {
+          "name": "Machine Learning",
+          "url": "https://programsandcourses.anu.edu.au/2026/specialisation/MCHL-SPEC",
+          "code": "MCHL-SPEC"
+        },
+        {
+          "name": "Software Development",
+          "url": "https://programsandcourses.anu.edu.au/2027/specialisation/SOFT-SPEC",
+          "code": "SOFT-SPEC"
+        }
+      ],
+      "requirements": [
+        "96 units total.",
+        "A minimum of 24 units must come from 8000-level COMP courses.",
+        "30 units from the compulsory courses: COMP6120 Software Engineering, COMP6442 Software Construction, COMP7710 Structured Programming (12 units), COMP8280 Responsible Practice, Innovation and Leadership.",
+        "A minimum of 6 units from a foundational course: MATH6005 Discrete Mathematics Models, or COMP6260 Foundations of Computing.",
+        "A maximum of 12 units from project courses: COMP8715 Advanced Computing Team Project (must be completed twice, in consecutive semesters, 6+6 units), or COMP8830 Computing Internship (12 units).",
+        "24 units from completing one Specialisation: Artificial Intelligence, Computer Systems, Computational Foundations, Data Science, Human Centred and Creative Computing, Machine Learning, Software Development.",
+        "18 units from further 6000/7000/8000-level courses in the subject areas COMP Computer Science or ENGN Engineering.",
+        "6 units from elective courses offered by ANU."
+      ],
+      "requirementsText": "The Master of Computing requires the completion of 96 units, of which:\nA minimum of 24 units must come from completion of 8000-level COMP courses.\n30 units from completion of the following compulsory courses:\nCOMP6120 Software Engineering (6 units)\nCOMP6442 Software Construction (6 units)\nCOMP7710 Structured Programming (12 units)\nCOMP8280 Responsible Practice, Innovation and Leadership (6 units)\nA minimum of 6 units from completion of foundational courses in the following list:\nMATH6005 Discrete Mathematics Models (6 units)\nCOMP6260 Foundations of Computing (6 units)\nA maximum of 12 units from completion of project courses from the following list:\nCOMP8715 Advanced Computing Team Project, which must be completed twice, in consecutive semesters (6+6 units)\nCOMP8830 Computing Internship (12 units)\n24 units from the completion of one of the following Specialisations:\nArtificial Intelligence\nComputer Systems\nComputational Foundations\nData Science\nHuman Centred and Creative Computing\nMachine Learning\nSoftware Development\n18 units from completion of further 6000, 7000 or 8000 level courses from the following subject areas:\nCOMP Computer Science\nENGN Engineering\n6 units from completion of elective courses offered by ANU."
+    }
+  ]
+}

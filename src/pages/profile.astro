@@ -1,0 +1,77 @@
+---
+// The account page: which program the planner plans against, and — since
+// this is a demo account — starting the demo over, as a new student or with
+// the demo history.
+import CanvasLayout from "../layouts/CanvasLayout.astro";
+import { catalogueSources, getProgram } from "../lib/catalogue";
+import { DEMO_HISTORY } from "../lib/demo";
+import { currentSemester } from "../lib/plans";
+import { getStudent } from "../lib/student";
+
+const student = getStudent();
+const program = getProgram(student.programCode);
+const current = currentSemester();
+const plan = current ? `/plan/${current.id}/` : undefined;
+const reset = Astro.url.searchParams.get("reset");
+---
+
+<CanvasLayout title="Your program" crumb="Your program">
+  <h1>Your program</h1>
+  {
+    reset && (
+      <p class="notice" role="status">
+        {reset === "fresh"
+          ? "Started over as a new student: no courses yet, no program chosen."
+          : "Started over with the demo history, no program chosen."}
+      </p>
+    )
+  }
+
+  <section class="panel profile-panel" aria-labelledby="current-title">
+    <h2 id="current-title" class="panel-title">Planning for</h2>
+    {
+      program ? (
+        <p>
+          <strong>{program.title}</strong> ({program.code}, {program.minUnits} units, {program.duration}).
+        </p>
+      ) : (
+        <p>No program yet.</p>
+      )
+    }
+    {
+      plan && (
+        <p>
+          <a href={`${plan}?change=program`}>{program ? "Change program" : "Choose your program"}</a> ·{" "}
+          <a href={plan}>Open {current!.label}'s plan</a>
+        </p>
+      )
+    }
+    <p class="hint">
+      Majors and specialisations aren't chosen here — the plan's Majors tab shows how close you are to each.
+    </p>
+  </section>
+
+  <section class="panel profile-panel" aria-labelledby="demo-title">
+    <h2 id="demo-title" class="panel-title">Demo account</h2>
+    <p>The planner has one account. Start it over either way — both clear every plan and the program choice:</p>
+    <div class="reset-options">
+      <form method="post" action="/api/profile">
+        <input type="hidden" name="reset" value="fresh" />
+        <button type="submit" class="button-secondary">Start as a new student</button>
+        <p class="hint">No courses yet — plan a first semester from scratch.</p>
+      </form>
+      <form method="post" action="/api/profile">
+        <input type="hidden" name="reset" value="history" />
+        <button type="submit" class="button-secondary">Start with the demo history</button>
+        <p class="hint">
+          {Object.entries(DEMO_HISTORY).map(([semester, codes]) => `${semester}: ${codes.join(", ")}`).join(" · ")}
+        </p>
+      </form>
+    </div>
+    <p>Previous semesters' plans can be edited like the current one.</p>
+  </section>
+
+  <p class="sources">
+    Course, program, major and specialisation data: ANU Programs and Courses, fetched {catalogueSources.fetchedOn}.
+  </p>
+</CanvasLayout>

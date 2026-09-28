@@ -1,0 +1,23 @@
+---
+// The line under a plan's heading: the semester's dates, and a warning when
+// an earlier semester changed so that a course picked here lost its
+// prerequisites.
+import { formatRange } from "../lib/plans";
+import type { PlanView } from "../lib/planner";
+
+interface Props {
+  view: PlanView;
+  isCurrent: boolean;
+}
+
+const { view, isCurrent } = Astro.props;
+---
+
+<p class="term-dates">{formatRange(view.semester)}{isCurrent && " · Current semester"}</p>
+{
+  view.broken.length > 0 && (
+    <p class="notice notice-warn" role="status">
+      Prerequisites no longer met for {view.broken.map((t) => t.course.code).join(", ")} — an earlier semester changed.
+    </p>
+  )
+}

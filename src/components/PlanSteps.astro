@@ -1,0 +1,86 @@
+---
+// Planning a semester in two steps: 1 the program, 2 the courses. Until a
+// program is chosen (or while ?change=program), step 1 opens as a card per
+// program. Majors and specialisations aren't a step — the tree's Majors tab
+// shows progress toward all of them.
+import { PROGRAMS } from "../lib/catalogue";
+import type { PlanView } from "../lib/planner";
+
+interface Props {
+  view: PlanView;
+  base: string; // this section's URL
+  choosing: boolean; // step 1 is open
+}
+
+const { view, base, choosing } = Astro.props;
+const { program } = view;
+const session = view.semester.label.split(",")[0];
+---
+
+<ol class="plan-steps" aria-label="Planning steps">
+  <li class:list={["step", choosing ? "is-active" : "is-done"]} aria-current={choosing ? "step" : undefined}>
+    <span class="step-n" aria-hidden="true">{choosing ? "1" : "✓"}</span>
+    <span class="step-body">
+      <span class="step-name">Program</span>
+      <span class="step-value">{program ? program.title : "Choose one"}</span>
+      {program && !choosing && <a href={`${base}?change=program`}>Change</a>}
+    </span>
+  </li>
+  <li class:list={["step", { "is-active": !choosing }]} aria-current={!choosing ? "step" : undefined}>
+    <span class="step-n" aria-hidden="true">2</span>
+    <span class="step-body">
+      <span class="step-name">Courses for {session}</span>
+      <span class="step-value">
+        {
+          choosing ? (
+            "—"
+          ) : view.beyond ? (
+            "Program complete"
+          ) : (
+            <>
+              <span class="pips" aria-hidden="true">
+                {Array.from({ length: Math.max(1, view.cap / 6) }, (_, i) => (
+                  <span class:list={["pip", { on: (i + 1) * 6 <= view.load }]} />
+                ))}
+              </span>
+              {view.submitted ? "Submitted" : `${view.planned.length} of ${view.cap / 6} selected`}
+            </>
+          )
+        }
+      </span>
+    </span>
+  </li>
+</ol>
+
+{
+  choosing && (
+    <section class="step-panel" aria-labelledby="step-title">
+      <h2 id="step-title" class="panel-title">
+        Which program are you in?
+      </h2>
+      <p>
+        Your program decides which courses appear on your tree and what you need to graduate. Majors come later, and
+        you don't have to pick one: the Majors tab shows how close you are to each.
+      </p>
+      <div class="choice-cards">
+        {PROGRAMS.map((p) => (
+          <form method="post" action="/api/profile" class:list={["choice-card", { chosen: p.code === program?.code }]}>
+            <input type="hidden" name="program" value={p.code} />
+            <input type="hidden" name="back" value={base} />
+            <span class="choice-level">{p.level === "undergraduate" ? "Undergraduate" : "Postgraduate"}</span>
+            <strong class="choice-title">{p.title}</strong>
+            <span class="choice-meta">
+              {p.minUnits} units · {p.duration}
+            </span>
+            <span class="choice-meta">
+              {p.streams.length} {p.streamKind}s{p.streamRequired ? ", one needed to graduate" : ", optional"}
+            </span>
+            <button type="submit" class="button-primary">
+              {p.code === program?.code ? "Keep" : "Choose"} {p.short}
+            </button>
+          </form>
+        ))}
+      </div>
+    </section>
+  )
+}

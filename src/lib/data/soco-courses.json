@@ -1,0 +1,2981 @@
+{
+  "_source": "ANU Programs and Courses (programsandcourses.anu.edu.au) — course detail pages and the site's CourseSearch data endpoint, filtered to courses offered by the School of Computing.",
+  "_fetchedOn": "2026-09-25",
+  "_year": 2027,
+  "_note": "Latest catalogue year at fetch time (2027). Excludes research-only course codes (MPhil/PhD, HDR internship). 'prerequisiteCourses' and 'incompatibleWith' are course codes extracted from each course's official requisite text (requisiteText); free-text conditions that aren't a specific course code (e.g. '12 units of 3000-level COMP courses') are only captured in requisiteText.",
+  "school": "School of Computing",
+  "courses": [
+    {
+      "code": "COMP1100",
+      "title": "Programming as Problem Solving",
+      "level": "undergraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": false,
+      "prerequisiteCourses": [],
+      "incompatibleWith": [
+        "COMP1130"
+      ],
+      "requisiteText": "Incompatible with COMP1130.",
+      "offerings": {
+        "2026": [
+          "S1",
+          "S2"
+        ],
+        "2027": [
+          "S1",
+          "S2"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "COMP1110",
+      "title": "Structured Programming",
+      "level": "undergraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": true,
+      "prerequisiteCourses": [
+        "COMP1100",
+        "COMP1130",
+        "COMP1730"
+      ],
+      "incompatibleWith": [
+        "COMP1140",
+        "COMP6710",
+        "COMP7710"
+      ],
+      "requisiteText": "To enrol in this course you must have completed:\nCOMP1100 OR COMP1130 OR COMP1730.\nYou are not able to enrol in this course if you have completed COMP1140 or COMP6710 or COMP7710.",
+      "offerings": {
+        "2026": [
+          "S1",
+          "S2"
+        ],
+        "2027": [
+          "S1",
+          "S2"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "COMP1130",
+      "title": "Programming as Problem Solving (Advanced)",
+      "level": "undergraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": false,
+      "prerequisiteCourses": [],
+      "incompatibleWith": [
+        "COMP1100"
+      ],
+      "requisiteText": "Incompatible with COMP1100.",
+      "offerings": {
+        "2026": [
+          "S1"
+        ],
+        "2027": [
+          "S1"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "COMP1140",
+      "title": "Structured Programming (Advanced)",
+      "level": "undergraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": true,
+      "prerequisiteCourses": [
+        "COMP1130"
+      ],
+      "incompatibleWith": [
+        "COMP1110",
+        "COMP6710",
+        "COMP7710"
+      ],
+      "requisiteText": "To enrol in this course you must have successfully completed COMP1130.\nIncompatible with COMP1110 or COMP6710 or COMP7710.",
+      "offerings": {
+        "2026": [
+          "S2"
+        ],
+        "2027": [
+          "S2"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "COMP1600",
+      "title": "Foundations of Computing",
+      "level": "undergraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": true,
+      "prerequisiteCourses": [
+        "COMP1100",
+        "COMP1130"
+      ],
+      "incompatibleWith": [
+        "COMP6260"
+      ],
+      "requisiteText": "To enrol in this course you must have completed:\n6 units of MATH courses and \nCOMP1100 or COMP1130.\nIt is incompatible with COMP6260.",
+      "offerings": {
+        "2026": [
+          "S2"
+        ],
+        "2027": [
+          "S2"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "COMP1720",
+      "title": "Art and Interaction Computing",
+      "level": "undergraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": false,
+      "prerequisiteCourses": [],
+      "incompatibleWith": [
+        "COMP6720"
+      ],
+      "requisiteText": "Incompatible with COMP6720",
+      "offerings": {
+        "2026": [],
+        "2027": []
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "COMP1730",
+      "title": "Programming for Scientists",
+      "level": "undergraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": false,
+      "prerequisiteCourses": [],
+      "incompatibleWith": [
+        "COMP1100",
+        "COMP1110",
+        "COMP1130",
+        "COMP1140",
+        "COMP6730",
+        "COMP7710"
+      ],
+      "requisiteText": "You are not able to enrol in this course if you have successfully completed one of the following courses:\nCOMP1100, COMP1130, COMP1110, COMP1140, COMP6730 or COMP7710.",
+      "offerings": {
+        "2026": [
+          "S2"
+        ],
+        "2027": [
+          "S1",
+          "S2"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "COMP2100",
+      "title": "Software Construction",
+      "level": "undergraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": true,
+      "prerequisiteCourses": [
+        "COMP1110",
+        "COMP1140",
+        "COMP1600"
+      ],
+      "incompatibleWith": [
+        "COMP6442"
+      ],
+      "requisiteText": "To enrol in this course, you must have successfully completed:\nCOMP1110 or COMP1140 AND 6 units of 1000-level MATH.\nStudents enrolled in a Bachelor of Science (BSC) or Bachelor of Advanced Science (ASCAD) must have successfully completed:\nCOMP1110 or COMP1140 AND COMP1600 AND 6 units of 1000-level MATH.\nYou are not able to enrol in this course if you have completed COMP6442.",
+      "offerings": {
+        "2026": [
+          "S1",
+          "S2"
+        ],
+        "2027": [
+          "S1",
+          "S2"
+        ]
+      },
+      "transdisciplinary": true
+    },
+    {
+      "code": "COMP2120",
+      "title": "Software Engineering",
+      "level": "undergraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": true,
+      "prerequisiteCourses": [
+        "COMP2100"
+      ],
+      "incompatibleWith": [
+        "COMP2130",
+        "COMP6120",
+        "COMP6311"
+      ],
+      "requisiteText": "To enrol in this course you must have successfully completed or be currently studying COMP2100. Incompatible with COMP2130, COMP6120 and COMP6311.",
+      "offerings": {
+        "2026": [
+          "S2"
+        ],
+        "2027": [
+          "S2"
+        ]
+      },
+      "transdisciplinary": true
+    },
+    {
+      "code": "COMP2300",
+      "title": "Computer Architecture",
+      "level": "undergraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": true,
+      "prerequisiteCourses": [
+        "COMP1100",
+        "COMP1130",
+        "COMP1730"
+      ],
+      "incompatibleWith": [
+        "COMP6300",
+        "COMP6719",
+        "ENGN2219"
+      ],
+      "requisiteText": "To enrol in this course you must have completed:\n(COMP1100 OR COMP1130 OR COMP1730)\nAND \n6 units of 1000-level MATH courses.\nIncompatible with COMP6300, ENGN2219 and COMP6719.",
+      "offerings": {
+        "2026": [
+          "S1"
+        ],
+        "2027": [
+          "S1"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "COMP2310",
+      "title": "Systems, Networks, and Concurrency",
+      "level": "undergraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": true,
+      "prerequisiteCourses": [
+        "COMP1110",
+        "COMP1140",
+        "COMP2300",
+        "ENGN2219"
+      ],
+      "incompatibleWith": [
+        "COMP6310"
+      ],
+      "requisiteText": "To enrol in this course you must have completed:\nCOMP1110 or COMP1140 AND \nCOMP2300 or ENGN2219.\nIncompatible with COMP6310.",
+      "offerings": {
+        "2026": [
+          "S2"
+        ],
+        "2027": [
+          "S2"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "COMP2400",
+      "title": "Relational Databases",
+      "level": "undergraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": true,
+      "prerequisiteCourses": [
+        "COMP1100",
+        "COMP1130",
+        "COMP1730",
+        "INFS1001"
+      ],
+      "incompatibleWith": [
+        "COMP6240"
+      ],
+      "requisiteText": "To enrol in this course you must have successfully completed:\nCOMP1100 or COMP1130 or INFS1001 or COMP1730\nYou are not able to enrol in this course if you have successfully completed COMP6240.",
+      "offerings": {
+        "2026": [
+          "S1",
+          "S2"
+        ],
+        "2027": [
+          "S1",
+          "S2"
+        ]
+      },
+      "transdisciplinary": true
+    },
+    {
+      "code": "COMP2550",
+      "title": "Computing R&D Methods",
+      "level": "undergraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": true,
+      "prerequisiteCourses": [
+        "COMP1110",
+        "COMP1140"
+      ],
+      "incompatibleWith": [
+        "COMP4450"
+      ],
+      "requisiteText": "To enrol in this course you must be enrolled in the Bachelor of Advanced Computing (Research and Development) (Honours) AND have completed COMP1110 or COMP1140.\nIncompatible with COMP4450.",
+      "offerings": {
+        "2026": [
+          "S1"
+        ],
+        "2027": [
+          "S1"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "COMP2610",
+      "title": "Information Theory",
+      "level": "undergraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": false,
+      "prerequisiteCourses": [],
+      "incompatibleWith": [
+        "COMP6261",
+        "ENGN8534"
+      ],
+      "requisiteText": "You cannot enrol in this course if you have completed COMP6261 or ENGN8534.",
+      "offerings": {
+        "2026": [
+          "S2"
+        ],
+        "2027": [
+          "S2"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "COMP2620",
+      "title": "Logic",
+      "level": "undergraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": true,
+      "prerequisiteCourses": [
+        "COMP1600"
+      ],
+      "incompatibleWith": [
+        "COMP6262",
+        "PHIL2080"
+      ],
+      "requisiteText": "To enrol in this course you must have completed 6 units of MATH courses OR COMP1600.\nIncompatible with PHIL2080 or COMP6262.",
+      "offerings": {
+        "2026": [
+          "S1"
+        ],
+        "2027": [
+          "S1"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "COMP2700",
+      "title": "Cyber Security Foundations",
+      "level": "undergraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": true,
+      "prerequisiteCourses": [
+        "COMP1100",
+        "COMP1130",
+        "COMP1600"
+      ],
+      "incompatibleWith": [],
+      "requisiteText": "To enrol in this course you must have completed:\n(COMP1100 or COMP1130) AND\n(COMP1600 or 6 units MATH code course)",
+      "offerings": {
+        "2026": [
+          "S1"
+        ],
+        "2027": [
+          "S1"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "COMP2710",
+      "title": "Special Topics in Computer Science",
+      "level": "undergraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": false,
+      "prerequisiteCourses": [],
+      "incompatibleWith": [],
+      "requisiteText": "Pre-requisite courses for the Advanced Topic will be listed on the Special Topics in Computing webpage when the course topic is announced. Students who meet the pre-requisites can request a permission code following the instructions on the College webpage.",
+      "offerings": {
+        "2026": [
+          "S1"
+        ],
+        "2027": []
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "COMP3242",
+      "title": "Deep Learning",
+      "level": "undergraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": true,
+      "prerequisiteCourses": [
+        "COMP1110",
+        "COMP1140",
+        "COMP3670",
+        "MATH1013",
+        "MATH1014",
+        "MATH1115",
+        "MATH1116"
+      ],
+      "incompatibleWith": [
+        "COMP6242"
+      ],
+      "requisiteText": "To enrol in this course you must have successfully completed:\n6 units of (COMP3670 or MATH1013 or MATH1014 or MATH1115 or MATH1116) and (COMP1110 or COMP1140).\nIncompatible with COMP6242.",
+      "offerings": {
+        "2026": [
+          "S1"
+        ],
+        "2027": [
+          "S1"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "COMP3300",
+      "title": "Operating Systems Implementation",
+      "level": "undergraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": true,
+      "prerequisiteCourses": [
+        "COMP2310"
+      ],
+      "incompatibleWith": [
+        "COMP6330"
+      ],
+      "requisiteText": "To enrol in this course you must have successfully completed COMP2310.\nIncompatible with COMP6330.",
+      "offerings": {
+        "2026": [
+          "S2"
+        ],
+        "2027": [
+          "S2"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "COMP3310",
+      "title": "Computer Networks",
+      "level": "undergraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": true,
+      "prerequisiteCourses": [
+        "COMP2000",
+        "COMP2100",
+        "COMP2300"
+      ],
+      "incompatibleWith": [
+        "COMP6331",
+        "ENGN3539",
+        "ENGN6539"
+      ],
+      "requisiteText": "To enrol in this course you must have completed\nCOMP2100 or COMP2300.\nAND 6 units of COMP2000-level courses.\nIncompatible with COMP6331, ENGN3539 and ENGN6539.",
+      "offerings": {
+        "2026": [
+          "S1"
+        ],
+        "2027": [
+          "S1"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "COMP3320",
+      "title": "High Performance Scientific Computation",
+      "level": "undergraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": true,
+      "prerequisiteCourses": [
+        "COMP1600",
+        "COMP2100",
+        "COMP2300",
+        "ENGN2219",
+        "MATH1003"
+      ],
+      "incompatibleWith": [
+        "COMP6464"
+      ],
+      "requisiteText": "To enrol in this course you must have completed:\n(COMP2100 or COMP2300 or ENGN2219)\nAND\n(COMP1600 or 6 units of MATH courses (excluding MATH1003))\nIncompatible with COMP6464.",
+      "offerings": {
+        "2026": [
+          "S2"
+        ],
+        "2027": [
+          "S2"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "COMP3425",
+      "title": "Data Mining",
+      "level": "undergraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": true,
+      "prerequisiteCourses": [
+        "COMP1100",
+        "COMP1130",
+        "COMP1730",
+        "COMP2400"
+      ],
+      "incompatibleWith": [
+        "COMP3420",
+        "COMP8400",
+        "COMP8410",
+        "COMP8910"
+      ],
+      "requisiteText": "To enrol in this course you must have completed\n 6 units from COMP1100 or COMP1130 or COMP1730; AND\n COMP2400\nIncompatible with COMP3420, COMP8400, COMP8410 and COMP8910.",
+      "offerings": {
+        "2026": [
+          "S1"
+        ],
+        "2027": []
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "COMP3430",
+      "title": "Data Wrangling",
+      "level": "undergraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": true,
+      "prerequisiteCourses": [
+        "COMP1100",
+        "COMP1110",
+        "COMP1130",
+        "COMP1140",
+        "COMP1730",
+        "COMP2400"
+      ],
+      "incompatibleWith": [
+        "COMP8430",
+        "COMP8930"
+      ],
+      "requisiteText": "Students are required to have completed introductory courses on databases, programming and algorithms. \nTo enrol in this course you must have completed\n 6 units from COMP 1030 or COMP1100 or COMP1130 or COMP1730; AND\n 6 units from COMP 1040 or COMP1110 or COMP1140; AND \n COMP2400\nIncompatible with COMP8430 and COMP8930.",
+      "offerings": {
+        "2026": [
+          "S2"
+        ],
+        "2027": [
+          "S2"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "COMP3500",
+      "title": "Software Engineering Project",
+      "level": "undergraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": true,
+      "prerequisiteCourses": [
+        "COMP2100",
+        "COMP2120"
+      ],
+      "incompatibleWith": [
+        "COMP3100",
+        "COMP3820",
+        "COMP4500",
+        "COMP4820"
+      ],
+      "requisiteText": "To enrol in this course you must meet the eligibility criteria, which includes membership of a student project group before the end of week 1, where the project has been approved by the convener. \nYou must also be studying:\nBachelor of Engineering (Honours) in Software Engineering (AENSE) OR Bachelor of Computing (BCOMP) AND have completed:\nCOMP2100 AND \nCOMP2120\nYou are not able to enrol in this course if you have previously completed COMP3100 or if you have previously or are currently enrolled in COMP3820 or COMP4500 or COMP4820.",
+      "offerings": {
+        "2026": [
+          "S1",
+          "S2"
+        ],
+        "2027": [
+          "S1",
+          "S2"
+        ]
+      },
+      "transdisciplinary": true
+    },
+    {
+      "code": "COMP3540",
+      "title": "Game Development",
+      "level": "undergraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": false,
+      "prerequisiteCourses": [],
+      "incompatibleWith": [],
+      "requisiteText": "To enrol in this course you must have completed 12 units of 2000 level COMP courses.",
+      "offerings": {
+        "2026": [],
+        "2027": []
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "COMP3600",
+      "title": "Algorithms",
+      "level": "undergraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": true,
+      "prerequisiteCourses": [
+        "COMP1600"
+      ],
+      "incompatibleWith": [
+        "COMP6466"
+      ],
+      "requisiteText": "To enrol in this course you must have completed the following:\n24 units of COMP coded courses AND\n(6 units of MATH OR COMP1600)\nYou are not able to enrol in this course if you have successfully completed COMP6466.",
+      "offerings": {
+        "2026": [
+          "S2"
+        ],
+        "2027": [
+          "S2"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "COMP3610",
+      "title": "Principles of Programming Languages",
+      "level": "undergraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": true,
+      "prerequisiteCourses": [
+        "COMP1600",
+        "COMP2100",
+        "MATH1003"
+      ],
+      "incompatibleWith": [
+        "COMP6361"
+      ],
+      "requisiteText": "To enrol in this course you must have completed:\nCOMP2100 and \n(COMP1600 or 6 units of MATHS excluding MATH1003)\nIncompatible with COMP6361.",
+      "offerings": {
+        "2026": [],
+        "2027": [
+          "S2"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "COMP3620",
+      "title": "Artificial Intelligence",
+      "level": "undergraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": true,
+      "prerequisiteCourses": [
+        "COMP1110",
+        "COMP2620"
+      ],
+      "incompatibleWith": [
+        "COMP6320"
+      ],
+      "requisiteText": "To enrol in this course you must have completed:\nCOMP1110/1140 AND \nhave completed or be currently enrolled in COMP2620.\nIncompatible with COMP6320.",
+      "offerings": {
+        "2026": [
+          "S1"
+        ],
+        "2027": [
+          "S1"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "COMP3630",
+      "title": "Theory of Computation",
+      "level": "undergraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": true,
+      "prerequisiteCourses": [
+        "COMP1600"
+      ],
+      "incompatibleWith": [
+        "COMP6363"
+      ],
+      "requisiteText": "To enrol in this course you must have completed:\n24 units of COMP coded courses AND\n(6 units of MATH OR COMP1600)\nIncompatible with COMP6363.",
+      "offerings": {
+        "2026": [
+          "S1"
+        ],
+        "2027": [
+          "S1"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "COMP3670",
+      "title": "Introduction to Machine Learning",
+      "level": "undergraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": true,
+      "prerequisiteCourses": [
+        "COMP1110",
+        "COMP1140"
+      ],
+      "incompatibleWith": [
+        "COMP6670"
+      ],
+      "requisiteText": "To enrol in this course you must have completed COMP1110 or COMP1140. Incompatible with COMP6670.",
+      "offerings": {
+        "2026": [
+          "S2"
+        ],
+        "2027": [
+          "S2"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "COMP3703",
+      "title": "Software Security",
+      "level": "undergraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": true,
+      "prerequisiteCourses": [
+        "COMP2300",
+        "COMP2700",
+        "ENGN2219"
+      ],
+      "incompatibleWith": [
+        "COMP2710"
+      ],
+      "requisiteText": "To enrol in this course you must have completed:\nCOMP2300 OR ENGN2219\nAND \nCOMP2700.\nIt is incompatible with COMP2710 Software Security.",
+      "offerings": {
+        "2026": [],
+        "2027": []
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "COMP3704",
+      "title": "Network Security",
+      "level": "undergraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": true,
+      "prerequisiteCourses": [
+        "COMP2700",
+        "COMP3310",
+        "ENGN3539"
+      ],
+      "incompatibleWith": [
+        "COMP6034"
+      ],
+      "requisiteText": "To enrol in this course, you must have completed:\nCOMP2700 AND\nCOMP3310 or ENGN3539.\nIncompatible with COMP6034.",
+      "offerings": {
+        "2026": [
+          "S2"
+        ],
+        "2027": [
+          "S2"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "COMP3710",
+      "title": "Topics in Computer Science",
+      "level": "undergraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": false,
+      "prerequisiteCourses": [],
+      "incompatibleWith": [],
+      "requisiteText": null,
+      "offerings": {
+        "2026": [],
+        "2027": []
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "COMP3740",
+      "title": "Individual Project",
+      "level": "undergraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": false,
+      "prerequisiteCourses": [],
+      "incompatibleWith": [],
+      "requisiteText": "To enrol in this course you must have completed 72 units towards a degree.\nStudents will receive a permission code by completing the steps listed on Enrolling in student projects including the Student Project Registration Form.\nCoSM students must be studying a CSCI-MAJ to enrol in this course and count 6 units towards their 3000-level COMP course requirement.",
+      "offerings": {
+        "2026": [
+          "S1",
+          "S2"
+        ],
+        "2027": [
+          "S1",
+          "S2"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "COMP3770",
+      "title": "Computing Research Project (R&D)",
+      "level": "undergraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": true,
+      "prerequisiteCourses": [
+        "COMP2550"
+      ],
+      "incompatibleWith": [],
+      "requisiteText": "To enrol you must:\nbe studying Bachelor of Advanced Computing (Research and Development) AND\nhave successfully completed COMP2550 AND\nfind a project/supervisor AND\nhave received a permission code by having completed all the steps required for Enrolling in student projects including completing the Student Project Registration Form.\nFinding a project/supervisor is best done before the start of the semester you are intending to do this course.",
+      "offerings": {
+        "2026": [
+          "S1",
+          "S2"
+        ],
+        "2027": [
+          "S1",
+          "S2"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "COMP3820",
+      "title": "Computing Internship",
+      "level": "undergraduate",
+      "units": 12,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": true,
+      "prerequisiteCourses": [
+        "COMP2100",
+        "COMP2120"
+      ],
+      "incompatibleWith": [
+        "COMP3500"
+      ],
+      "requisiteText": "To enrol in this course you must have successfully completed COMP2100 and COMP2120.\nYou will need to undergo competitive entry to enrol in this course, please see CECC webpage for more information.\nYou are not able to enrol in this course if you have previously completed or are currently enrolled in COMP3500.",
+      "offerings": {
+        "2026": [],
+        "2027": []
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "COMP3900",
+      "title": "Human-Computer Interaction",
+      "level": "undergraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": false,
+      "prerequisiteCourses": [],
+      "incompatibleWith": [
+        "COMP6390"
+      ],
+      "requisiteText": "To enrol in this course you must have completed 12 units of 2000 level COMP courses.\nIncompatible with COMP6390.",
+      "offerings": {
+        "2026": [
+          "S2"
+        ],
+        "2027": [
+          "S2"
+        ]
+      },
+      "transdisciplinary": true
+    },
+    {
+      "code": "COMP4011",
+      "title": "Advanced Topics in Formal Methods and Programming Languages",
+      "level": "undergraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": false,
+      "prerequisiteCourses": [],
+      "incompatibleWith": [],
+      "requisiteText": "12 units of 3000 and/or 4000 level COMP courses.\nAdditional Prerequisite courses for the Advanced Topic will be listed on the SoCo website when the course topic is announced. Students who meet the pre-requisites can request a permission code following the instructions Enrolling in CECC courses .",
+      "offerings": {
+        "2026": [
+          "S2"
+        ],
+        "2027": [
+          "S2"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "COMP4020",
+      "title": "Advanced Topics in Human-Centred and Creative Computing",
+      "level": "undergraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": true,
+      "prerequisiteCourses": [
+        "COMP3900"
+      ],
+      "incompatibleWith": [],
+      "requisiteText": "To enrol in this course, you must have completed COMP3900.\nAdditional Prerequisite courses for the Advanced Topic will be listed on the SoCo website when the course topic is announced. Students who meet the prerequisites can request a permission code from the College.",
+      "offerings": {
+        "2026": [
+          "S2"
+        ],
+        "2027": [
+          "S2"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "COMP4045",
+      "title": "Advanced Topics in Computer Systems",
+      "level": "undergraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": false,
+      "prerequisiteCourses": [],
+      "incompatibleWith": [],
+      "requisiteText": "12 units of 3000 and/or 4000 level COMP coded courses.\nAdditional Prerequisite courses for the Advanced Topic will be listed on the SoCo website when the course topic is announced. Students who meet the pre-requisites can request a permission code following the instructions Enrolling in CECC courses.",
+      "offerings": {
+        "2026": [
+          "S2"
+        ],
+        "2027": [
+          "S1"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "COMP4130",
+      "title": "Managing Software Quality and Process",
+      "level": "undergraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": true,
+      "prerequisiteCourses": [
+        "COMP2120"
+      ],
+      "incompatibleWith": [
+        "COMP8131"
+      ],
+      "requisiteText": "To enrol in this course you must have successfully completed:\nCOMP2120 AND\n12 units of 2000-level COMP courses.\nIncompatible with COMP8131.",
+      "offerings": {
+        "2026": [
+          "S1"
+        ],
+        "2027": [
+          "S1"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "COMP4300",
+      "title": "Parallel Systems",
+      "level": "undergraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": true,
+      "prerequisiteCourses": [
+        "COMP2310"
+      ],
+      "incompatibleWith": [
+        "COMP8300"
+      ],
+      "requisiteText": "To enrol in this course you must have completed COMP2310.\nIncompatible with COMP8300.",
+      "offerings": {
+        "2026": [],
+        "2027": [
+          "S1"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "COMP4350",
+      "title": "Sound and Music Computing",
+      "level": "undergraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": true,
+      "prerequisiteCourses": [
+        "COMP1720"
+      ],
+      "incompatibleWith": [
+        "COMP8350"
+      ],
+      "requisiteText": "To enrol in this course, you must have either:\ncompleted 12 units of 2000-level COMP courses\nor\nhave completed 12 units of 2000-level MUSI, DESN or ARTV courses and have completed COMP1720\nIncompatible with COMP8350.",
+      "offerings": {
+        "2026": [],
+        "2027": [
+          "S1"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "COMP4425",
+      "title": "Data Mining",
+      "level": "undergraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": true,
+      "prerequisiteCourses": [
+        "COMP1100",
+        "COMP1130",
+        "COMP1730",
+        "COMP2400"
+      ],
+      "incompatibleWith": [
+        "COMP3425",
+        "COMP8400",
+        "COMP8410",
+        "COMP8910"
+      ],
+      "requisiteText": "To enrol in this course you must have completed\n6 units of (COMP1100 or COMP1130 or COMP1730)\nAND COMP2400\nIncompatible with COMP3425, COMP8400, COMP8410 and COMP8910.",
+      "offerings": {
+        "2026": [],
+        "2027": [
+          "S1"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "COMP4450",
+      "title": "Computing Research Methods",
+      "level": "undergraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": false,
+      "prerequisiteCourses": [],
+      "incompatibleWith": [
+        "COMP2550",
+        "COMP6445"
+      ],
+      "requisiteText": "To enrol in this course you must be enrolled in the:\nBachelor of Computing (Honours) (HCOMP) OR\nBachelor of Applied Data Analytics (Honours) (HADAN) OR\nComputer Science Honours Specialisation (COMP-HSPC) OR\n(Bachelor of Advanced Computing (AACOM) AND have successfully completed 24 units of COMP coded courses)\nIncompatible with COMP2550 and COMP6445.",
+      "offerings": {
+        "2026": [
+          "S1"
+        ],
+        "2027": [
+          "S1"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "COMP4500",
+      "title": "Software Engineering Team Project",
+      "level": "undergraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": true,
+      "prerequisiteCourses": [
+        "COMP2120",
+        "COMP3500"
+      ],
+      "incompatibleWith": [
+        "COMP4540",
+        "COMP4550",
+        "COMP4810",
+        "COMP4820"
+      ],
+      "requisiteText": "To enrol in this course you must meet the eligibility criteria, which includes membership of a student project group before the end of week 1, where the project has been approved by the convener. \nYou also must be studying:\nBachelor of Advanced Computing (AACOM) AND have completed:\n COMP2120 AND 12 units of 3000 and/or 4000 level courses.\nOR\nBachelor of Engineering (Honours) in Software Engineering (AENSE) AND have completed:\nCOMP3500.\nIncompatible with COMP4540 and COMP4550 and COMP4810 and COMP4820.",
+      "offerings": {
+        "2026": [
+          "S1",
+          "S2"
+        ],
+        "2027": [
+          "S1",
+          "S2"
+        ]
+      },
+      "transdisciplinary": true
+    },
+    {
+      "code": "COMP4528",
+      "title": "Computer Vision",
+      "level": "undergraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": true,
+      "prerequisiteCourses": [
+        "COMP2120",
+        "COMP3600",
+        "COMP3670",
+        "ENGN2228"
+      ],
+      "incompatibleWith": [
+        "ENGN4528",
+        "ENGN6528"
+      ],
+      "requisiteText": "To enrol in this course you must have completed either ENGN2228 or COMP2120 or COMP3600 or COMP3670.\nIncompatible with ENGN6528 and ENGN4528.",
+      "offerings": {
+        "2026": [
+          "S1"
+        ],
+        "2027": [
+          "S1"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "COMP4550",
+      "title": "Computing Research Project",
+      "level": "undergraduate",
+      "units": 12,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": true,
+      "prerequisiteCourses": [
+        "COMP2550",
+        "COMP4450"
+      ],
+      "incompatibleWith": [
+        "COMP4500",
+        "COMP4560",
+        "COMP4810",
+        "COMP4820"
+      ],
+      "requisiteText": "To enrol in this course you must:\nhave completed COMP2550 OR \nhave completed or be currently enrolled in COMP4450 AND\nfind a project/supervisor AND\nhave a weighted average mark equivalent to an ANU 70 per cent calculated from the 36 units of courses with the highest marks in cognate disciplines (excluding 1000-level courses) AND \nhave received a permission code by having completed all the steps required for Enrolling in student projects including completing the Student Project Registration Form.\nIncompatible with COMP4500 and COMP4560 and COMP4810 and COMP4820.",
+      "offerings": {
+        "2026": [
+          "S1",
+          "S2"
+        ],
+        "2027": [
+          "S1",
+          "S2"
+        ]
+      },
+      "transdisciplinary": true
+    },
+    {
+      "code": "COMP4600",
+      "title": "Advanced Algorithms",
+      "level": "undergraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": true,
+      "prerequisiteCourses": [
+        "COMP3600"
+      ],
+      "incompatibleWith": [
+        "COMP8460"
+      ],
+      "requisiteText": "To enrol in this course you must have completed COMP3600 and 18 units of 3000 level COMP courses. Incompatible with COMP8460.",
+      "offerings": {
+        "2026": [
+          "S1"
+        ],
+        "2027": []
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "COMP4610",
+      "title": "Computer Graphics",
+      "level": "undergraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": true,
+      "prerequisiteCourses": [
+        "COMP2100",
+        "COMP3320",
+        "COMP3540",
+        "COMP3600",
+        "COMP3900"
+      ],
+      "incompatibleWith": [
+        "COMP6461",
+        "COMP8610"
+      ],
+      "requisiteText": "To enrol in this course you must have completed:\nCOMP2100 AND\n 6 units of (COMP3600 OR COMP3540 OR COMP3900 OR COMP3320). \nYou are not able to enrol in this course if you have successfully completed COMP6461 or COMP8610.",
+      "offerings": {
+        "2026": [
+          "S1"
+        ],
+        "2027": [
+          "S1"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "COMP4620",
+      "title": "Advanced Topics in Artificial Intelligence",
+      "level": "undergraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": false,
+      "prerequisiteCourses": [],
+      "incompatibleWith": [
+        "COMP8620"
+      ],
+      "requisiteText": "12 units of 3000 and/or 4000 level COMP courses.\nAdditional Prerequisite courses for the Advanced Topic will be listed on the SoCo website (Special Topics in Computing page) when the course topic is announced. Students who meet the pre-requisites can request a permission code following the instructions for Enrolling in CSS courses .\nIncompatible with COMP8620.",
+      "offerings": {
+        "2026": [
+          "S2"
+        ],
+        "2027": [
+          "S2"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "COMP4650",
+      "title": "Document Analysis",
+      "level": "undergraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": true,
+      "prerequisiteCourses": [
+        "COMP1600",
+        "COMP2100"
+      ],
+      "incompatibleWith": [
+        "COMP6490"
+      ],
+      "requisiteText": "To enrol in this course you must have completed :\n(COMP1600 OR COMP2100)\nAND\n12 units of 3000/4000 level (COMP OR INFS courses).\nIncompatible with COMP6490.",
+      "offerings": {
+        "2026": [
+          "S2"
+        ],
+        "2027": [
+          "S2"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "COMP4670",
+      "title": "Statistical Machine Learning",
+      "level": "undergraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": true,
+      "prerequisiteCourses": [
+        "COMP1110",
+        "COMP1140",
+        "COMP3670",
+        "MATH1014",
+        "MATH1115",
+        "MATH1116"
+      ],
+      "incompatibleWith": [
+        "COMP8600",
+        "COMP8960"
+      ],
+      "requisiteText": "To enrol in this course you must have completed:\nCOMP3670\n OR\n(COMP1110/COMP1140 AND\n MATH1014 OR MATH1115 OR MATH1116)\nIncompatible with COMP8600 and COMP8960.",
+      "offerings": {
+        "2026": [
+          "S1"
+        ],
+        "2027": [
+          "S1"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "COMP4680",
+      "title": "Advanced Topics in Machine Learning",
+      "level": "undergraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": false,
+      "prerequisiteCourses": [],
+      "incompatibleWith": [
+        "COMP8650"
+      ],
+      "requisiteText": "12 units of 3000 and/or 4000 level COMP courses.\nAdditional Prerequisite courses for the Advanced Topic will be listed on the SoCo website (Special Topics in Computing page ) when the course topic is announced. Students who meet the pre-requisites can request a permission code following the instructions for Enrolling in CECC courses.\nIncompatible with COMP8650.",
+      "offerings": {
+        "2026": [
+          "S1"
+        ],
+        "2027": [
+          "S1"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "COMP4691",
+      "title": "Optimisation",
+      "level": "undergraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": true,
+      "prerequisiteCourses": [
+        "COMP3620",
+        "MATH1013",
+        "MATH1115"
+      ],
+      "incompatibleWith": [
+        "COMP8691"
+      ],
+      "requisiteText": "To enrol in this course you must have completed COMP3620 and have completed MATH1013 or MATH1115. Incompatible with COMP8691.",
+      "offerings": {
+        "2026": [
+          "S2"
+        ],
+        "2027": []
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "COMP4703",
+      "title": "Vulnerability Research and Exploit Mitigation",
+      "level": "undergraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": true,
+      "prerequisiteCourses": [
+        "COMP2310",
+        "COMP2700"
+      ],
+      "incompatibleWith": [
+        "COMP2710",
+        "COMP3703",
+        "COMP8703"
+      ],
+      "requisiteText": "To enrol in this course you must have completed COMP2310 and COMP2700.\nIncompatible with COMP2710, COMP3703 and COMP8703.",
+      "offerings": {
+        "2026": [
+          "S1"
+        ],
+        "2027": [
+          "S1"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "COMP4712",
+      "title": "Compiler Construction",
+      "level": "undergraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": true,
+      "prerequisiteCourses": [
+        "COMP2100",
+        "COMP2310"
+      ],
+      "incompatibleWith": [
+        "COMP3710"
+      ],
+      "requisiteText": "To enrol in this course you must have completed:\nCOMP2100 AND\nCOMP2310 AND\n6 units of 3000 and/or 4000 level COMP courses.\nIncompatible with COMP3710\nStudents who have previously completed COMP3710 - please contact CECC Student Services for a Permission Code.",
+      "offerings": {
+        "2026": [
+          "S1"
+        ],
+        "2027": []
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "COMP4820",
+      "title": "Advanced Computing Internship",
+      "level": "undergraduate",
+      "units": 12,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": true,
+      "prerequisiteCourses": [
+        "COMP2100"
+      ],
+      "incompatibleWith": [
+        "COMP4500",
+        "COMP4550",
+        "COMP4560",
+        "COMP4810"
+      ],
+      "requisiteText": "To enrol in this course you must be studying a Bachelor of Advanced Computing AND have successfully completed:\nCOMP2100 AND 12 units of 3000 level COMP courses.\nIncompatible with COMP4500, COMP4550, COMP4560 and COMP4810.\nCompetitive entry based on application and interviews with Hosts.",
+      "offerings": {
+        "2026": [
+          "S1",
+          "S2"
+        ],
+        "2027": [
+          "S1",
+          "S2"
+        ]
+      },
+      "transdisciplinary": true
+    },
+    {
+      "code": "COMP4880",
+      "title": "Computational Methods for Network Science",
+      "level": "undergraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": true,
+      "prerequisiteCourses": [
+        "COMP1110",
+        "COMP1140",
+        "COMP3670",
+        "MATH1014",
+        "MATH1115"
+      ],
+      "incompatibleWith": [
+        "COMP8880"
+      ],
+      "requisiteText": "To enrol in this course you must have completed COMP3670, or you must have completed all of the following: COMP1110 or COMP1140 and MATH1014 or MATH1115. \nIncompatible with COMP8880.",
+      "offerings": {
+        "2026": [],
+        "2027": []
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "COMP5920",
+      "title": "Exchange Program in Computer Science",
+      "level": "undergraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": false,
+      "prerequisiteCourses": [],
+      "incompatibleWith": [],
+      "requisiteText": null,
+      "offerings": {
+        "2026": [
+          "S1",
+          "S2"
+        ],
+        "2027": [
+          "S1",
+          "S2"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "COMP6034",
+      "title": "Network Security",
+      "level": "postgraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": true,
+      "prerequisiteCourses": [
+        "COMP2700",
+        "COMP6800"
+      ],
+      "incompatibleWith": [
+        "COMP3704"
+      ],
+      "requisiteText": "To enrol in this course, you must be enrolled in the Master of Computing (Advanced) and have completed COMP6800 or COMP2700\nIncompatible with COMP3704",
+      "offerings": {
+        "2026": [
+          "S2"
+        ],
+        "2027": [
+          "S2"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "COMP6120",
+      "title": "Software Engineering",
+      "level": "postgraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": true,
+      "prerequisiteCourses": [
+        "COMP2100",
+        "COMP6442"
+      ],
+      "incompatibleWith": [
+        "COMP2120"
+      ],
+      "requisiteText": "To enrol in this course you must have successfully completed or be currently studying COMP6442 or COMP2100.\nIncompatible with COMP2120.",
+      "offerings": {
+        "2026": [
+          "S2"
+        ],
+        "2027": [
+          "S2"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "COMP6240",
+      "title": "Relational Databases",
+      "level": "postgraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": false,
+      "prerequisiteCourses": [],
+      "incompatibleWith": [
+        "COMP2400",
+        "COMP7240"
+      ],
+      "requisiteText": "You are not able to enrol in this course if you have successfully completed COMP2400. Incompatible with COMP7240.",
+      "offerings": {
+        "2026": [
+          "S1",
+          "S2"
+        ],
+        "2027": [
+          "S1",
+          "S2"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "COMP6242",
+      "title": "Deep Learning",
+      "level": "postgraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": true,
+      "prerequisiteCourses": [
+        "COMP1110",
+        "COMP1730",
+        "COMP3670",
+        "COMP6670",
+        "COMP6710",
+        "COMP6730",
+        "COMP7710",
+        "COMP8410"
+      ],
+      "incompatibleWith": [],
+      "requisiteText": "To enrol in this course you must have successfully completed:\n(COMP3670 or COMP6670 or COMP8410)\nAND\n(COMP1110 or COMP6710 or COMP7710 or COMP1730 or COMP6730).",
+      "offerings": {
+        "2026": [
+          "S1"
+        ],
+        "2027": [
+          "S1"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "COMP6250",
+      "title": "Professional Practice: Holistic Thinking and Communication",
+      "level": "postgraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": false,
+      "prerequisiteCourses": [],
+      "incompatibleWith": [],
+      "requisiteText": "To enrol in this course you must be enrolled in Graduate Diploma of Computing or Master of Computing or Master of Computing (Advanced) or Master of Machine Learning and Computer Vision.",
+      "offerings": {
+        "2026": [],
+        "2027": []
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "COMP6260",
+      "title": "Foundations of Computing",
+      "level": "postgraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": false,
+      "prerequisiteCourses": [],
+      "incompatibleWith": [
+        "COMP1600"
+      ],
+      "requisiteText": "Incompatible with COMP1600",
+      "offerings": {
+        "2026": [
+          "S2"
+        ],
+        "2027": [
+          "S2"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "COMP6261",
+      "title": "Information Theory",
+      "level": "postgraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": false,
+      "prerequisiteCourses": [],
+      "incompatibleWith": [
+        "COMP2610",
+        "ENGN8534"
+      ],
+      "requisiteText": "You cannot enrol in this course if you have completed COMP2610 or ENGN8534.",
+      "offerings": {
+        "2026": [
+          "S2"
+        ],
+        "2027": [
+          "S2"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "COMP6262",
+      "title": "Logic",
+      "level": "postgraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": false,
+      "prerequisiteCourses": [],
+      "incompatibleWith": [
+        "COMP2620",
+        "PHIL2080"
+      ],
+      "requisiteText": "You are not able to enrol in this course if you have previously completed PHIL2080 or COMP2620.",
+      "offerings": {
+        "2026": [
+          "S1"
+        ],
+        "2027": [
+          "S1"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "COMP6300",
+      "title": "Computer Architecture",
+      "level": "postgraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": true,
+      "prerequisiteCourses": [
+        "COMP1110",
+        "COMP6710",
+        "COMP7710"
+      ],
+      "incompatibleWith": [
+        "COMP2300",
+        "COMP6719",
+        "ENGN2219"
+      ],
+      "requisiteText": "To enrol in this course you must be:\nstudying a Master of Computing OR Master of Computing (Advanced)\nOR \nhave completed\nCOMP6710 OR COMP7710 OR COMP1110.\nIncompatible with COMP2300, ENGN2219 and COMP6719.",
+      "offerings": {
+        "2026": [
+          "S1"
+        ],
+        "2027": [
+          "S1"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "COMP6310",
+      "title": "Systems, Networks and Concurrency",
+      "level": "postgraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": true,
+      "prerequisiteCourses": [
+        "COMP1110",
+        "COMP6300",
+        "COMP6710",
+        "COMP7710"
+      ],
+      "incompatibleWith": [
+        "COMP2310"
+      ],
+      "requisiteText": "To enrol in this course you must have completed:\nCOMP6300 AND (COMP6710 or COMP7710 or COMP1110)\nIncompatible with COMP2310.",
+      "offerings": {
+        "2026": [
+          "S2"
+        ],
+        "2027": [
+          "S2"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "COMP6320",
+      "title": "Artificial Intelligence",
+      "level": "postgraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": true,
+      "prerequisiteCourses": [
+        "COMP1110",
+        "COMP2620",
+        "COMP6262",
+        "COMP6710",
+        "COMP7710"
+      ],
+      "incompatibleWith": [
+        "COMP3620"
+      ],
+      "requisiteText": "To enrol in this course you must have completed\n(COMP6710 OR COMP7710 OR COMP1110 OR be enrolled in Master of Computing (Advanced))\nAND\nhave completed or be currently enrolled in COMP6262 OR COMP2620\nIncompatible with COMP3620.",
+      "offerings": {
+        "2026": [
+          "S1"
+        ],
+        "2027": [
+          "S1"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "COMP6330",
+      "title": "Operating Systems Implementation",
+      "level": "postgraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": true,
+      "prerequisiteCourses": [
+        "COMP2300",
+        "COMP6300",
+        "ENGN2219"
+      ],
+      "incompatibleWith": [
+        "COMP3300"
+      ],
+      "requisiteText": "To enrol in this course you must be:\nstudying a Master of Computing (Advanced) \nOR \nbe enrolled in or have completed COMP6300 or\nhave completed COMP2300 or ENGN2219.\nIncompatible with COMP3300.",
+      "offerings": {
+        "2026": [
+          "S2"
+        ],
+        "2027": [
+          "S2"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "COMP6331",
+      "title": "Computer Networks",
+      "level": "postgraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": true,
+      "prerequisiteCourses": [
+        "COMP1110",
+        "COMP1140",
+        "COMP2100",
+        "COMP2310",
+        "COMP6310",
+        "COMP6442",
+        "COMP6710",
+        "COMP7710"
+      ],
+      "incompatibleWith": [
+        "COMP3310",
+        "ENGN3539",
+        "ENGN6539"
+      ],
+      "requisiteText": "To enrol in this course you must have completed:\n(COMP6710 OR COMP7710 OR COMP1110 OR COMP1140) OR\n(COMP6310 OR COMP2310) OR\n(COMP6442 OR COMP2100).\nIncompatible with COMP3310, ENGN3539, ENGN6539.",
+      "offerings": {
+        "2026": [
+          "S1"
+        ],
+        "2027": [
+          "S1"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "COMP6361",
+      "title": "Principles of Programming Languages",
+      "level": "postgraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": true,
+      "prerequisiteCourses": [
+        "COMP6260",
+        "COMP6442"
+      ],
+      "incompatibleWith": [],
+      "requisiteText": "To enrol in this course you must have successfully completed COMP6442 and COMP6260; or be enrolled in Master of Computing (Advanced)",
+      "offerings": {
+        "2026": [],
+        "2027": [
+          "S2"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "COMP6363",
+      "title": "Theory of Computation",
+      "level": "postgraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": false,
+      "prerequisiteCourses": [],
+      "incompatibleWith": [
+        "COMP3630"
+      ],
+      "requisiteText": "To enrol in this course you must be studying Master of Computing OR Master of Computing (Advanced).\nIncompatible with COMP3630.",
+      "offerings": {
+        "2026": [
+          "S1"
+        ],
+        "2027": [
+          "S1"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "COMP6390",
+      "title": "Human-Computer Interaction",
+      "level": "postgraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": true,
+      "prerequisiteCourses": [
+        "COMP6442",
+        "COMP6710",
+        "COMP6720",
+        "COMP6730",
+        "COMP7710"
+      ],
+      "incompatibleWith": [
+        "COMP3900"
+      ],
+      "requisiteText": "To enrol in this course you must:\nbe studying Master of Computing OR Master of Computing Advanced \nOR\nhave completed 6 units of (COMP6442 OR COMP6710 OR COMP6720 OR COMP6730 OR COMP7710). \nIncompatible with COMP3900.",
+      "offerings": {
+        "2026": [
+          "S2"
+        ],
+        "2027": [
+          "S2"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "COMP6434",
+      "title": "Data Wrangling",
+      "level": "postgraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": true,
+      "prerequisiteCourses": [
+        "COMP1110",
+        "COMP1140",
+        "COMP2400",
+        "COMP6240",
+        "COMP6710",
+        "COMP6730"
+      ],
+      "incompatibleWith": [
+        "COMP3430",
+        "COMP8930"
+      ],
+      "requisiteText": "To enrol in this course you must have completed:\n6 units of (COMP1110 or COMP1140 or COMP6730 or COMP6710) AND\n6 units of (COMP2400 or COMP6240).\nIncompatible with COMP3430 and COMP8930.",
+      "offerings": {
+        "2026": [],
+        "2027": [
+          "S2"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "COMP6442",
+      "title": "Software Construction",
+      "level": "postgraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": true,
+      "prerequisiteCourses": [
+        "COMP1110",
+        "COMP1140",
+        "COMP1600",
+        "COMP6260",
+        "COMP6710",
+        "COMP7710",
+        "MATH1005",
+        "MATH6005"
+      ],
+      "incompatibleWith": [
+        "COMP2100"
+      ],
+      "requisiteText": "To enrol in this course you must have either:\ncompleted (COMP6710 OR COMP7710 OR COMP1110 OR COMP1140); AND\nhave completed or be currently enrolled in (MATH6005 OR COMP6260 OR MATH1005 OR COMP1600);\nOR\nbe enrolled in the Master of Machine Learning and Computer Vision AND have completed (COMP6710 or COMP7710 or COMP1110 or COMP1140)\nOR\nbe enrolled in the Master of Computing (Advanced).\nIncompatible with COMP2100.",
+      "offerings": {
+        "2026": [
+          "S1",
+          "S2"
+        ],
+        "2027": [
+          "S1",
+          "S2"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "COMP6445",
+      "title": "Computing Research Methods",
+      "level": "postgraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": false,
+      "prerequisiteCourses": [],
+      "incompatibleWith": [
+        "COMP2550",
+        "COMP4450"
+      ],
+      "requisiteText": "To enrol in this course you must be enrolled in Master of Computing (Advanced) (VCOMP) or Master of Machine Learning and Computer Vision (MMLCV).\nIncompatible with COMP2550 and COMP4450",
+      "offerings": {
+        "2026": [
+          "S1"
+        ],
+        "2027": [
+          "S1"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "COMP6464",
+      "title": "High Performance Scientific Computing",
+      "level": "postgraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": true,
+      "prerequisiteCourses": [
+        "COMP1110",
+        "COMP1140",
+        "COMP6710",
+        "COMP7710"
+      ],
+      "incompatibleWith": [
+        "COMP3320"
+      ],
+      "requisiteText": "To enrol in this course you must:\nbe studying Master of Computing or Master of Computing (Advanced) OR\nhave successfully completed (COMP6710 or COMP7710 or COMP1110 or COMP1140).\nIncompatible with COMP3320.",
+      "offerings": {
+        "2026": [
+          "S2"
+        ],
+        "2027": [
+          "S2"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "COMP6466",
+      "title": "Algorithms",
+      "level": "postgraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": true,
+      "prerequisiteCourses": [
+        "COMP1110",
+        "COMP1140",
+        "COMP6710",
+        "COMP7710"
+      ],
+      "incompatibleWith": [
+        "COMP3600"
+      ],
+      "requisiteText": "To enrol in this course you must:\nbe studying Master of Computing or Master of Computing Advanced\nor have successfully completed (COMP6710 or COMP7710 or COMP1110 or COMP1140).\nIncompatible with COMP3600.",
+      "offerings": {
+        "2026": [
+          "S2"
+        ],
+        "2027": [
+          "S2"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "COMP6470",
+      "title": "Special Topics in Computing",
+      "level": "postgraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": false,
+      "prerequisiteCourses": [],
+      "incompatibleWith": [],
+      "requisiteText": null,
+      "offerings": {
+        "2026": [
+          "S1"
+        ],
+        "2027": []
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "COMP6490",
+      "title": "Document Analysis",
+      "level": "postgraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": true,
+      "prerequisiteCourses": [
+        "COMP6240",
+        "COMP6260",
+        "COMP6442",
+        "COMP6710",
+        "COMP6730"
+      ],
+      "incompatibleWith": [
+        "COMP4650",
+        "COMP6990"
+      ],
+      "requisiteText": "To enrol in this course you must be enrolled in\nVCOMP\n OR \nhave completed 6 units of: (COMP6240/2400 OR COMP6260/1600 OR COMP6442/2100)\nAND\nhave completed 6 units of: (COMP6730/1730 OR COMP6710/1110).\nIncompatible with COMP4650 and COMP6990.",
+      "offerings": {
+        "2026": [
+          "S2"
+        ],
+        "2027": []
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "COMP6528",
+      "title": "Computer Vision",
+      "level": "postgraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": false,
+      "prerequisiteCourses": [],
+      "incompatibleWith": [
+        "COMP4528",
+        "ENGN4528",
+        "ENGN6528"
+      ],
+      "requisiteText": "To enrol in this course you must be studying one of:\nGraduate Diploma of Computing\nMaster of Computing\nMaster of Computing (Advanced).\nMaster of Machine Learning and Computer Vision\nIncompatible with ENGN6528 and COMP4528 and ENGN4528.",
+      "offerings": {
+        "2026": [
+          "S1"
+        ],
+        "2027": [
+          "S1"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "COMP6540",
+      "title": "Game Development",
+      "level": "postgraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": true,
+      "prerequisiteCourses": [
+        "COMP1110",
+        "COMP1140",
+        "COMP6710",
+        "COMP7710"
+      ],
+      "incompatibleWith": [],
+      "requisiteText": "To enrol in this course you must:\nbe enrolled in Master of Computing Advanced OR\nhave completed (COMP6710 or COMP7710 or COMP1110 or COMP1140).",
+      "offerings": {
+        "2026": [],
+        "2027": []
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "COMP6670",
+      "title": "Introduction to Machine Learning",
+      "level": "postgraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": true,
+      "prerequisiteCourses": [
+        "COMP1110",
+        "COMP1140",
+        "COMP6710",
+        "COMP6730",
+        "COMP7710"
+      ],
+      "incompatibleWith": [
+        "COMP3670"
+      ],
+      "requisiteText": "To enrol in this course you must:\nbe enrolled in Master of Computing (Advanced) OR \nhave completed or be currently enrolled in (COMP6710 or COMP7710 or COMP6730) OR\nhave completed COMP1110 or COMP1140.\nIncompatible with COMP3670.",
+      "offerings": {
+        "2026": [
+          "S2"
+        ],
+        "2027": [
+          "S2"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "COMP6710",
+      "title": "Structured Programming",
+      "level": "postgraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": false,
+      "prerequisiteCourses": [],
+      "incompatibleWith": [
+        "COMP1110",
+        "COMP1140",
+        "COMP7710"
+      ],
+      "requisiteText": "You are not able to enrol in this course if you are enrolled in the Master of Computing (Advanced).\nIncompatible with COMP1110 OR COMP1140 OR COMP7710.",
+      "offerings": {
+        "2026": [
+          "S1",
+          "S2"
+        ],
+        "2027": [
+          "S1",
+          "S2"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "COMP6720",
+      "title": "Art and Interaction Computing",
+      "level": "postgraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": false,
+      "prerequisiteCourses": [],
+      "incompatibleWith": [
+        "COMP1720"
+      ],
+      "requisiteText": "Incompatible with COMP1720",
+      "offerings": {
+        "2026": [],
+        "2027": []
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "COMP6730",
+      "title": "Programming for Scientists",
+      "level": "postgraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": false,
+      "prerequisiteCourses": [],
+      "incompatibleWith": [
+        "COMP1100",
+        "COMP1130",
+        "COMP1730",
+        "COMP6710",
+        "COMP7710"
+      ],
+      "requisiteText": "You are not able to enrol in this course if you have successfully completed COMP1100, COMP1130, COMP1730, COMP6710 or COMP7710.",
+      "offerings": {
+        "2026": [
+          "S2"
+        ],
+        "2027": [
+          "S1",
+          "S2"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "COMP6780",
+      "title": "Web Development and Design",
+      "level": "postgraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": false,
+      "prerequisiteCourses": [],
+      "incompatibleWith": [
+        "COMP1710"
+      ],
+      "requisiteText": "Incompatible with COMP1710\nTo enroll in this course students must be enrolled in a postgraduate program at ANU.",
+      "offerings": {
+        "2026": [],
+        "2027": []
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "COMP6800",
+      "title": "Cyber Security Foundations",
+      "level": "postgraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": false,
+      "prerequisiteCourses": [],
+      "incompatibleWith": [
+        "COMP2700"
+      ],
+      "requisiteText": "To enrol in this course you must be enrolled in Masters of Computing (Advanced).\nIncompatible with COMP2700.",
+      "offerings": {
+        "2026": [
+          "S1"
+        ],
+        "2027": [
+          "S1"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "COMP7710",
+      "title": "Programming Fundamentals",
+      "level": "postgraduate",
+      "units": 12,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": false,
+      "prerequisiteCourses": [],
+      "incompatibleWith": [
+        "COMP1110",
+        "COMP1140",
+        "COMP6710"
+      ],
+      "requisiteText": "You are not able to enrol in this course if you have previously completed or are currently enrolled in COMP1110 OR COMP1140 OR COMP6710",
+      "offerings": {
+        "2026": [
+          "S1",
+          "S2"
+        ],
+        "2027": [
+          "S1",
+          "S2"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "COMP8011",
+      "title": "Advanced Topics in Formal Methods and Programming Languages",
+      "level": "postgraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": false,
+      "prerequisiteCourses": [],
+      "incompatibleWith": [],
+      "requisiteText": "To enrol in this course you must have successfully completed 12 units of 6000-level COMP courses.\nAdditional Prerequisite courses for the Advanced Topic will be listed on the SoCo website when the course topic is announced. Students who meet the pre-requisites can request a permission code following the instructions Enrolling in CECC courses.",
+      "offerings": {
+        "2026": [
+          "S2"
+        ],
+        "2027": [
+          "S2"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "COMP8020",
+      "title": "Advanced Topics in Human-Centred and Creative Computing",
+      "level": "postgraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": true,
+      "prerequisiteCourses": [
+        "COMP6390"
+      ],
+      "incompatibleWith": [],
+      "requisiteText": "To enrol in this course, you must have completed COMP6390.\nAdditional Prerequisite courses for the Advanced Topic will be listed on the SoCo website when the course topic is announced. Students who meet the prerequisites can request a permission code from the College.",
+      "offerings": {
+        "2026": [
+          "S2"
+        ],
+        "2027": [
+          "S2"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "COMP8045",
+      "title": "Advanced Topics in Computer Systems & Architecture",
+      "level": "postgraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": false,
+      "prerequisiteCourses": [],
+      "incompatibleWith": [],
+      "requisiteText": "To enrol in this course you must have successfully completed 12 units of 6000-level COMP coded courses.\nAdditional Prerequisite courses for the Advanced Topic will be listed on the SoCo website when the course topic is announced. Students who meet the pre-requisites can request a permission code following the instructions on Enrolling in CSS courses.",
+      "offerings": {
+        "2026": [
+          "S2"
+        ],
+        "2027": [
+          "S1"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "COMP8131",
+      "title": "Managing Software Quality and Process",
+      "level": "postgraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": true,
+      "prerequisiteCourses": [
+        "COMP6800"
+      ],
+      "incompatibleWith": [
+        "COMP4130"
+      ],
+      "requisiteText": "To enrol in this course you must be enrolled in the Masters of Computing Advanced (VCOMP) and have successfully completed COMP6800 Cyber Security Foundations.\nIncompatible with COMP4130.",
+      "offerings": {
+        "2026": [],
+        "2027": [
+          "S1"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "COMP8260",
+      "title": "Professional Practice: Responsible Innovation and Leadership",
+      "level": "postgraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": false,
+      "prerequisiteCourses": [],
+      "incompatibleWith": [],
+      "requisiteText": "To enrol in this course you must be enrolled in the Graduate Diploma of Computing or Master of Computing or Master of Computing (Advanced) or Master of Machine Learning and Computer Vision.",
+      "offerings": {
+        "2026": [],
+        "2027": []
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "COMP8280",
+      "title": "Responsible Practice, Innovation and Leadership",
+      "level": "postgraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": false,
+      "prerequisiteCourses": [],
+      "incompatibleWith": [
+        "COMP8260",
+        "ENGN8260",
+        "ENGN8280"
+      ],
+      "requisiteText": "To enrol in this course you must be enrolled in the Graduate Diploma of Computing or Master of Computing or Master of Computing (Advanced) or Master of Machine Learning and Computer Vision.\nIncompatible with COMP8260, ENGN8260 and ENGN8280.",
+      "offerings": {
+        "2026": [
+          "S1",
+          "S2"
+        ],
+        "2027": [
+          "S1",
+          "S2"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "COMP8300",
+      "title": "Parallel Systems",
+      "level": "postgraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": true,
+      "prerequisiteCourses": [
+        "COMP6310",
+        "COMP6330",
+        "COMP6331",
+        "COMP6464",
+        "ENGN6539"
+      ],
+      "incompatibleWith": [
+        "COMP4300"
+      ],
+      "requisiteText": "To enrol in this course you must have completed:\nCOMP6310/2310 OR COMP6330/3300 OR COMP6331/3310 OR COMP6464 OR ENGN6539\nIncompatible with COMP4300.",
+      "offerings": {
+        "2026": [],
+        "2027": [
+          "S1"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "COMP8350",
+      "title": "Sound and Music Computing",
+      "level": "postgraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": true,
+      "prerequisiteCourses": [
+        "COMP6390",
+        "COMP6720"
+      ],
+      "incompatibleWith": [
+        "COMP4350"
+      ],
+      "requisiteText": "To enrol in this course you must have completed either COMP6390 or COMP6720.\nIncompatible with COMP4350.",
+      "offerings": {
+        "2026": [],
+        "2027": [
+          "S1"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "COMP8410",
+      "title": "Data Mining",
+      "level": "postgraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": true,
+      "prerequisiteCourses": [
+        "COMP2400",
+        "COMP6240",
+        "COMP6710",
+        "COMP6730",
+        "COMP7230",
+        "COMP7240"
+      ],
+      "incompatibleWith": [
+        "COMP3420",
+        "COMP3425",
+        "COMP8400",
+        "COMP8910"
+      ],
+      "requisiteText": "To enrol in this course you must have completed\n COMP7240 or COMP6240 or COMP2400; and\n COMP6730 or COMP7230 or COMP6710.\nIncompatible with COMP3420 and COMP3425 and COMP8400 and COMP8910.",
+      "offerings": {
+        "2026": [
+          "S1"
+        ],
+        "2027": [
+          "S1"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "COMP8430",
+      "title": "Data Wrangling",
+      "level": "postgraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": true,
+      "prerequisiteCourses": [
+        "COMP6240",
+        "COMP6710",
+        "COMP6730",
+        "COMP7230",
+        "COMP7240"
+      ],
+      "incompatibleWith": [
+        "COMP3430"
+      ],
+      "requisiteText": "To enrol in this course you must have completed either COMP7230, COMP6730 or COMP6710; AND COMP7240 or COMP6240.\nIncompatible with COMP3430.\nA permission code is needed to take this course in intensive mode.",
+      "offerings": {
+        "2026": [
+          "S2"
+        ],
+        "2027": []
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "COMP8460",
+      "title": "Advanced Algorithms",
+      "level": "postgraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": true,
+      "prerequisiteCourses": [
+        "COMP3600",
+        "COMP6466"
+      ],
+      "incompatibleWith": [
+        "COMP4600"
+      ],
+      "requisiteText": "To enrol in this course, you must have completed COMP6466 or COMP3600.\nIncompatible with COMP4600.",
+      "offerings": {
+        "2026": [
+          "S1"
+        ],
+        "2027": []
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "COMP8490",
+      "title": "Document Analysis",
+      "level": "postgraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": true,
+      "prerequisiteCourses": [
+        "COMP6240",
+        "COMP6260",
+        "COMP6442",
+        "COMP6710",
+        "COMP6730"
+      ],
+      "incompatibleWith": [
+        "COMP4650",
+        "COMP6490",
+        "COMP6990"
+      ],
+      "requisiteText": "To enrol in this course you must be enrolled in\nMaster of Computing (Advanced)\nOR \nhave completed 6 units of: (COMP6240/2400 OR COMP6260/1600 OR COMP6442/2100)\nAND\nhave completed 6 units of: (COMP6730/1730 OR COMP6710/1110).\nIncompatible with COMP4650 and COMP6490 and COMP6990.",
+      "offerings": {
+        "2026": [],
+        "2027": [
+          "S2"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "COMP8500",
+      "title": "Advanced Computing Team Project",
+      "level": "postgraduate",
+      "units": 12,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": true,
+      "prerequisiteCourses": [
+        "COMP2100",
+        "COMP2120",
+        "COMP6120",
+        "COMP6250",
+        "COMP6442",
+        "COMP8260",
+        "COMP8280"
+      ],
+      "incompatibleWith": [
+        "COMP8715",
+        "COMP8755",
+        "COMP8800",
+        "COMP8830"
+      ],
+      "requisiteText": "To enrol in this course you must:\nbe enrolled in the Master of Computing AND\nhave successfully completed:\n(COMP6442 or COMP2100) \nAND (COMP8260 or COMP8280)\nAND be concurrently enrolled in or have successfully completed: COMP6120 or COMP2120\nOR \nbe enrolled in the Master of Machine Learning and Computer Vision AND\nhave successfully completed:\n(COMP6442 or COMP2100) AND (COMP6250 or COMP8260 or COMP8280)\nIncompatible with COMP8755 and COMP8830 and COMP8800 and COMP8715",
+      "offerings": {
+        "2026": [],
+        "2027": []
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "COMP8536",
+      "title": "Advanced Topics in Deep Learning for Computer Vision",
+      "level": "postgraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": true,
+      "prerequisiteCourses": [
+        "COMP6710",
+        "COMP6730"
+      ],
+      "incompatibleWith": [],
+      "requisiteText": "To enrol in this course you must be studying Master of Engineering or Master of Machine Learning and Computer Vision or Master of Computing (Advanced).\nStudents must have completed either COMP6710 or COMP6730 or equivalent.",
+      "offerings": {
+        "2026": [],
+        "2027": []
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "COMP8539",
+      "title": "Advanced Topics in Computer Vision",
+      "level": "postgraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": true,
+      "prerequisiteCourses": [
+        "COMP4528",
+        "COMP6528",
+        "ENGN4528"
+      ],
+      "incompatibleWith": [
+        "ENGN8501"
+      ],
+      "requisiteText": "To enrol in this course you must have completed:\nCOMP6528 or COMP4528 or ENGN4528.\nYou are not able to enrol in this course if you have previously completed ENGN8501.",
+      "offerings": {
+        "2026": [],
+        "2027": [
+          "S2"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "COMP8600",
+      "title": "Statistical Machine Learning",
+      "level": "postgraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": true,
+      "prerequisiteCourses": [
+        "COMP3670",
+        "COMP6670"
+      ],
+      "incompatibleWith": [
+        "COMP4670"
+      ],
+      "requisiteText": "To enrol in this course you must have completed COMP6670 or COMP3670. Incompatible with COMP4670.",
+      "offerings": {
+        "2026": [
+          "S1"
+        ],
+        "2027": [
+          "S1"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "COMP8610",
+      "title": "Computer Graphics",
+      "level": "postgraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": true,
+      "prerequisiteCourses": [
+        "COMP1110",
+        "COMP1140",
+        "COMP6390",
+        "COMP6442",
+        "COMP6540",
+        "COMP6710",
+        "COMP6720",
+        "COMP6780"
+      ],
+      "incompatibleWith": [
+        "COMP4610",
+        "COMP6461"
+      ],
+      "requisiteText": "To enrol in this course you must:\nbe studying VCOMP\nOR \nbe studying MMLCV and have completed COMP6710 or COMP1110 or COMP1140\nOR\nhave completed (COMP6710 or COMP1110 or COMP1140) and have completed (COMP6390 or COMP6442 or COMP6540 or COMP6780 or COMP6720).\nYou are not able to enrol in this course if you have successfully completed COMP4610 or COMP6461.",
+      "offerings": {
+        "2026": [
+          "S1"
+        ],
+        "2027": [
+          "S1"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "COMP8620",
+      "title": "Advanced Topics in Artificial intelligence",
+      "level": "postgraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": true,
+      "prerequisiteCourses": [
+        "COMP3620",
+        "COMP6320"
+      ],
+      "incompatibleWith": [
+        "COMP4620"
+      ],
+      "requisiteText": "To enrol in this course you must have completed COMP6320 or COMP3620.\nAdditional Prerequisite courses for the Advanced Topic will be listed on the SoCo website (Special Topics in Computing page ) when the course topic is announced. Students who meet the pre-requisites can request a permission code following the instructions for Enrolling in CSS courses .\nIncompatible with COMP4620.",
+      "offerings": {
+        "2026": [
+          "S2"
+        ],
+        "2027": [
+          "S2"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "COMP8650",
+      "title": "Advanced Topics in Machine Learning",
+      "level": "postgraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": true,
+      "prerequisiteCourses": [
+        "COMP6670",
+        "COMP8600"
+      ],
+      "incompatibleWith": [],
+      "requisiteText": "To enrol in this course you must have completed COMP6670 Introduction to Machine Learning or COMP8600 Statistical Machine Learning.\nAdditional Prerequisite courses for the Advanced Topic will be listed on the SoCo website (Special Topics in Computing page ) when the course topic is announced. Students who meet the pre-requisites can request a permission code following the instructions for Enrolling in CECC courses.",
+      "offerings": {
+        "2026": [
+          "S1"
+        ],
+        "2027": [
+          "S1"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "COMP8691",
+      "title": "Optimisation",
+      "level": "postgraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": true,
+      "prerequisiteCourses": [
+        "COMP3620",
+        "COMP6320"
+      ],
+      "incompatibleWith": [
+        "COMP4690"
+      ],
+      "requisiteText": "To enrol in this course you must have completed COMP6320 or COMP3620.\nIncompatible with COMP4690.",
+      "offerings": {
+        "2026": [
+          "S2"
+        ],
+        "2027": []
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "COMP8703",
+      "title": "Vulnerability Research and Exploit Mitigation",
+      "level": "postgraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": true,
+      "prerequisiteCourses": [
+        "COMP3704",
+        "COMP6034"
+      ],
+      "incompatibleWith": [
+        "COMP3703",
+        "COMP4703"
+      ],
+      "requisiteText": "To enrol in this course, you must be enrolled in the Master of Computing (Advanced) and have completed COMP6034 or COMP3704.\nIncompatible with COMP3703 and COMP4703.",
+      "offerings": {
+        "2026": [],
+        "2027": [
+          "S1"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "COMP8712",
+      "title": "Compiler Construction",
+      "level": "postgraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": true,
+      "prerequisiteCourses": [
+        "COMP3710",
+        "COMP6310",
+        "COMP6442",
+        "COMP6470"
+      ],
+      "incompatibleWith": [],
+      "requisiteText": "To enrol in this course you must have completed COMP6442 AND COMP6310.\nStudents who have previously completed COMP3710 or COMP6470 - please contact CSS Student Services for a Permission Code.",
+      "offerings": {
+        "2026": [
+          "S1"
+        ],
+        "2027": []
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "COMP8715",
+      "title": "Advanced Computing Team Project",
+      "level": "postgraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": true,
+      "prerequisiteCourses": [
+        "COMP2100",
+        "COMP2120",
+        "COMP6120",
+        "COMP6250",
+        "COMP6442",
+        "COMP8260",
+        "COMP8280"
+      ],
+      "incompatibleWith": [
+        "COMP8755",
+        "COMP8800",
+        "COMP8830"
+      ],
+      "requisiteText": "To enrol in this course you must meet the eligibility criteria, which include membership of a student project group before the end of week 1, where the project has been approved by the convener.\nTo enrol in this course you must:\nbe enrolled in the Master of Computing (MCOMP) AND \nhave successfully completed:\n(COMP6442 or COMP2100) AND\n(COMP6250 or COMP8260 or COMP8280) AND\nhave successfully completed or be currently enrolled in (COMP2120 or COMP6120)\nOR\nbe enrolled in the Master of Machine Learning and Computer Vision (MMLCV) AND \nhave successfully completed:\n(COMP6442 or COMP2100) AND\n(COMP6250 or COMP8260 or COMP8280)\nIncompatible with COMP8755 and COMP8830 and COMP8800.",
+      "offerings": {
+        "2026": [
+          "S1",
+          "S2"
+        ],
+        "2027": [
+          "S1",
+          "S2"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "COMP8800",
+      "title": "Advanced Computing Research Project",
+      "level": "postgraduate",
+      "units": 12,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": true,
+      "prerequisiteCourses": [
+        "COMP6250",
+        "COMP6445",
+        "COMP8260",
+        "COMP8280"
+      ],
+      "incompatibleWith": [
+        "COMP8715",
+        "COMP8830"
+      ],
+      "requisiteText": "To enrol in this course you must:\nbe enrolled in the Master of Computing (Advanced) OR Master of Machine Learning and Computer Vision AND\nhave completed or be currently enrolled in COMP6445 AND\nhave completed (COMP8280 or COMP8260 or COMP6250) AND\nhave completed 36 units of COMP courses AND\nhave a GPA of 6 out of 7 AND\nreceive a permission code by completing the steps listed on Enrolling in student projects and having submitted the Student Project Registration Form.\nIncompatible with COMP8715 and COMP8830.",
+      "offerings": {
+        "2026": [
+          "S1",
+          "S2"
+        ],
+        "2027": [
+          "S1",
+          "S2"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "COMP8820",
+      "title": "Exchange Program for Graduate Students in Computer Science",
+      "level": "postgraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": false,
+      "prerequisiteCourses": [],
+      "incompatibleWith": [],
+      "requisiteText": null,
+      "offerings": {
+        "2026": [
+          "S1",
+          "S2"
+        ],
+        "2027": [
+          "S1",
+          "S2"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "COMP8830",
+      "title": "Computing Internship",
+      "level": "postgraduate",
+      "units": 12,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": true,
+      "prerequisiteCourses": [
+        "COMP6250",
+        "COMP6442",
+        "COMP8260",
+        "COMP8280"
+      ],
+      "incompatibleWith": [
+        "COMP8715",
+        "COMP8755",
+        "COMP8800"
+      ],
+      "requisiteText": "To enrol in this course you must:\nBe enrolled in the Master of Computing (MCOMP) or Master of Machine Learning and Computer Vision (MMLCV)\nand have successfully completed:\nCOMP6442 and (COMP8280 or COMP6250 or COMP8260)\nIncompatible with COMP8715 and COMP8755 and COMP8800.\nYou will need to undergo competitive entry to enrol in this course.",
+      "offerings": {
+        "2026": [
+          "S1",
+          "S2"
+        ],
+        "2027": [
+          "S1",
+          "S2"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "COMP8880",
+      "title": "Computational Methods for Network Science",
+      "level": "postgraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": true,
+      "prerequisiteCourses": [
+        "COMP6670"
+      ],
+      "incompatibleWith": [
+        "COMP4880"
+      ],
+      "requisiteText": "To enrol in this course you must have completed COMP6670.\nIncompatible with COMP4880.",
+      "offerings": {
+        "2026": [],
+        "2027": []
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "COMP8980",
+      "title": "Computational Methods for Network Science",
+      "level": "postgraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "hasPrerequisite": true,
+      "prerequisiteCourses": [
+        "COMP6670",
+        "COMP6710",
+        "COMP6730",
+        "COMP7230",
+        "COMP8410",
+        "STAT6039"
+      ],
+      "incompatibleWith": [
+        "COMP4880",
+        "COMP8880"
+      ],
+      "requisiteText": "To enrol in this course you must have completed\nCOMP6670 OR \n(COMP6710 or COMP6730 or COMP7230) AND COMP8410 AND STAT6039 AND be enrolled in MADAN.\nIncompatible with COMP4880 and COMP8880.",
+      "offerings": {
+        "2026": [],
+        "2027": []
+      },
+      "transdisciplinary": false
+    }
+  ],
+  "_offeringsSource": "https://programsandcourses.anu.edu.au/data/CourseSearch/GetCourses (years 2026, 2027); 'offerings' maps year → sessions (S1, S2, Summer, Autumn, Winter, Spring). 'transdisciplinary' is the Transdisciplinary Problem-Solving graduate attribute filter."
+}

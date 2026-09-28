@@ -1,0 +1,144 @@
+{
+  "_source": "ANU Programs and Courses — specialisation pages linked from the Master of Computing (https://programsandcourses.anu.edu.au/2026/program/7706XMCOMP).",
+  "_note": "The 2027 program page links only some of its seven specialisations; the rest come from the 2026 catalogue (MCHL-SPEC). catalogueYear says which year each page came from.",
+  "_fetchedOn": "2026-09-25",
+  "specialisations": [
+    {
+      "code": "ARTIF-SPEC",
+      "title": "Artificial Intelligence Specialisation",
+      "url": "https://programsandcourses.anu.edu.au/2027/specialisation/ARTIF-SPEC",
+      "catalogueYear": 2027,
+      "minUnits": 24,
+      "courseCodes": [
+        "COMP6262",
+        "COMP6320",
+        "COMP6242",
+        "COMP6670",
+        "COMP6528",
+        "COMP8490",
+        "COMP8539",
+        "COMP8600",
+        "COMP8620",
+        "COMP8650",
+        "COMP8691"
+      ],
+      "requirementsText": "This Specialisation requires the completion of 24 units, which must include a minimum of 12 units of 8000-level courses.\nA maximum of 12 units from the following list:\nCOMP6262 Logic\nCOMP6320 Artificial Intelligence\nCOMP6242 Deep Learning\nCOMP6670 Introduction to Machine Learning\nCOMP6528 Computer Vision\nA minimum of 12 units from the following list:\nCOMP8490 Document Analysis\nCOMP8539 Advanced Topics in Computer Vision\nCOMP8600 Statistical Machine Learning\nCOMP8620 Advanced Topics in Artificial Intelligence\nCOMP8650 Advanced Topics in Machine Learning\nCOMP8691 Optimisation"
+    },
+    {
+      "code": "COMP-SPEC",
+      "title": "Computational Foundations Specialisation",
+      "url": "https://programsandcourses.anu.edu.au/2027/specialisation/COMP-SPEC",
+      "catalogueYear": 2027,
+      "minUnits": 24,
+      "courseCodes": [
+        "COMP6361",
+        "COMP6363",
+        "COMP8011",
+        "COMP8460",
+        "MATH6114",
+        "MATH8343",
+        "COMP6261",
+        "COMP6262",
+        "COMP6466",
+        "COMP8712"
+      ],
+      "requirementsText": "This specialisation requires the completion of 24 units, of which:\nA minimum of 12 units must come from the completion of 8000-level courses.\nA minimum of 12 units from completion of courses from the following list:\nCOMP6361 Principles of Programming Languages\nCOMP6363 Theory of Computation\nCOMP8011 Advanced Topics in Formal Methods and Programming Languages\nCOMP8460 Advanced Algorithms\nMATH6114 Number Theory and Cryptography\nMATH8343 Foundations of Mathematics\nA maximum of 12 units from completion of courses from the following list:\nCOMP6261 Information Theory\nCOMP6262 Logic\nCOMP6466 Algorithms\nCOMP8712 Compiler Construction"
+    },
+    {
+      "code": "CMSY-SPEC",
+      "title": "Computer Systems Specialisation",
+      "url": "https://programsandcourses.anu.edu.au/2027/specialisation/CMSY-SPEC",
+      "catalogueYear": 2027,
+      "minUnits": 24,
+      "courseCodes": [
+        "COMP8300",
+        "COMP8045",
+        "COMP8712",
+        "COMP6300",
+        "COMP6310",
+        "COMP6330",
+        "COMP6331",
+        "COMP6361",
+        "COMP6464",
+        "ENGN6213"
+      ],
+      "requirementsText": "This specialisation requires the completion of 24 units, which must consist of a minimum of 12 units of 8000-level courses.\nThe 24 units must consist of:\nA minimum of 12 units from completion of courses from the following list:\nCOMP8300 Parallel Systems\nCOMP8045 Advanced Topics in Computer Systems and Architecture\nCOMP8712 Compiler Construction\nA maximum of 12 units from completion of courses from the following list:\nCOMP6300 Computer Architecture\nCOMP6310 Systems Networks and Concurrency\nCOMP6330 Operating Systems Implementation\nCOMP6331 Computer Networks\nCOMP6361 Principles of Programming Languages\nCOMP6464 High Performance Scientific Computing\nENGN6213 Digital Systems and Microprocessors"
+    },
+    {
+      "code": "DTSC-SPEC",
+      "title": "Data Science Specialisation",
+      "url": "https://programsandcourses.anu.edu.au/2027/specialisation/DTSC-SPEC",
+      "catalogueYear": 2027,
+      "minUnits": 24,
+      "courseCodes": [
+        "COMP6240",
+        "COMP8410",
+        "COMP8490",
+        "COMP6434",
+        "COMP6670",
+        "COMP8600",
+        "COMP8650",
+        "COMP8880"
+      ],
+      "requirementsText": "This specialisation requires the completion of 24 units, which must consist of 12 units of 8000-level courses\n18 units from completion of the following compulsory courses:\nCOMP6240 Relational Databases\nCOMP8410 Data Mining\nCOMP8490 Document Analysis\n6 units from completion of courses from the following list:\nCOMP6434 Data Wrangling\nCOMP6670 Introduction to Machine Learning\nCOMP8600 Statistical Machine Learning\nCOMP8650 Advanced Topics in Machine Learning\nCOMP8880 Computational Methods for Network Science"
+    },
+    {
+      "code": "HCCM-SPEC",
+      "title": "Human-Centred and Creative Computing Specialisation",
+      "url": "https://programsandcourses.anu.edu.au/2027/specialisation/HCCM-SPEC",
+      "catalogueYear": 2027,
+      "minUnits": 24,
+      "courseCodes": [
+        "COMP6390",
+        "COMP8020",
+        "COMP8350",
+        "COMP8539",
+        "COMP8610",
+        "COMP6528",
+        "COMP6540",
+        "COMP6720"
+      ],
+      "requirementsText": "This specialisation requires the completion of 24 units, which must include a minimum of 12 units of 8000-level courses:\nThe 24 units must consist of:\nCOMP6390 Human-Computer Interaction\nAND\nA minimum of 12 units from the following list:\nCOMP8020 Advanced Topics in Human-Centred and Creative Computing\nCOMP8350 Sound and Music Computing\nCOMP8539 Advanced Topics in Computer Vision\nCOMP8610 Computer Graphics\nAND\nA maximum of 6 units from completion of courses from the following list:\nCOMP6528 Computer Vision\nCOMP6540 Game Development\nCOMP6720 Art and Interaction Computing"
+    },
+    {
+      "code": "MCHL-SPEC",
+      "title": "Machine Learning Specialisation",
+      "url": "https://programsandcourses.anu.edu.au/2026/specialisation/MCHL-SPEC",
+      "catalogueYear": 2026,
+      "minUnits": 24,
+      "courseCodes": [
+        "COMP6261",
+        "COMP6490",
+        "COMP6528",
+        "COMP6670",
+        "COMP8600",
+        "COMP8650",
+        "COMP8880"
+      ],
+      "requirementsText": "This Specialisation requires the completion of 24 units from the following list which must include:\nA minimum of 12 units of 8000-level courses.\nCOMP6261 Information Theory\nCOMP6490 Document Analysis\nCOMP6528 Computer Vision\nCOMP6670 Introduction to Machine Learning\nCOMP8600 Statistical Machine Learning\nCOMP8650 Advanced Topics in Machine Learning\nCOMP8880 Computational Methods for Network Science"
+    },
+    {
+      "code": "SOFT-SPEC",
+      "title": "Software Development Specialisation",
+      "url": "https://programsandcourses.anu.edu.au/2027/specialisation/SOFT-SPEC",
+      "catalogueYear": 2027,
+      "minUnits": 24,
+      "courseCodes": [
+        "COMP6120",
+        "ENGN8100",
+        "COMP8715",
+        "COMP8800",
+        "COMP8830",
+        "COMP6240",
+        "COMP6331",
+        "COMP6390",
+        "INFS8004",
+        "INFS8205",
+        "LAWS8445",
+        "MGMT7020",
+        "REGN8014"
+      ],
+      "requirementsText": "This specialisation requires the completion of 24 units, which must consist of a minimum of 12 units of 8000-level courses.\nThe 24 units must consist of:\n12 units from completion of the following compulsory courses:\nCOMP6120 Software Engineering (6 units)\nENGN8100 Introduction to Systems Engineering (6 units)\n6 units from completion of an 8000-level course from the subject area COMP Computing, excluding the project courses (COMP8715, COMP8800, COMP8830).\nA maximum of 12 units from completion of courses from the following list:\nCOMP6240 Relational Databases (6 units)\nCOMP6331 Computer Networks (6 units)\nCOMP6390 Human-Computer Interaction (6 units)\nINFS8004 Enterprise Systems and Strategy (6 units)\nINFS8205 Digital Strategy, Executive and Operations (6 units)\nLAWS8445 Information Technology Law (6 units)\nMGMT7020 Technology and Project Management (6 units)\nREGN8014 Contemporary Issues in Technology Governance (6 units)\nNote: MCOMP students who complete COMP6120 as part of their program rules need to replace it with 6 units of 6000/8000 COMP."
+    }
+  ]
+}

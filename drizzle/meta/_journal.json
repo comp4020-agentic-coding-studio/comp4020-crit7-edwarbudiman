@@ -22,6 +22,34 @@
       "when": 1790300513336,
       "tag": "0002_seed_semesters",
       "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "6",
+      "when": 1790306471702,
+      "tag": "0003_fair_iceman",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "6",
+      "when": 1790312049862,
+      "tag": "0004_wakeful_zemo",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "6",
+      "when": 1790313638902,
+      "tag": "0005_hesitant_rattler",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "6",
+      "when": 1790313639646,
+      "tag": "0006_seed_semesters_2027_2028",
+      "breakpoints": true
     }
   ]
 }

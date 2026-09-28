@@ -1,72 +1,152 @@
 ---
-// A semester plan, in Canvas's course view: Overview (deliberately blank for
-// now) and Add Course, where courses go into and out of the plan.
+// A semester plan, in Canvas's course view. It opens with the planning steps
+// (1 program, 2 courses); once there's a program, both sections show the same
+// skill tree, so a course sits in the same place in each:
+// - Overview: the tree beside the Requirements checklist (what's left to
+//   finish the program);
+// - Add Course: a short intro, the semester's selection (four slots and
+//   Submit), and the tree — click a tile, then "Add to this semester".
+// ?tab= switches the tree between the program's path, a major/specialisation
+// (?major=, default the closest) and all courses; ?course= opens a tile's
+// detail above the side panel.
 import CanvasLayout from "../../../layouts/CanvasLayout.astro";
-import { coursesFor, currentSemester, formatRange, getSemester } from "../../../lib/plans";
+import CourseDetail from "../../../components/CourseDetail.astro";
+import PlanHeader from "../../../components/PlanHeader.astro";
+import PlanSteps from "../../../components/PlanSteps.astro";
+import RequirementTracker from "../../../components/RequirementTracker.astro";
+import PlanIntro from "../../../components/PlanIntro.astro";
+import SelectionBar from "../../../components/SelectionBar.astro";
+import SkillTree from "../../../components/SkillTree.astro";
+import { getCourse } from "../../../lib/catalogue";
+import { currentSemester, formatRange } from "../../../lib/plans";
+import { type Tab, canAdd, planView, tiers } from "../../../lib/planner";
 
-const semester = getSemester(Astro.params.semester ?? "");
+const params = Astro.url.searchParams;
+const tab: Tab = (["program", "majors", "all"] as const).find((t) => t === params.get("tab")) ?? "program";
+const semesterId = Astro.params.semester ?? "";
+let view = planView(semesterId, tab === "majors" ? (params.get("major") ?? undefined) : undefined);
+// the Majors tab opens on the one the student is closest to
+if (view && tab === "majors" && !view.major && view.majors[0]) view = planView(semesterId, view.majors[0].stream.code);
+
 const sections = [
   { slug: "", label: "Overview" },
   { slug: "add", label: "Add Course" },
 ];
 const current = sections.findIndex((s) => s.slug === (Astro.params.section ?? ""));
-if (!semester || current === -1) return new Response("Not found", { status: 404 });
+if (!view || current === -1) return new Response("Not found", { status: 404 });
 
-const isCurrent = currentSemester()?.id === semester.id;
-const courses = current === 1 ? coursesFor(semester.id) : [];
-const added = Astro.url.searchParams.get("added");
-const base = `/plan/${semester.id}/`;
+const selected = params.get("course")?.trim().toUpperCase() || undefined;
+const semesterBase = `/plan/${view.semester.id}/`;
+const base = semesterBase + (sections[current]!.slug ? `${sections[current]!.slug}/` : "");
+const where: Record<string, string> = { tab, ...(view.major ? { major: view.major.code } : {}) };
+const isCurrent = currentSemester()?.id === view.semester.id;
+const choosing = !view.program || params.get("change") === "program";
+
+const added = params.get("added");
+const justSubmitted = params.has("submitted");
+const refused = params.get("refused");
+const refusal = refused ? canAdd(view, refused) : undefined;
 ---
 
 <CanvasLayout
-  title={`${sections[current]!.label} · ${semester.label}`}
-  crumb={semester.label}
+  title={`${sections[current]!.label} · ${view.semester.label}`}
+  crumb={view.semester.label}
   sections={{
-    name: semester.label,
-    term: formatRange(semester),
-    items: sections.map((s) => ({ href: base + (s.slug ? `${s.slug}/` : ""), label: s.label })),
+    name: view.semester.label,
+    term: formatRange(view.semester),
+    items: sections.map((s) => ({ href: semesterBase + (s.slug ? `${s.slug}/` : ""), label: s.label })),
     current,
   }}
 >
-  {
-    current === 0 ? (
-      <>
-        <h1>{semester.label}</h1>
-        <p class="term-dates">{formatRange(semester)}{isCurrent && " · Current semester"}</p>
-      </>
-    ) : (
-      <>
-        <h1>Add Course</h1>
-        {added && <p class="notice" role="status">Added {added} to {semester.label}.</p>}
-        <form method="post" action="/api/plan" class="add-course">
-          <input type="hidden" name="semester" value={semester.id} />
-          <label for="code">Course code</label>
-          <input id="code" name="code" required maxlength="12" placeholder="COMP1100" />
-          <label for="title">Course title</label>
-          <input id="title" name="title" required maxlength="200" placeholder="Programming as Problem Solving" />
-          <button type="submit">Add to plan</button>
-        </form>
+  <h1>{current === 0 ? view.semester.label : "Add Course"}</h1>
+  <PlanHeader view={view} isCurrent={isCurrent} />
+  <PlanSteps view={view} base={base} choosing={choosing} />
 
-        <h2>In this plan</h2>
-        {courses.length === 0 ? (
-          <p class="placeholder">No courses in this plan yet.</p>
-        ) : (
-          <ul class="plan-list">
-            {courses.map((c) => (
-              <li>
-                <a href={`/courses/${c.id}/`}>
-                  <strong>{c.code}</strong> {c.title}
-                </a>
-                <form method="post" action="/api/plan">
-                  <input type="hidden" name="semester" value={semester.id} />
-                  <input type="hidden" name="remove" value={c.id} />
-                  <button type="submit" aria-label={`Remove ${c.code}`}>Remove</button>
-                </form>
-              </li>
-            ))}
-          </ul>
-        )}
+  {added && <p class="notice" role="status">Added {added} {getCourse(added)?.title} to your selection.</p>}
+  {justSubmitted && <p class="notice" role="status">Submitted — you're enrolled in {view.planned.length} courses for {view.semester.label}.</p>}
+  {
+    !choosing && view.drafts.length > 0 && (
+      <p class="notice notice-warn" role="status">
+        {view.drafts.map((d) => d.label).join(", ")} {view.drafts.length === 1 ? "isn't" : "aren't"} submitted yet, so{" "}
+        {view.drafts.length === 1 ? "its" : "their"} courses don't count here.{" "}
+        <a href={`/plan/${view.drafts[0]!.id}/add/`}>Finish {view.drafts[0]!.label}</a>
+      </p>
+    )
+  }
+  {refusal && !refusal.ok && <p class="notice notice-warn" role="status">Couldn't add {refused}: {refusal.reason}</p>}
+
+  {
+    !choosing && current === 1 && (
+      <>
+        <PlanIntro view={view} majorsHref={`${base}?tab=majors`} />
+        <SelectionBar view={view} back={Astro.url.pathname + Astro.url.search} />
       </>
     )
   }
+
+  {
+    !choosing && (
+      <div class="plan-columns">
+        <SkillTree view={view} tiers={tiers(view, tab)} tab={tab} selected={selected} base={base} mode={current === 0 ? "overview" : "add"} />
+        <aside class="plan-aside" aria-label={current === 0 ? "Course and requirements" : "Course and this semester"}>
+          {selected && (
+            <CourseDetail
+              view={view}
+              code={selected}
+              mode={current === 0 ? "overview" : "add"}
+              base={base}
+              where={where}
+              addHref={`${semesterBase}add/`}
+            />
+          )}
+          {current === 0 ? (
+            <RequirementTracker
+              view={view}
+              majorsHref={`${base}?tab=majors`}
+              courseHref={(code) => `${base}?${new URLSearchParams({ ...where, course: code })}#course-detail`}
+            />
+          ) : (
+            !selected && (
+              <section class="panel detail-hint" aria-label="Course details">
+                <p>Click a course in the tree to see its prerequisites and add it to this semester.</p>
+              </section>
+            )
+          )}
+        </aside>
+      </div>
+    )
+  }
 </CanvasLayout>
+
+<script>
+  // Picking courses reloads the page (a tile's link, Add, Remove, Submit), and
+  // each reload would jump to #course-detail. Keep the page where it was
+  // instead: remember the scroll before leaving, put it back on arrival. Only
+  // while the side panel is sticky (wide screens), where the detail is in view
+  // anyway; on a phone the jump down to the detail is the point. Storage can
+  // be missing (private windows), so fail quietly.
+  const KEY = "plan-scroll";
+  const aside = document.querySelector(".plan-aside");
+  const sticky = () => !!aside && getComputedStyle(aside).position === "sticky";
+  const remember = () => {
+    try {
+      sessionStorage.setItem(KEY, JSON.stringify({ path: location.pathname, y: scrollY }));
+    } catch {}
+  };
+  document.addEventListener("click", (e) => {
+    if ((e.target as Element).closest(".tile, .slot-course")) remember();
+  }, true);
+  document.addEventListener("submit", remember, true);
+
+  let saved: { path: string; y: number } | null = null;
+  try {
+    saved = JSON.parse(sessionStorage.getItem(KEY) ?? "null");
+    sessionStorage.removeItem(KEY);
+  } catch {}
+  if (saved && saved.path === location.pathname && sticky()) {
+    const y = saved.y;
+    history.replaceState(null, "", location.pathname + location.search);
+    scrollTo(0, y);
+    addEventListener("load", () => scrollTo(0, y), { once: true });
+  }
+</script>

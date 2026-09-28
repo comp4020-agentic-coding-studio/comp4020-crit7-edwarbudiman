@@ -1,6 +1,7 @@
-import { and, asc, desc, eq, lte, sql } from "drizzle-orm";
+import { and, asc, desc, eq, gt, gte, lte, sql } from "drizzle-orm";
+import { getCourse, getProgram } from "./catalogue";
 import { db } from "./db";
-import { type PlannedCourse, type Semester, plannedCourses, semesters } from "./schema";
+import { type PlannedCourse, type Semester, enrolments, plannedCourses, semesters, student } from "./schema";
 
 export type { PlannedCourse, Semester };
 export type SemesterPlan = Semester & { courses: PlannedCourse[] };
@@ -32,17 +33,78 @@ export function coursesFor(semesterId: string): PlannedCourse[] {
     .all();
 }
 
-// Every semester that has started before the current one, latest first.
+// When the student's first semester started: semesters before it aren't
+// theirs (a new student has none).
+function firstStart(): string {
+  const first = db.select({ id: student.firstSemesterId }).from(student).get()?.id;
+  return (first && getSemester(first)?.startsOn) || "";
+}
+
+// The student's semesters that started before the current one, latest first.
 export function previousPlans(on = today()): SemesterPlan[] {
   const current = currentSemester(on);
   if (!current) return [];
   return db
     .select()
     .from(semesters)
-    .where(sql`${semesters.startsOn} < ${current.startsOn}`)
+    .where(and(sql`${semesters.startsOn} < ${current.startsOn}`, gte(semesters.startsOn, firstStart())))
     .orderBy(desc(semesters.startsOn))
     .all()
     .map((s) => ({ ...s, courses: coursesFor(s.id) }));
+}
+
+// The semester after this one, if the calendar has it.
+export function nextSemester(id: string): Semester | undefined {
+  const s = getSemester(id);
+  if (!s) return undefined;
+  return db.select().from(semesters).where(gt(semesters.startsOn, s.startsOn)).orderBy(asc(semesters.startsOn)).limit(1).get();
+}
+
+// Units the student has submitted, in their semesters up to and including
+// this one.
+function unitsThrough(s: Semester): number {
+  return db
+    .select({ code: plannedCourses.code })
+    .from(plannedCourses)
+    .innerJoin(enrolments, eq(enrolments.semesterId, plannedCourses.semesterId))
+    .innerJoin(semesters, eq(semesters.id, plannedCourses.semesterId))
+    .where(and(lte(semesters.startsOn, s.startsOn), gte(semesters.startsOn, firstStart())))
+    .all()
+    .reduce((n, r) => n + (getCourse(r.code)?.units ?? 6), 0);
+}
+
+// Semesters after the current one that the student has started planning (or
+// the next one to plan, once the latest is submitted), earliest first. They
+// stop once the program's units are all submitted: there's no semester after
+// the last one.
+export function upcomingPlans(on = today()): SemesterPlan[] {
+  const current = currentSemester(on);
+  if (!current) return [];
+  const total = getProgram(db.select({ code: student.programCode }).from(student).get()?.code)?.minUnits ?? Infinity;
+  const plans: SemesterPlan[] = [];
+  let s = current;
+  while (isSubmitted(s.id) && unitsThrough(s) < total) {
+    const next = nextSemester(s.id);
+    if (!next) break;
+    plans.push({ ...next, courses: coursesFor(next.id) });
+    s = next;
+  }
+  return plans;
+}
+
+// --- enrolment -------------------------------------------------------------
+// A semester's picks are a draft until the student submits them.
+
+export const isSubmitted = (semesterId: string) =>
+  !!db.select().from(enrolments).where(eq(enrolments.semesterId, semesterId)).get();
+
+export function submitSemester(semesterId: string): void {
+  db.insert(enrolments).values({ semesterId }).onConflictDoNothing().run();
+}
+
+// Back to a draft, to change the picks.
+export function reopenSemester(semesterId: string): void {
+  db.delete(enrolments).where(eq(enrolments.semesterId, semesterId)).run();
 }
 
 export function addPlannedCourse(semesterId: string, code: string, title: string): void {

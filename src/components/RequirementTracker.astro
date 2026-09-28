@@ -1,0 +1,60 @@
+---
+// Overview's Requirements panel, as a checklist of what's still needed to
+// finish the program: named courses first, then pick-one-of lists, the
+// closest major/specialisation (its own rules nested), unit counts,
+// electives and the total. Met requirements fold into one line at the
+// bottom. The Majors tab compares every major; this counts the closest.
+import ChecklistStep from "./ChecklistStep.astro";
+import { checklist } from "../lib/checklist";
+import type { PlanView } from "../lib/planner";
+
+interface Props {
+  view: PlanView;
+  majorsHref: string;
+  courseHref: (code: string) => string;
+}
+
+const { view, majorsHref, courseHref } = Astro.props;
+const kind = view.program?.streamKind ?? "major";
+const { left, met } = checklist(view.progress, new Set(view.planned.map((t) => t.course.code)), kind);
+---
+
+<section class="panel tracker" aria-labelledby="tracker-title">
+  <h2 id="tracker-title" class="panel-title">Requirements</h2>
+  <p class="tracker-sub">
+    {view.program?.title}
+    <a href="/profile/">Change</a>
+  </p>
+  {
+    left.length === 0 ? (
+      <p class="check-all-done">✓ Every requirement is met.</p>
+    ) : (
+      <>
+        <h3 class="tracker-head">Still to do</h3>
+        <ol class="checklist">
+          {left.map((step) => (
+            <ChecklistStep step={step} courseHref={courseHref} />
+          ))}
+        </ol>
+      </>
+    )
+  }
+  <p class="rule-link"><a href={majorsHref}>Compare all {kind}s →</a></p>
+  {
+    met.length > 0 && (
+      <details class="tracker-met">
+        <summary>✓ {met.length} met</summary>
+        <ol class="checklist">
+          {met.map((step) => (
+            <ChecklistStep step={step} courseHref={courseHref} />
+          ))}
+        </ol>
+      </details>
+    )
+  }
+  <p class="tracker-key">
+    <span class="key-done" aria-hidden="true"></span> completed
+    <span class="key-planned" aria-hidden="true"></span> this semester's plan
+    <span class="key-mark" aria-hidden="true">◐</span> met once you submit
+  </p>
+</section>

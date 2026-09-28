@@ -1,0 +1,204 @@
+---
+// The selected tile, opened up: what the course is, when it runs, its
+// prerequisites ticked off, what it counts toward and unlocks — and, in Add
+// Course, the button that puts it in (or takes it out of) this plan.
+import { STREAMS } from "../lib/catalogue";
+import { iconFor, subjectColour } from "../lib/icons";
+import { type PlanView, canAdd, programAliases, stateLabel, unlocks } from "../lib/planner";
+import type { RequisiteContext } from "../lib/requisites";
+import ReqList from "./ReqList.astro";
+
+interface Props {
+  view: PlanView;
+  code: string;
+  mode: "overview" | "add";
+  base: string; // this section's URL
+  where: Record<string, string>; // the tree's tab (and major)
+  addHref: string; // the Add Course section, for Overview's link
+}
+
+const { view, code, mode, base, where, addHref } = Astro.props;
+const tile = view.tiles.get(code);
+const courseHref = (c: string) => `${base}?${new URLSearchParams({ ...where, course: c })}#course-detail`;
+// closing the panel: the same view with no course selected
+const closeHref = `${base}?${new URLSearchParams(where)}`;
+
+const ctx: RequisiteContext = {
+  done: [...view.tiles.values()]
+    .filter((t) => t.status === "done")
+    .map((t) => ({ code: t.course.code, units: t.course.units })),
+  current: new Set(view.planned.map((t) => t.course.code)),
+  programs: programAliases(view.program),
+};
+
+const check = tile ? canAdd(view, code) : undefined;
+const counts: string[] = [];
+if (tile) {
+  for (const rule of view.program?.rules ?? []) {
+    if (rule.kind === "courses" && rule.courses.includes(code)) counts.push(`${view.program!.short}: ${rule.label}`);
+  }
+  // every major/specialisation it counts toward, not just one
+  for (const streamCode of view.program?.streams ?? []) {
+    const stream = STREAMS.get(streamCode)!;
+    const rule = stream.rules.find((r) => r.kind === "courses" && r.courses.includes(code));
+    if (rule) counts.push(`${stream.title}: ${rule.label.toLowerCase()}`);
+  }
+  if (tile.course.transdisciplinary) counts.push("Transdisciplinary Problem-Solving");
+}
+const opens = tile ? unlocks(view, code) : [];
+---
+
+<section id="course-detail" class="panel course-detail" aria-labelledby="detail-title">
+  <a href={closeHref} class="detail-close" aria-label="Close course details">✕</a>
+  {
+    !tile ? (
+      <>
+        <h2 id="detail-title" class="panel-title">{code}</h2>
+        <p>
+          {code} isn't a course in the {view.program ? `${view.program.title}'s` : ""} catalogue. Codes look like
+          COMP2310.
+        </p>
+      </>
+    ) : (
+      <>
+        <div class="detail-head">
+          <span class={`tile tile-lg is-${tile.status}`} style={`--subj: ${subjectColour(tile.course.subject)}`} aria-hidden="true">
+            <span class="tile-face">
+              {iconFor(code) ? (
+                <img src={iconFor(code)} alt="" width="56" height="56" />
+              ) : (
+                <>
+                  <span class="tile-subject">{tile.course.subject}</span>
+                  <span class="tile-number">{code.slice(4)}</span>
+                </>
+              )}
+            </span>
+          </span>
+          <div>
+            <h2 id="detail-title" class="panel-title">
+              {code} <span>{tile.course.title}</span>
+            </h2>
+            <p class={`detail-status is-${tile.status}`}>
+              {stateLabel(tile)}
+              {tile.takenIn && ` · ${tile.takenIn}`}
+            </p>
+          </div>
+        </div>
+
+        {mode === "add" ? (
+          tile.status === "taking" && tile.plannedId && !view.submitted ? (
+            <form method="post" action="/api/plan" class="detail-action">
+              <input type="hidden" name="semester" value={view.semester.id} />
+              <input type="hidden" name="remove" value={tile.plannedId} />
+              <input type="hidden" name="back" value={courseHref(code)} />
+              <button type="submit" class="button-secondary">
+                Remove from your selection
+              </button>
+            </form>
+          ) : check?.ok ? (
+            <form method="post" action="/api/plan" class="detail-action">
+              <input type="hidden" name="semester" value={view.semester.id} />
+              <input type="hidden" name="code" value={code} />
+              {Object.entries(where).map(([k, v]) => <input type="hidden" name={k} value={v} />)}
+              <button type="submit" class="button-primary">
+                Add to this semester <span>· {tile.course.units} of {view.cap - view.load} units left</span>
+              </button>
+            </form>
+          ) : (
+            <p class="detail-why">{check && !check.ok && check.reason}</p>
+          )
+        ) : (
+          check?.ok && (
+            <p class="detail-action">
+              <a href={`${addHref}?${new URLSearchParams({ ...where, course: code })}#course-detail`}>Take it in Add Course →</a>
+            </p>
+          )
+        )}
+
+        <dl class="facts">
+          <dt>Units</dt>
+          <dd>{tile.course.units}</dd>
+          <dt>School</dt>
+          <dd>{tile.course.school}</dd>
+          {counts.length > 0 && (
+            <>
+              <dt>Counts toward</dt>
+              <dd>
+                <ul>
+                  {counts.map((c) => (
+                    <li>{c}</li>
+                  ))}
+                </ul>
+              </dd>
+            </>
+          )}
+          {counts.length === 0 && view.program && (
+            <>
+              <dt>Counts toward</dt>
+              <dd>Free elective</dd>
+            </>
+          )}
+        </dl>
+
+        <h3>Prerequisites</h3>
+        {tile.course.requires ? (
+          <ReqList req={tile.course.requires} ctx={ctx} courseHref={courseHref} />
+        ) : (
+          <p class="req-leaf met">
+            <span class="req-mark" aria-hidden="true">
+              ✓
+            </span>
+            None — open to anyone in the program.
+          </p>
+        )}
+        {tile.course.requisiteText && (
+          <details class="requisite-source">
+            <summary>ANU's wording</summary>
+            <p>{tile.course.requisiteText}</p>
+          </details>
+        )}
+        {tile.course.notes.length > 0 && (
+          <ul class="detail-notes">
+            {tile.course.notes.map((n) => (
+              <li>{n}</li>
+            ))}
+          </ul>
+        )}
+
+        {tile.course.incompatibleWith.length > 0 && (
+          <>
+            <h3>Can't be taken with</h3>
+            <p class="chips">
+              {tile.course.incompatibleWith.map((c) =>
+                view.tiles.has(c) ? (
+                  <a href={courseHref(c)} class:list={{ taken: tile.blockedBy.includes(c) }}>
+                    {c}
+                  </a>
+                ) : (
+                  <span>{c}</span>
+                ),
+              )}
+            </p>
+          </>
+        )}
+
+        {opens.length > 0 && (
+          <>
+            <h3>Unlocks</h3>
+            <p class="chips">
+              {opens.map((t) => (
+                <a href={courseHref(t.course.code)}>{t.course.code}</a>
+              ))}
+            </p>
+          </>
+        )}
+
+        <p class="detail-source">
+          <a href={tile.course.url} rel="external">
+            {code} on ANU Programs and Courses
+          </a>
+        </p>
+      </>
+    )
+  }
+</section>

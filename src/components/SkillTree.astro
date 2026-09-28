@@ -1,0 +1,338 @@
+---
+// The course skill tree: every course a square tile, in tiers by course
+// level, each tier in course-code order so a tile never moves when its state
+// changes. Under each tile its state in words. Clicking a tile opens its
+// detail (where Add Course's "Add to this semester" is). Hovering, focusing or selecting a tile traces its
+// prerequisites (solid: needed, dashed: one of several) and what it unlocks.
+// The legend doubles as a filter. Tabs switch between the program's path,
+// one major/specialisation at a time (with every one's progress to pick
+// from, and a short guide to completing the one being looked at), and all
+// courses. Overview and Add Course both render it, so a tile sits in the same
+// place in either section.
+import MajorGuide from "./MajorGuide.astro";
+import { iconFor, subjectColour } from "../lib/icons";
+import { type Phase, type PlanView, type Tab, type Tier, phaseOf, stateLabel, tabsFor } from "../lib/planner";
+
+interface Props {
+  view: PlanView;
+  tiers: Tier[];
+  tab: Tab;
+  selected?: string;
+  base: string; // this section's URL
+  mode: "overview" | "add";
+}
+
+
+const { view, tiers, tab, selected, base, mode } = Astro.props;
+
+// the tab (and major) this view is on, carried through every link and form
+const where: Record<string, string> = { tab, ...(view.major ? { major: view.major.code } : {}) };
+const href = (params: Record<string, string>) => `${base}?${new URLSearchParams(params)}`;
+const tileHref = (code: string) => `${href({ ...where, course: code })}#course-detail`;
+const back = href({ ...where, ...(selected ? { course: selected } : {}) });
+const kind = view.program?.streamKind ?? "major";
+const viewed = view.majors.find((m) => m.stream === view.major);
+// enough units but a rule still open: say how many, not "48 of 48"
+const rulesLeft = (m: (typeof view.majors)[number]) => {
+  const n = m.rules.filter((r) => !r.met && !r.optional).length;
+  return n === 1 ? "1 rule" : `${n} rules`;
+};
+const done = (t: Tier) => t.tiles.filter((x) => x.status === "done").length;
+
+const counts = new Map<Phase, number>();
+for (const t of tiers) for (const tile of t.tiles) counts.set(phaseOf(tile), (counts.get(phaseOf(tile)) ?? 0) + 1);
+
+// The legend, in reading order; each entry filters its state.
+const LEGEND: { phase: Phase; label: string; hint: string }[] = [
+  { phase: "done", label: "Done", hint: "completed in an earlier semester" },
+  { phase: "taking", label: view.submitted ? "Enrolled" : "Selected", hint: "in this semester's selection" },
+  { phase: "open-needed", label: "Needed · open", hint: "on a requirement you haven't filled, and you can select it now" },
+  { phase: "open", label: "Open", hint: "you can select it now; it would count as an elective or extra" },
+  { phase: "next-needed", label: "Needed · next", hint: "needed, and this semester's picks unlock it for next semester" },
+  { phase: "next", label: "Next", hint: "this semester's picks unlock it for next semester" },
+  { phase: "locked-needed", label: "Needed · locked", hint: "needed, but its prerequisites aren't done yet" },
+  { phase: "locked", label: "Locked", hint: "prerequisites not done yet" },
+  { phase: "excluded", label: "Excluded", hint: "incompatible with a course you've taken or picked" },
+  { phase: "later", label: "Taking later", hint: "picked for a later semester" },
+];
+---
+
+<section class="skill-tree" aria-labelledby="tree-title">
+  <div class="tree-toolbar">
+    <h2 id="tree-title" class="panel-title">Skill tree</h2>
+    <nav class="tree-tabs" aria-label="Tree views">
+      {
+        tabsFor(view.program).map((t) => (
+          <a href={href({ tab: t.id, ...(t.id === "majors" && view.major ? { major: view.major.code } : {}) })} aria-current={tab === t.id ? "page" : undefined}>
+            {t.label}
+          </a>
+        ))
+      }
+    </nav>
+    <form method="get" action={base} class="jump">
+      {Object.entries(where).map(([k, v]) => <input type="hidden" name={k} value={v} />)}
+      <label for="jump-code">Find a course</label>
+      <input id="jump-code" name="course" placeholder="COMP2310" maxlength="8" autocomplete="off" />
+      <button type="submit">Go</button>
+    </form>
+  </div>
+
+  {
+    tab === "majors" && (
+      <nav class="major-strip" aria-label={`${kind === "major" ? "Majors" : "Specialisations"}, closest first`}>
+        <p class="major-strip-intro">
+          {view.program?.streamRequired
+            ? `You'll need one ${kind} to graduate.`
+            : `A ${kind} is optional — without one, any 48 units of COMP count.`}{" "}
+          Nothing to choose here: see how close you are to each, and what's left.
+        </p>
+        <ol>
+          {view.majors.map((m) => (
+            <li>
+              <a
+                href={href({ tab: "majors", major: m.stream.code })}
+                class:list={["major-card", { met: m.met }]}
+                aria-current={view.major?.code === m.stream.code ? "true" : undefined}
+              >
+                <span class="major-name">{m.stream.title.replace(/ (Major|Specialisation)$/, "")}</span>
+                <span class="bar" aria-hidden="true">
+                  <span class="bar-done" style={`width: ${Math.min(100, (m.units / m.of) * 100)}%`} />
+                </span>
+                <span class="major-units">
+                  {m.met ? "Complete" : m.units >= m.of ? `${m.units} units · ${rulesLeft(m)} left` : `${m.units} of ${m.of} units`}
+                </span>
+              </a>
+            </li>
+          ))}
+        </ol>
+        {viewed && <MajorGuide major={viewed} courseHref={tileHref} />}
+      </nav>
+    )
+  }
+
+  {
+    mode === "overview" && (
+      <p class="tree-how">
+        This is where you stand. To choose courses for this semester, go to{" "}
+        <a href={`${base}add/?${new URLSearchParams(where)}`}>Add Course</a>.
+      </p>
+    )
+  }
+
+  <div class="tree-legend" role="group" aria-label="Legend — press a state to hide or show it">
+    {
+      LEGEND.filter((l) => counts.get(l.phase)).map((l) => (
+        <button type="button" class={`legend-item phase-${l.phase}`} data-phase={l.phase} aria-pressed="true" title={l.hint}>
+          <span class="swatch" aria-hidden="true" />
+          {l.label}
+          <span class="legend-count">{counts.get(l.phase)}</span>
+        </button>
+      ))
+    }
+  </div>
+
+  <p class="tree-markers">
+    <span class="swatch role role-core" aria-hidden="true"></span> program core
+    {
+      view.major && (
+        <>
+          <span class="swatch role role-stream" aria-hidden="true" /> in the {view.major.title}
+        </>
+      )
+    }
+  </p>
+
+  <div class="tree-canvas" data-selected={selected}>
+    <svg class="tree-edges" aria-hidden="true"></svg>
+    {
+      tiers.map((t) => (
+        <section class="tier" aria-labelledby={`tier-${t.tier}`}>
+          <header class="tier-head">
+            <h3 id={`tier-${t.tier}`}>{t.tier}-level</h3>
+            <span>
+              {done(t)} of {t.tiles.length} done
+            </span>
+          </header>
+          <ol class="tier-tiles">
+            {t.tiles.map((tile) => {
+              const { course, status, roles, links } = tile;
+              const phase = phaseOf(tile);
+              const icon = iconFor(course.code);
+              return (
+                <li class={`tile-cell phase-${phase}`}>
+                  <a
+                    class={`tile is-${status}${tile.needed ? " is-needed" : ""}`}
+                    href={tileHref(course.code)}
+                    data-code={course.code}
+                    data-links={[...links].map(([c, kind]) => `${c}:${kind}`).join(" ")}
+                    aria-current={selected === course.code ? "true" : undefined}
+                    aria-label={`${course.code} ${course.title}: ${stateLabel(tile)}`}
+                    style={`--subj: ${subjectColour(course.subject)}`}
+                  >
+                    <span class="tile-face">
+                      {icon ? (
+                        <img src={icon} alt="" width="44" height="44" />
+                      ) : (
+                        <>
+                          <span class="tile-subject">{course.subject}</span>
+                          <span class="tile-number">{course.code.slice(4)}</span>
+                        </>
+                      )}
+                      <span class="tile-units">{course.units}u</span>
+                    </span>
+                    <span class="tile-status" aria-hidden="true">
+                      {status === "done" ? "✓" : status === "taking" ? "●" : status === "excluded" ? "⊘" : status === "next" ? "→" : status === "locked" ? (
+                        <svg viewBox="0 0 16 16" width="10" height="10">
+                          <rect x="3" y="7" width="10" height="8" rx="1" fill="currentColor" />
+                          <path d="M5 7V5a3 3 0 0 1 6 0v2" fill="none" stroke="currentColor" stroke-width="1.8" />
+                        </svg>
+                      ) : tile.needed && status === "open" ? "!" : ""}
+                    </span>
+                    {roles.includes("core") && <span class="tile-role role-core" aria-hidden="true" />}
+                    {roles.includes("stream") && <span class="tile-role role-stream" aria-hidden="true" />}
+                  </a>
+                  <span class="tile-state" aria-hidden="true">
+                    {stateLabel(tile)}
+                  </span>
+                  <span class="tile-title" aria-hidden="true">
+                    {course.title}
+                  </span>
+                </li>
+              );
+            })}
+          </ol>
+        </section>
+      ))
+    }
+  </div>
+</section>
+
+<script>
+  // Trace a tile's prerequisites and unlocks as lines on the canvas. The
+  // selected tile stays traced; hover/focus previews another.
+  const canvas = document.querySelector<HTMLElement>(".tree-canvas");
+  const svg = canvas?.querySelector<SVGSVGElement>(".tree-edges");
+  if (canvas && svg) {
+    const tiles = new Map(
+      [...canvas.querySelectorAll<HTMLAnchorElement>(".tile")].map((a) => [a.dataset.code!, a]),
+    );
+    const linksOf = (a: HTMLElement) =>
+      (a.dataset.links ?? "")
+        .split(" ")
+        .filter(Boolean)
+        .map((pair) => pair.split(":") as [string, string]);
+    const NS = "http://www.w3.org/2000/svg";
+    const visible = (el: Element) => (el as HTMLElement).offsetParent !== null;
+
+    const point = (el: Element, edge: "top" | "bottom") => {
+      const box = el.getBoundingClientRect();
+      const origin = canvas.getBoundingClientRect();
+      return { x: box.left + box.width / 2 - origin.left, y: (edge === "top" ? box.top : box.bottom) - origin.top };
+    };
+
+    const line = (from: Element, to: Element, kind: string) => {
+      const a = point(from, "bottom");
+      const b = point(to, "top");
+      const bend = Math.max(24, Math.abs(b.y - a.y) / 2);
+      const path = document.createElementNS(NS, "path");
+      path.setAttribute("d", `M${a.x},${a.y} C${a.x},${a.y + bend} ${b.x},${b.y - bend} ${b.x},${b.y}`);
+      path.setAttribute("class", `edge edge-${kind}`);
+      svg.append(path);
+    };
+
+    const trace = (code: string | undefined) => {
+      svg.replaceChildren();
+      for (const t of tiles.values()) t.classList.remove("is-related", "is-focus");
+      const target = code ? tiles.get(code) : undefined;
+      canvas.classList.toggle("is-tracing", !!target && visible(target));
+      if (!target || !visible(target)) return;
+      svg.setAttribute("width", String(canvas.scrollWidth));
+      svg.setAttribute("height", String(canvas.scrollHeight));
+      target.classList.add("is-focus");
+      for (const [pre, kind] of linksOf(target)) {
+        const from = tiles.get(pre);
+        if (!from || !visible(from)) continue;
+        from.classList.add("is-related");
+        line(from, target, kind);
+      }
+      for (const [other, a] of tiles) {
+        if (other === code || !visible(a)) continue;
+        if (!linksOf(a).some(([pre]) => pre === code)) continue;
+        a.classList.add("is-related");
+        line(target, a, "unlocks");
+      }
+    };
+
+    const selected = () => canvas.dataset.selected || undefined;
+
+    // Deselect: close the course's detail and drop ?course= from the URL,
+    // without a reload. Clicking outside the tiles and the detail panel, the
+    // panel's ✕, the selected tile again, or Escape all do it.
+    const deselect = () => {
+      if (!selected()) return;
+      tiles.get(selected()!)?.removeAttribute("aria-current");
+      delete canvas.dataset.selected;
+      document.getElementById("course-detail")?.remove();
+      const url = new URL(location.href);
+      for (const key of ["course", "added", "refused"]) url.searchParams.delete(key);
+      url.hash = "";
+      history.replaceState(null, "", url);
+      trace(undefined);
+    };
+    document.addEventListener("click", (e) => {
+      const target = e.target as Element;
+      if (target.closest(".detail-close")) {
+        e.preventDefault();
+        deselect();
+        return;
+      }
+      if (target.closest(".tile, #course-detail, a, button, input, select, textarea, label, summary")) return;
+      deselect();
+    });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && !document.querySelector(".drawer.is-open")) deselect();
+    });
+
+    for (const [code, a] of tiles) {
+      a.addEventListener("mouseenter", () => trace(code));
+      a.addEventListener("focus", () => trace(code));
+      a.addEventListener("mouseleave", () => trace(selected()));
+      a.addEventListener("blur", () => trace(selected()));
+      a.addEventListener("click", (e) => {
+        if (code !== selected()) return;
+        e.preventDefault();
+        deselect();
+        a.blur();
+      });
+    }
+    trace(selected());
+    window.addEventListener("resize", () => trace(selected()));
+
+    // Legend filters: hide a state's tiles. Remembered per viewer; storage can
+    // be missing (private windows), so fail quietly.
+    let hidden = new Set<string>();
+    try {
+      hidden = new Set(JSON.parse(localStorage.getItem("tree-hidden") ?? "[]"));
+    } catch {}
+    const apply = () => {
+      for (const button of document.querySelectorAll<HTMLButtonElement>(".legend-item")) {
+        const phase = button.dataset.phase!;
+        button.setAttribute("aria-pressed", String(!hidden.has(phase)));
+        for (const cell of canvas.querySelectorAll<HTMLElement>(`.tile-cell.phase-${phase}`)) cell.hidden = hidden.has(phase);
+      }
+      trace(selected());
+    };
+    for (const button of document.querySelectorAll<HTMLButtonElement>(".legend-item")) {
+      button.addEventListener("click", () => {
+        const phase = button.dataset.phase!;
+        if (hidden.has(phase)) hidden.delete(phase);
+        else hidden.add(phase);
+        try {
+          localStorage.setItem("tree-hidden", JSON.stringify([...hidden]));
+        } catch {}
+        apply();
+      });
+    }
+    apply();
+  }
+</script>

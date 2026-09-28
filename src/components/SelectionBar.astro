@@ -1,0 +1,143 @@
+---
+// Add Course's selection: four slots (a full-time load is 4 courses, 24
+// units) that fill as the student adds courses from the tree, and the Submit
+// button that enrols them. Nothing counts until it's submitted. Once it is,
+// this shows the enrolment and opens the next semester — unless the program's
+// units are reached, when it says the program is done instead. The last
+// semester's slots shrink to what the program has left.
+import { formatRange } from "../lib/plans";
+import type { PlanView } from "../lib/planner";
+
+interface Props {
+  view: PlanView;
+  back: string; // this page, to return to after a remove
+}
+
+const { view, back } = Astro.props;
+const slots = Math.max(view.cap / 6, view.planned.length);
+const program = view.program;
+// rules the program still has open, once its units are all taken
+const unmet = view.progress.filter((r) => !r.met && !r.optional);
+const session = view.semester.label;
+const canSubmit = view.planned.length > 0 && view.broken.length === 0;
+---
+
+{
+  view.beyond && program && (
+    <section class="panel next-semester" aria-labelledby="done-title">
+      <h2 id="done-title" class="panel-title">
+        Program complete
+      </h2>
+      <p>
+        You finished all {program.minUnits} units of the {program.title} before {session}, so there's nothing to
+        choose here.
+      </p>
+    </section>
+  )
+}
+
+<section hidden={view.beyond && view.planned.length === 0} class:list={["panel selection", { submitted: view.submitted }]} aria-labelledby="selection-title">
+  <div class="selection-head">
+    <h2 id="selection-title" class="panel-title">
+      {view.submitted ? `Enrolled for ${session}` : `Your selection for ${session}`}
+    </h2>
+    <span class="selection-count">
+      {view.submitted ? "✓ Submitted" : `${view.planned.length} of ${view.cap / 6} courses · ${view.load} of ${view.cap} units`}
+    </span>
+  </div>
+
+  <ol class="slots">
+    {
+      Array.from({ length: slots }, (_, i) => {
+        const t = view.planned[i];
+        return t ? (
+          <li class="slot filled">
+            <a href={`${back.split("?")[0]}?course=${t.course.code}#course-detail`} class="slot-course">
+              <strong>{t.course.code}</strong>
+              <span>{t.course.title}</span>
+              <small>{t.course.units} units</small>
+            </a>
+            {!view.submitted && (
+              <form method="post" action="/api/plan">
+                <input type="hidden" name="semester" value={view.semester.id} />
+                <input type="hidden" name="remove" value={t.plannedId} />
+                <input type="hidden" name="back" value={back} />
+                <button type="submit" class="slot-remove" aria-label={`Remove ${t.course.code} from your selection`}>
+                  ✕
+                </button>
+              </form>
+            )}
+          </li>
+        ) : (
+          <li class="slot empty">
+            <span>Empty slot</span>
+          </li>
+        );
+      })
+    }
+  </ol>
+
+  {
+    view.submitted ? (
+      <form method="post" action="/api/plan" class="selection-actions">
+        <input type="hidden" name="semester" value={view.semester.id} />
+        <input type="hidden" name="action" value="reopen" />
+        <button type="submit" class="button-secondary">
+          Change this semester
+        </button>
+      </form>
+    ) : (
+      <form method="post" action="/api/plan" class="selection-actions">
+        <input type="hidden" name="semester" value={view.semester.id} />
+        <input type="hidden" name="action" value="submit" />
+        <button type="submit" class="button-primary" disabled={!canSubmit}>
+          Submit {view.planned.length || ""} {view.planned.length === 1 ? "course" : "courses"}
+        </button>
+        <span class="hint">
+          {view.planned.length === 0
+            ? "Click a course in the tree, then “Add to this semester”."
+            : view.broken.length > 0
+              ? `Remove ${view.broken.map((t) => t.course.code).join(", ")} first — its prerequisites aren't met.`
+              : "Nothing is enrolled until you submit. You can change it afterwards."}
+        </span>
+      </form>
+    )
+  }
+</section>
+
+{
+  view.finished && program && (
+    <section class="panel next-semester" aria-labelledby="done-title">
+      <h2 id="done-title" class="panel-title">
+        That's the whole program
+      </h2>
+      <p>
+        With {session} you've taken {view.unitsDone + view.load} of the {program.minUnits} units the {program.title}{" "}
+        needs, so there's no semester after this one.
+      </p>
+      {unmet.length > 0 && (
+        <p class="rule-warn">
+          Still not met: {unmet.map((r) => r.label).join(", ")}. Change an earlier semester to fit{" "}
+          {unmet.length === 1 ? "it" : "them"} in.
+        </p>
+      )}
+    </section>
+  )
+}
+
+{
+  view.submitted && !view.finished && view.next && (
+    <section class="panel next-semester" aria-labelledby="next-title">
+      <h2 id="next-title" class="panel-title">
+        Add courses to next semester
+      </h2>
+      <p>
+        {view.next.label} ({formatRange(view.next)}). What you just enrolled in counts as done there, so new courses
+        open up.
+      </p>
+      <a href={`/plan/${view.next.id}/add/`} class="button-primary">
+        Plan {view.next.label} →
+      </a>
+    </section>
+  )
+}

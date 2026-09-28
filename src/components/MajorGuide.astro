@@ -1,0 +1,100 @@
+---
+// How to complete the major (or specialisation) being looked at, in a few
+// plain sentences written from its rules — every one reads the same way, so
+// no major needs a layout of its own. Each line is ticked against the
+// student's courses (done and this semester's picks), the course lists
+// first, then the constraints over them, then ANU's own notes.
+import type { MajorProgress } from "../lib/planner";
+import type { RuleProgress } from "../lib/requirements";
+
+interface Props {
+  major: MajorProgress;
+  courseHref: (code: string) => string;
+}
+
+const { major, courseHref } = Astro.props;
+const { stream } = major;
+const name = stream.title;
+
+// Lists longer than this are summarised; their courses are the ones marked
+// in the tree below.
+const SHORT = 6;
+
+function sentence(r: RuleProgress): { lead: string; codes: string[]; more?: string } {
+  const rule = r.rule;
+  if (rule.kind === "courses") {
+    const short = rule.courses.length <= SHORT;
+    const codes = short ? rule.courses : [];
+    const more = short ? undefined : `a list of ${rule.courses.length} courses, marked in the tree`;
+    switch (rule.mode) {
+      case "all":
+        return { lead: rule.courses.length === 1 ? "Take" : "Take all of", codes: rule.courses };
+      case "min":
+        return { lead: `At least ${rule.units} units from`, codes, more };
+      case "exactly":
+        return { lead: `${rule.units} units from`, codes, more };
+      case "max":
+        return { lead: `Optionally, up to ${rule.units} units from`, codes, more };
+    }
+  }
+  if (rule.kind === "filter") {
+    if (rule.unclaimed) return { lead: `${rule.units} units from any ${rule.label}`, codes: [] };
+    return {
+      lead: rule.mode === "min" ? `At least ${rule.units} units of these at ${rule.label.replace(/ courses$/, "")}` : `No more than ${rule.units} units of these at ${rule.label.replace(/ courses$/, "")}`,
+      codes: [],
+    };
+  }
+  return { lead: r.label, codes: [] };
+}
+
+const lists = major.rules.filter((r) => !(r.rule.kind === "filter" && !r.rule.unclaimed));
+const limits = major.rules.filter((r) => r.rule.kind === "filter" && !r.rule.unclaimed);
+const have = (r: RuleProgress) => r.done + r.planned;
+---
+
+<section class="major-guide" aria-labelledby="major-guide-title">
+  <h3 id="major-guide-title">How to complete the {name}</h3>
+  <p class="major-guide-sum">
+    {major.met ? (
+      <strong class="major-guide-met">Complete — your courses cover every rule below.</strong>
+    ) : (
+      <>{stream.minUnits} units in total ({major.units} so far), made up of:</>
+    )}
+  </p>
+  <ul class="major-guide-rules">
+    {
+      [...lists, ...limits].map((r) => {
+        const s = sentence(r);
+        return (
+          <li class:list={["req-leaf", { met: r.met && !r.optional, note: r.optional }]}>
+            <span class="req-mark" aria-hidden="true">
+              {r.optional ? "i" : r.met ? "✓" : "✗"}
+            </span>
+            <span>
+              {s.lead}
+              {s.codes.length > 0 && ": "}
+              {s.codes.map((code, i) => (
+                <>
+                  {i > 0 && (i === s.codes.length - 1 ? (r.rule.kind === "courses" && r.rule.mode === "all" ? " and " : " or ") : ", ")}
+                  <a href={courseHref(code)}>{code}</a>
+                </>
+              ))}
+              {s.more && ` ${s.more}`}
+              {!r.met && !r.optional && <em> ({have(r)} of {r.need} so far)</em>}
+              {r.over && <em> (over the limit)</em>}
+              <span class="visually-hidden">{r.optional ? "(optional)" : r.met ? "(met)" : "(not met)"}</span>
+            </span>
+          </li>
+        );
+      })
+    }
+  </ul>
+  {stream.notes.length > 0 && (
+    <ul class="detail-notes">
+      {stream.notes.map((note) => <li>{note}</li>)}
+    </ul>
+  )}
+  <p class="hint">
+    <a href={stream.url} target="_blank" rel="noopener">Full rules on ANU Programs and Courses</a>
+  </p>
+</section>

@@ -1,0 +1,59 @@
+---
+// A prerequisite tree as a checklist: "All of" / "One of" groups, each
+// condition ticked against what the student has completed.
+import { getCourse } from "../lib/catalogue";
+import { type Req, type RequisiteContext, meets, unitsMatching } from "../lib/requisites";
+
+interface Props {
+  req: Req;
+  ctx: RequisiteContext;
+  courseHref: (code: string) => string;
+}
+
+const { req, ctx, courseHref } = Astro.props;
+const ok = meets(req, ctx);
+const mark = (met: boolean) => (met ? "✓" : "✗");
+---
+
+{
+  req.kind === "all" || req.kind === "any" ? (
+    <div class:list={["req-group", { met: ok }]}>
+      <p class="req-join">
+        <span class="req-mark" aria-hidden="true">
+          {mark(ok)}
+        </span>
+        {req.kind === "all" ? "All of" : "One of"}
+        <span class="visually-hidden">{ok ? "(met)" : "(not met)"}</span>
+      </p>
+      <ul>
+        {req.of.map((child) => (
+          <li>
+            <Astro.self req={child} ctx={ctx} courseHref={courseHref} />
+          </li>
+        ))}
+      </ul>
+    </div>
+  ) : (
+    <p class:list={["req-leaf", { met: ok, note: req.kind === "note" }]}>
+      <span class="req-mark" aria-hidden="true">
+        {req.kind === "note" ? "i" : mark(ok)}
+      </span>
+      {req.kind === "course" ? (
+        <>
+          {getCourse(req.code) ? <a href={courseHref(req.code)}>{req.code}</a> : <span>{req.code}</span>}{" "}
+          {getCourse(req.code)?.title ?? "(no longer offered)"}
+          {req.concurrent && <em> — or take it this semester</em>}
+        </>
+      ) : req.kind === "units" ? (
+        <>
+          {req.text} <em>({unitsMatching(req, ctx.done)} so far)</em>
+        </>
+      ) : req.kind === "program" ? (
+        <>Enrolled in {req.text}</>
+      ) : req.kind === "note" ? (
+        <>{req.text} <em>(not checked by the planner)</em></>
+      ) : null}
+      {req.kind !== "note" && <span class="visually-hidden">{ok ? "(met)" : "(not met)"}</span>}
+    </p>
+  )
+}

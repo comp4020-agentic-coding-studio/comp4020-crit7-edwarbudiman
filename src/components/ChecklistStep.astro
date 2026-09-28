@@ -1,0 +1,59 @@
+---
+// One step of the Requirements checklist: its mark (✓ done, ◐ selected this
+// semester, ✗ to do), the step in words with its course codes (each opens the
+// course's detail), a thin bar for unit counts, and — for a major or
+// specialisation — its own rules nested under it.
+import type { Mark, Step } from "../lib/checklist";
+
+interface Props {
+  step: Step;
+  courseHref: (code: string) => string;
+}
+
+const { step, courseHref } = Astro.props;
+const MARKS: Record<Mark, { sign: string; says: string }> = {
+  done: { sign: "✓", says: "done" },
+  planned: { sign: "◐", says: "met once this semester is submitted" },
+  todo: { sign: "✗", says: "to do" },
+  info: { sign: "i", says: "optional" },
+  over: { sign: "!", says: "over the limit" },
+};
+const pct = (n: number, of: number) => `${Math.min(100, of ? (n / of) * 100 : 0)}%`;
+---
+
+<li class={`check is-${step.mark}`}>
+  <span class="check-mark" aria-hidden="true">{MARKS[step.mark].sign}</span>
+  <div class="check-body">
+    <p class="check-line">
+      {step.lead}{" "}
+      {
+        step.codes.map((c, i) => (
+          <>
+            {i > 0 && (i === step.codes.length - 1 ? ` ${step.join} ` : ", ")}
+            <a href={courseHref(c.code)}>{c.code}</a>
+            {c.selected && <em class="check-selected"> (selected)</em>}
+          </>
+        ))
+      }
+      {step.more && ` ${step.more}`}{" "}
+      <span class="visually-hidden">({MARKS[step.mark].says})</span>
+    </p>
+    {
+      step.bar && step.mark !== "done" && (
+        <div class="bar bar-thin" aria-hidden="true">
+          <span class="bar-done" style={`width: ${pct(step.bar.done, step.bar.need)}`} />
+          <span class="bar-planned" style={`width: ${pct(step.bar.planned, step.bar.need)}`} />
+        </div>
+      )
+    }
+    {
+      step.nested && step.mark !== "done" && (
+        <ol class="checklist checklist-nested">
+          {step.nested.map((s) => (
+            <Astro.self step={s} courseHref={courseHref} />
+          ))}
+        </ol>
+      )
+    }
+  </div>
+</li>

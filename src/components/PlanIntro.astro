@@ -1,0 +1,78 @@
+---
+// Add Course's short explanation: what the program asks for, what majors
+// (or specialisations) are, and how to pick. The requirement list is written
+// from the program's rules, so it's the same rules the tree and the tracker
+// use.
+import { getCourse } from "../lib/catalogue";
+import type { PlanView } from "../lib/planner";
+import type { Rule } from "../lib/requirements";
+
+interface Props {
+  view: PlanView;
+  majorsHref: string;
+}
+
+const { view, majorsHref } = Astro.props;
+const program = view.program!;
+const kind = program.streamKind;
+
+function brief(rule: Rule): string | null {
+  switch (rule.kind) {
+    case "total":
+      return `${rule.units} units in total — about ${Math.round(rule.units / 6)} courses.`;
+    case "courses":
+      if (rule.mode === "all") return `Compulsory: ${rule.courses.join(", ")}.`;
+      if (rule.courses.length <= 3) {
+        const name = getCourse(rule.courses[0]!)?.title ?? rule.label;
+        return `${rule.label === "Foundations" ? "Foundations" : name}: one of ${rule.courses.join(" or ")}.`;
+      }
+      return rule.mode === "max"
+        ? `${rule.label}: up to ${rule.units} units.`
+        : `${rule.label}: ${rule.units} units from a list of ${rule.courses.length}.`;
+    case "filter":
+      return rule.mode === "min" ? `At least ${rule.units} units of ${rule.label}.` : `No more than ${rule.units} units of ${rule.label}.`;
+    case "stream":
+      return program.streamRequired
+        ? `A ${kind} (${rule.units} units) — one is required.`
+        : `A ${kind} (${rule.units} units) — optional; any 48 units of COMP courses count instead.`;
+    case "electives":
+      return `${rule.units} units of electives — any ANU course.`;
+  }
+}
+---
+
+<section class="panel plan-intro" aria-labelledby="intro-title">
+  <h2 id="intro-title" class="panel-title">Choosing your courses</h2>
+  <div class="intro-grid">
+    <div>
+      <h3>What the {program.title} needs</h3>
+      <p>
+        {program.minUnits} units over {program.duration.replace(" full-time", "")}. The courses every student must take show
+        as <span class="chip-needed">Needed</span> in the tree; take the green ones first.
+      </p>
+      <details>
+        <summary>All the requirements</summary>
+        <ul>
+          {program.rules.map(brief).filter(Boolean).map((line) => <li>{line}</li>)}
+        </ul>
+      </details>
+    </div>
+    <div>
+      <h3>{kind === "major" ? "Majors" : "Specialisations"}</h3>
+      <p>
+        A {kind} is a set of courses in one area — like Software Development or Cyber Security. You don't sign up for one
+        here: the <a href={majorsHref}>{kind === "major" ? "Majors" : "Specialisations"} tab</a> shows how close you are to
+        each and what's left, so you can steer toward one as you go.
+      </p>
+    </div>
+    <div>
+      <h3>How to pick</h3>
+      <ol class="intro-steps">
+        <li>Click a course in the skill tree.</li>
+        <li>Press <strong>Add to this semester</strong>.</li>
+        <li>Pick up to 4, then <strong>Submit</strong>.</li>
+      </ol>
+      <p class="hint">A course is only closed if its prerequisites aren't done yet.</p>
+    </div>
+  </div>
+</section>

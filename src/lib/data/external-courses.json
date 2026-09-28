@@ -1,0 +1,1306 @@
+{
+  "_source": "ANU Programs and Courses course pages (https://programsandcourses.anu.edu.au/<year>/course/<code>), for courses outside the School of Computing that SoCo requisites, majors, specialisations or program rules name. Offerings and the TD tag as in soco-courses.json.",
+  "_note": "catalogueYear is 2027 where the course is in that catalogue, else 2026. Codes named in requisites but absent from both catalogues: COMP2130, COMP3100, COMP3420, COMP4540, COMP4560, COMP4690, COMP4810, COMP6311, COMP6461, COMP6719, COMP6990, COMP7230, COMP7240, COMP8400, COMP8755, COMP8910, COMP8930, COMP8960, ENGN8534, PHIL2080, STAT6039.",
+  "_fetchedOn": "2026-09-25",
+  "courses": [
+    {
+      "code": "ARTH2181",
+      "title": "Digital Approaches to Art History and Curatorship",
+      "level": "undergraduate",
+      "units": 6,
+      "subjectArea": "Art History",
+      "offeredBy": "School of Art and Design",
+      "catalogueYear": 2027,
+      "hasPrerequisite": true,
+      "incompatibleWith": [],
+      "requisiteText": "To enrol in this course you must have completed 12 units of 1,000 level courses.",
+      "offerings": {
+        "2026": [],
+        "2027": [
+          "S2"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "ASIA3032",
+      "title": "Technology and Society in Asia",
+      "level": "undergraduate",
+      "units": 6,
+      "subjectArea": "Asian Studies",
+      "offeredBy": "School of Culture History and Language",
+      "catalogueYear": 2027,
+      "hasPrerequisite": true,
+      "incompatibleWith": [],
+      "requisiteText": "To enrol in this course, you must have completed a minimum of 6 units from 2000- or 3000-level courses, or 24 units of ASIA coded courses, or 72 units of tertiary courses.",
+      "offerings": {
+        "2026": [
+          "S1"
+        ],
+        "2027": [
+          "S1"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "COMP1710",
+      "title": "Web Development and Design",
+      "level": "undergraduate",
+      "units": 6,
+      "subjectArea": "Computer Science",
+      "offeredBy": "School of Computing",
+      "catalogueYear": 2026,
+      "hasPrerequisite": false,
+      "incompatibleWith": [
+        "COMP6780"
+      ],
+      "requisiteText": "Incompatible with COMP6780",
+      "offerings": {
+        "2026": []
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "CRIM2010",
+      "title": "Cybercrime: an introduction",
+      "level": "undergraduate",
+      "units": 6,
+      "subjectArea": "Criminology",
+      "offeredBy": "POLIS: The Centre for Social Policy Research",
+      "catalogueYear": 2027,
+      "hasPrerequisite": true,
+      "incompatibleWith": [],
+      "requisiteText": "To enrol in this course, students must have completed at least 24 units of courses at the 1000 or 2000 level.",
+      "offerings": {
+        "2026": [
+          "S2"
+        ],
+        "2027": [
+          "Winter"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "DESN2002",
+      "title": "Foundations of Creative Code",
+      "level": "undergraduate",
+      "units": 6,
+      "subjectArea": "Design",
+      "offeredBy": "School of Art and Design",
+      "catalogueYear": 2027,
+      "hasPrerequisite": true,
+      "incompatibleWith": [
+        "COMP1720",
+        "COMP6720",
+        "DESN6002"
+      ],
+      "requisiteText": "You are not able to enrol in this course if you have previously completed any of the following courses: COMP1720, COMP6720 or DESN6002.",
+      "offerings": {
+        "2026": [],
+        "2027": [
+          "S1"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "DESN2004",
+      "title": "Autonomous Agents: Natural and Algorithmic Systems in Art and Design",
+      "level": "undergraduate",
+      "units": 6,
+      "subjectArea": "Design",
+      "offeredBy": "School of Art and Design",
+      "catalogueYear": 2027,
+      "hasPrerequisite": true,
+      "incompatibleWith": [
+        "DESN2004",
+        "DESN6004"
+      ],
+      "requisiteText": "To enrol in this course you must have completed 24 units of courses towards an ANU degree, and you must have completed DESN2002 or DESN2010. You are not able to enrol in this course if you have previously completed DESN2004 or DESN6004 (Dynamic Design).",
+      "offerings": {
+        "2026": [
+          "S2"
+        ],
+        "2027": [
+          "S2"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "DESN2006",
+      "title": "Front-End Web: Crafting Online Experience",
+      "level": "undergraduate",
+      "units": 6,
+      "subjectArea": "Design",
+      "offeredBy": "School of Art and Design",
+      "catalogueYear": 2027,
+      "hasPrerequisite": true,
+      "incompatibleWith": [
+        "DESN6006"
+      ],
+      "requisiteText": "You are not able to enrol in this course if you have previously completed DESN6006.",
+      "offerings": {
+        "2026": [
+          "S2"
+        ],
+        "2027": [
+          "S2"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "DESN2008",
+      "title": "Design Thinking: Human-Centred Design Methodologies",
+      "level": "undergraduate",
+      "units": 6,
+      "subjectArea": "Design",
+      "offeredBy": "School of Art and Design",
+      "catalogueYear": 2027,
+      "hasPrerequisite": true,
+      "incompatibleWith": [],
+      "requisiteText": "To enrol in this course you must have completed 36 units of tertiary study, including completion of DESN1003.",
+      "offerings": {
+        "2026": [
+          "S2"
+        ],
+        "2027": [
+          "S2"
+        ]
+      },
+      "transdisciplinary": true
+    },
+    {
+      "code": "DESN2010",
+      "title": "Making Creative and Critical Technologies: Physical Computing for Design and Art",
+      "level": "undergraduate",
+      "units": 6,
+      "subjectArea": "Design",
+      "offeredBy": "School of Art and Design",
+      "catalogueYear": 2027,
+      "hasPrerequisite": false,
+      "incompatibleWith": [],
+      "requisiteText": "",
+      "offerings": {
+        "2026": [
+          "S1"
+        ],
+        "2027": [
+          "S1"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "ENGN1211",
+      "title": "Engineering Design 1: Discovering Engineering",
+      "level": "undergraduate",
+      "units": 6,
+      "subjectArea": "Engineering",
+      "offeredBy": "School of Engineering",
+      "catalogueYear": 2027,
+      "hasPrerequisite": false,
+      "incompatibleWith": [],
+      "requisiteText": "",
+      "offerings": {
+        "2026": [
+          "S1"
+        ],
+        "2027": [
+          "S1"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "ENGN1218",
+      "title": "Introduction to Electronics",
+      "level": "undergraduate",
+      "units": 6,
+      "subjectArea": "Engineering",
+      "offeredBy": "School of Engineering",
+      "catalogueYear": 2027,
+      "hasPrerequisite": false,
+      "incompatibleWith": [],
+      "requisiteText": "",
+      "offerings": {
+        "2026": [
+          "S2"
+        ],
+        "2027": [
+          "S2"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "ENGN2218",
+      "title": "Electronic Systems and Design",
+      "level": "undergraduate",
+      "units": 6,
+      "subjectArea": "Engineering",
+      "offeredBy": "School of Engineering",
+      "catalogueYear": 2027,
+      "hasPrerequisite": true,
+      "incompatibleWith": [],
+      "requisiteText": "To enrol in this course you must have completed ENGN1218.",
+      "offerings": {
+        "2026": [
+          "S1"
+        ],
+        "2027": [
+          "S1"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "ENGN2219",
+      "title": "Computer Architecture",
+      "level": "undergraduate",
+      "units": 6,
+      "subjectArea": "Engineering",
+      "offeredBy": "School of Computing",
+      "catalogueYear": 2027,
+      "hasPrerequisite": true,
+      "incompatibleWith": [
+        "COMP2300",
+        "COMP6300",
+        "COMP6719"
+      ],
+      "requisiteText": "To enrol in this course you must have completed one of:\nCOMP1100 - Programming as Problem Solving\nCOMP1130 - Programming as Problem Solving (Advanced)\nCOMP1730 - Programming for Scientists\nIncompatible with:\nCOMP2300 - Computer Organisation\nCOMP6300 - Computer Organisation\nCOMP6719 - Computer Systems & Organisation",
+      "offerings": {
+        "2026": [
+          "S1"
+        ],
+        "2027": [
+          "S1"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "ENGN2228",
+      "title": "Signals and Systems",
+      "level": "undergraduate",
+      "units": 6,
+      "subjectArea": "Engineering",
+      "offeredBy": "School of Engineering",
+      "catalogueYear": 2027,
+      "hasPrerequisite": true,
+      "incompatibleWith": [],
+      "requisiteText": "To enrol in this course you must have successfully completed MATH1013 or MATH1014 or MATH1115 or MATH1116.",
+      "offerings": {
+        "2026": [
+          "S2"
+        ],
+        "2027": [
+          "S2"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "ENGN2300",
+      "title": "Engineering Design 2: Systems Approaches for Design",
+      "level": "undergraduate",
+      "units": 6,
+      "subjectArea": "Engineering",
+      "offeredBy": "School of Engineering",
+      "catalogueYear": 2027,
+      "hasPrerequisite": true,
+      "incompatibleWith": [
+        "ENGN2225"
+      ],
+      "requisiteText": "To enrol in this course you must have completed ENGN1211.\nIncompatible with ENGN2225.",
+      "offerings": {
+        "2026": [
+          "S1"
+        ],
+        "2027": [
+          "S1"
+        ]
+      },
+      "transdisciplinary": true
+    },
+    {
+      "code": "ENGN3539",
+      "title": "Computer Networks",
+      "level": "undergraduate",
+      "units": 6,
+      "subjectArea": "Engineering",
+      "offeredBy": "School of Computing",
+      "catalogueYear": 2027,
+      "hasPrerequisite": true,
+      "incompatibleWith": [
+        "COMP3310",
+        "COMP6331",
+        "ENGN6539"
+      ],
+      "requisiteText": "To enrol in this course you must have successfully completed ENGN2219.\nIncompatible with COMP3310, COMP6331 and ENGN6539.",
+      "offerings": {
+        "2026": [
+          "S1"
+        ],
+        "2027": [
+          "S1"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "ENGN4213",
+      "title": "Digital Systems and Microprocessors",
+      "level": "undergraduate",
+      "units": 6,
+      "subjectArea": "Engineering",
+      "offeredBy": "School of Engineering",
+      "catalogueYear": 2027,
+      "hasPrerequisite": true,
+      "incompatibleWith": [
+        "ENGN6213"
+      ],
+      "requisiteText": "To enrol in this course, you must have completed ENGN2218 or ENGN2219 or COMP2300. It should be noted that students who have done COMP2300 and have no engineering background may need to undertake some independent review of introductory electrical knowledge such as basic physics and circuit theory.\nIncompatible with ENGN6213.",
+      "offerings": {
+        "2026": [
+          "S1"
+        ],
+        "2027": [
+          "S1"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "ENGN4528",
+      "title": "Computer Vision",
+      "level": "undergraduate",
+      "units": 6,
+      "subjectArea": "Engineering",
+      "offeredBy": "School of Engineering",
+      "catalogueYear": 2027,
+      "hasPrerequisite": true,
+      "incompatibleWith": [
+        "ENGN6528",
+        "COMP4528",
+        "COMP6528"
+      ],
+      "requisiteText": "To enrol in this course you must have completed\nENGN2228 AND (COMP1100 OR COMP1130 OR COMP1730))\nOR COMP2120\nOR COMP3600\nIncompatible with ENGN6528 and COMP4528 and COMP6528.",
+      "offerings": {
+        "2026": [
+          "S1"
+        ],
+        "2027": [
+          "S1"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "ENGN6213",
+      "title": "Digital Systems and Microprocessors",
+      "level": "postgraduate",
+      "units": 6,
+      "subjectArea": "Engineering",
+      "offeredBy": "School of Engineering",
+      "catalogueYear": 2027,
+      "hasPrerequisite": false,
+      "incompatibleWith": [
+        "ENGN4213"
+      ],
+      "requisiteText": "To enrol in this course you must be studying Master of Engineering or Master of Computing or Master of Computing (Advanced). Incompatible with ENGN4213.",
+      "offerings": {
+        "2026": [
+          "S1"
+        ],
+        "2027": [
+          "S1"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "ENGN6528",
+      "title": "Computer Vision",
+      "level": "postgraduate",
+      "units": 6,
+      "subjectArea": "Engineering",
+      "offeredBy": "School of Engineering",
+      "catalogueYear": 2027,
+      "hasPrerequisite": false,
+      "incompatibleWith": [
+        "COMP6528",
+        "COMP4528",
+        "ENGN4528"
+      ],
+      "requisiteText": "To enrol in this course you must be studying Master of Engineering.\nIncompatible with COMP6528 and COMP4528 and ENGN4528.",
+      "offerings": {
+        "2026": [
+          "S1"
+        ],
+        "2027": [
+          "S1"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "ENGN6539",
+      "title": "Computer Networks",
+      "level": "postgraduate",
+      "units": 6,
+      "subjectArea": "Engineering",
+      "offeredBy": "School of Computing",
+      "catalogueYear": 2027,
+      "hasPrerequisite": false,
+      "incompatibleWith": [
+        "ENGN3539",
+        "COMP3310",
+        "COMP6331"
+      ],
+      "requisiteText": "To enrol in this course you must be studying Master of Engineering. Incompatible with ENGN3539, COMP3310 and COMP6331.",
+      "offerings": {
+        "2026": [
+          "S1"
+        ],
+        "2027": [
+          "S1"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "ENGN8100",
+      "title": "Introduction to Systems Engineering",
+      "level": "postgraduate",
+      "units": 6,
+      "subjectArea": "Engineering",
+      "offeredBy": "School of Engineering",
+      "catalogueYear": 2027,
+      "hasPrerequisite": false,
+      "incompatibleWith": [],
+      "requisiteText": "To enrol in this course you must be studying Master of Engineering, Master of Computing, Master of Computing (Advanced), Master of Project Management, Master of Business Information Systems or Graduate Certificate in Nuclear Technology and Regulation.",
+      "offerings": {
+        "2026": [
+          "S1"
+        ],
+        "2027": [
+          "S1"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "ENGN8260",
+      "title": "Professional Practice: Responsible Innovation and Leadership",
+      "level": "postgraduate",
+      "units": 6,
+      "subjectArea": "Engineering",
+      "offeredBy": "School of Engineering",
+      "catalogueYear": 2027,
+      "hasPrerequisite": true,
+      "incompatibleWith": [],
+      "requisiteText": "To enrol in this course you must be enrolled in the Master of Engineering.",
+      "offerings": {
+        "2026": [],
+        "2027": []
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "ENGN8280",
+      "title": "Responsible Practice, Innovation and Leadership",
+      "level": "postgraduate",
+      "units": 6,
+      "subjectArea": "Engineering",
+      "offeredBy": "School of Engineering",
+      "catalogueYear": 2027,
+      "hasPrerequisite": true,
+      "incompatibleWith": [
+        "COMP8260",
+        "ENGN8260",
+        "COMP8280"
+      ],
+      "requisiteText": "To enrol in this course you must be enrolled in the Master of Engineering.\nIncompatible with COMP8260 and ENGN8260 and COMP8280.",
+      "offerings": {
+        "2026": [
+          "S1",
+          "S2"
+        ],
+        "2027": [
+          "S1",
+          "S2"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "ENGN8501",
+      "title": "Advanced Topics in Computer Vision",
+      "level": "postgraduate",
+      "units": 6,
+      "subjectArea": "Engineering",
+      "offeredBy": "School of Engineering",
+      "catalogueYear": 2027,
+      "hasPrerequisite": true,
+      "incompatibleWith": [],
+      "requisiteText": "To enrol in this course you must have completed ENGN6528 or COMP6528.",
+      "offerings": {
+        "2026": [],
+        "2027": []
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "ENVS2015",
+      "title": "GIS and Spatial Analysis",
+      "level": "undergraduate",
+      "units": 6,
+      "subjectArea": "Environmental Science",
+      "offeredBy": "Fenner School of Environment and Society",
+      "catalogueYear": 2027,
+      "hasPrerequisite": true,
+      "incompatibleWith": [
+        "ENVS6015"
+      ],
+      "requisiteText": "To enrol in this course you must have completed 24 units towards a degree.\nIncompatible with ENVS6015.",
+      "offerings": {
+        "2026": [
+          "S2"
+        ],
+        "2027": [
+          "S2"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "INFS1001",
+      "title": "Business Information Systems",
+      "level": "undergraduate",
+      "units": 6,
+      "subjectArea": "Information Systems",
+      "offeredBy": "Research School of Management",
+      "catalogueYear": 2027,
+      "hasPrerequisite": false,
+      "incompatibleWith": [],
+      "requisiteText": "",
+      "offerings": {
+        "2026": [
+          "S1"
+        ],
+        "2027": [
+          "S1",
+          "S2"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "INFS2024",
+      "title": "Information Systems Analysis",
+      "level": "undergraduate",
+      "units": 6,
+      "subjectArea": "Information Systems",
+      "offeredBy": "Research School of Management",
+      "catalogueYear": 2027,
+      "hasPrerequisite": true,
+      "incompatibleWith": [],
+      "requisiteText": "To enrol in this course, you must have completed at least one of the following courses: INFS1001 - Business Information Systems COMP1100 - Programming as Problem Solving COMP1720 - Art and Interaction Computing COMP1730 - Programming for Scientists .",
+      "offerings": {
+        "2026": [
+          "S1"
+        ],
+        "2027": [
+          "S1"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "INFS3002",
+      "title": "Enterprise Systems in Business",
+      "level": "undergraduate",
+      "units": 6,
+      "subjectArea": "Information Systems",
+      "offeredBy": "Research School of Management",
+      "catalogueYear": 2027,
+      "hasPrerequisite": true,
+      "incompatibleWith": [],
+      "requisiteText": "To enrol in this course, you must have completed at least one of the following courses: INFS2005 - Accounting Information Systems INFS2024 - Info Systems Analysis COMP2400 - Relational Databases .",
+      "offerings": {
+        "2026": [
+          "S2"
+        ],
+        "2027": [
+          "S2"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "INFS3024",
+      "title": "Information Systems Management",
+      "level": "undergraduate",
+      "units": 6,
+      "subjectArea": "Information Systems",
+      "offeredBy": "Research School of Management",
+      "catalogueYear": 2027,
+      "hasPrerequisite": true,
+      "incompatibleWith": [],
+      "requisiteText": "To enrol in this course, you must have completed at least one of the following courses: INFS2024 - Info Systems Analysis COMP2400 - Relational Databases .",
+      "offerings": {
+        "2026": [
+          "S1"
+        ],
+        "2027": [
+          "S1"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "INFS3059",
+      "title": "Information Systems Capstone Project",
+      "level": "undergraduate",
+      "units": 6,
+      "subjectArea": "Information Systems",
+      "offeredBy": "Research School of Management",
+      "catalogueYear": 2027,
+      "hasPrerequisite": true,
+      "incompatibleWith": [],
+      "requisiteText": "To enrol in this course, you must:be enrolled in the Bachelor of Computing (BCOMP) with an Information Systems major (INFS-MAJ) and have completed both: INFS2024 - Info Systems Analysis and COMP2400 - Relational Databases or have completed at least one of the following courses: INFS3002 - Enterprise Systems in Business INFS3024 - Info Syst Management .",
+      "offerings": {
+        "2026": [
+          "S2"
+        ],
+        "2027": [
+          "S2"
+        ]
+      },
+      "transdisciplinary": true
+    },
+    {
+      "code": "INFS8004",
+      "title": "Enterprise Systems and Strategy",
+      "level": "postgraduate",
+      "units": 6,
+      "subjectArea": "Information Systems",
+      "offeredBy": "Research School of Management",
+      "catalogueYear": 2027,
+      "hasPrerequisite": true,
+      "incompatibleWith": [],
+      "requisiteText": "To enrol in this course, you must: be enrolled in the MMGNT - Master of Management or have completed INFS7004 - Accounting Information Systems .",
+      "offerings": {
+        "2026": [
+          "S1"
+        ],
+        "2027": [
+          "S1"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "INFS8205",
+      "title": "Digital Strategy, Executive and Operations",
+      "level": "postgraduate",
+      "units": 6,
+      "subjectArea": "Information Systems",
+      "offeredBy": "Research School of Management",
+      "catalogueYear": 2027,
+      "hasPrerequisite": true,
+      "incompatibleWith": [],
+      "requisiteText": "To enrol in this course, you must have:be enrolled in one of the following programs: MMGNT - Master of Management ,or have completed at least one of the following courses: INFS8004 - Enterprise Systems INFS8008 - Intelligent Business Analysis INFS8210 - Business Analytics .",
+      "offerings": {
+        "2026": [
+          "S1"
+        ],
+        "2027": [
+          "S1"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "LAWS8445",
+      "title": "Information Technology Law",
+      "level": "postgraduate",
+      "units": 6,
+      "subjectArea": "Laws",
+      "offeredBy": "ANU Law School",
+      "catalogueYear": 2027,
+      "hasPrerequisite": true,
+      "incompatibleWith": [
+        "LAWS4245"
+      ],
+      "requisiteText": "To enrol in this course you must be studying a;\nMaster of Laws (MLLM) and have completed or be completing LAWS8586 Law and Legal Institutions; or\nGraduate Certificate of Law (CLAW) and have completed or be completing LAWS8586 Law and Legal Institutions; or\nGraduate Certificate of New Technologies Law; or\nJuris Doctor (MJD) and have completed or be completing five 6100 level LAWS courses; or\nMaster of Financial Management and Law (MFIML) and have completed or be completing LAWS8586 Law and Legal Institutions.\nYou are not able to enrol in this course if you have previously completed LAWS4245 Information Technology Law.\nStudents undertaking any ANU graduate program may apply for this course. Enrolments are accepted on a case-by-case basis. Please contact the ANU College of Law for appropriate permission.",
+      "offerings": {
+        "2026": [
+          "S1"
+        ],
+        "2027": [
+          "S1"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "MATH1003",
+      "title": "Algebra and Calculus Methods",
+      "level": "undergraduate",
+      "units": 6,
+      "subjectArea": "Mathematics",
+      "offeredBy": "Mathematical Sciences Institute",
+      "catalogueYear": 2027,
+      "hasPrerequisite": false,
+      "incompatibleWith": [
+        "MATH1013",
+        "MATH1113",
+        "MATH1115"
+      ],
+      "requisiteText": "You are not able to enrol in this course if you have previously studied MATH1013 or MATH1113 or MATH1115",
+      "offerings": {
+        "2026": [
+          "S1"
+        ],
+        "2027": [
+          "S1"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "MATH1005",
+      "title": "Discrete Mathematical Models",
+      "level": "undergraduate",
+      "units": 6,
+      "subjectArea": "Mathematics",
+      "offeredBy": "Mathematical Sciences Institute",
+      "catalogueYear": 2027,
+      "hasPrerequisite": false,
+      "incompatibleWith": [
+        "MATH6005"
+      ],
+      "requisiteText": "Incompatible: MATH6005",
+      "offerings": {
+        "2026": [
+          "S1"
+        ],
+        "2027": [
+          "S1"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "MATH1013",
+      "title": "Mathematics and Applications 1",
+      "level": "undergraduate",
+      "units": 6,
+      "subjectArea": "Mathematics",
+      "offeredBy": "Mathematical Sciences Institute",
+      "catalogueYear": 2027,
+      "hasPrerequisite": true,
+      "incompatibleWith": [
+        "MATH1113",
+        "MATH1115"
+      ],
+      "requisiteText": "You are not able to enrol in this course if you have previously completed, or are attempting to concurrently enrol in, MATH1113 or MATH1115.",
+      "offerings": {
+        "2026": [
+          "S1",
+          "S2"
+        ],
+        "2027": [
+          "S1",
+          "S2"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "MATH1014",
+      "title": "Mathematics and Applications 2",
+      "level": "undergraduate",
+      "units": 6,
+      "subjectArea": "Mathematics",
+      "offeredBy": "Mathematical Sciences Institute",
+      "catalogueYear": 2027,
+      "hasPrerequisite": true,
+      "incompatibleWith": [
+        "MATH1116"
+      ],
+      "requisiteText": "To enrol in this course you must have completed MATH1013 or MATH1115 or MATH1113. You are not able to enrol in this course if you have previously completed MATH1116.",
+      "offerings": {
+        "2026": [
+          "S1",
+          "S2"
+        ],
+        "2027": [
+          "S1",
+          "S2",
+          "Spring"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "MATH1115",
+      "title": "Advanced Mathematics and Applications 1",
+      "level": "undergraduate",
+      "units": 6,
+      "subjectArea": "Mathematics",
+      "offeredBy": "Mathematical Sciences Institute",
+      "catalogueYear": 2027,
+      "hasPrerequisite": true,
+      "incompatibleWith": [],
+      "requisiteText": "If you have previously completed MATH1013 or MATH1113 then you can only enrol in MATH1115 with the permission of the course convener.",
+      "offerings": {
+        "2026": [
+          "S1"
+        ],
+        "2027": [
+          "S1"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "MATH1116",
+      "title": "Advanced Mathematics and Applications 2",
+      "level": "undergraduate",
+      "units": 6,
+      "subjectArea": "Mathematics",
+      "offeredBy": "Mathematical Sciences Institute",
+      "catalogueYear": 2027,
+      "hasPrerequisite": true,
+      "incompatibleWith": [],
+      "requisiteText": "To enrol in this course you must have completed MATH1115 with a mark of 60 or above or MATH1113 with a mark of 80 or above. You may not enrol in MATH1116 if you have previously completed, or are attempting to concurrently enrol in, MATH1014.\nYou may not enrol in MATH1116 if you have previously completed MATH1014.",
+      "offerings": {
+        "2026": [
+          "S2"
+        ],
+        "2027": [
+          "S2"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "MATH2222",
+      "title": "Introduction to Mathematical Thinking: Problem-Solving and Proofs",
+      "level": "undergraduate",
+      "units": 6,
+      "subjectArea": "Mathematics",
+      "offeredBy": "Mathematical Sciences Institute",
+      "catalogueYear": 2027,
+      "hasPrerequisite": true,
+      "incompatibleWith": [
+        "MATH2322",
+        "MATH3104",
+        "MATH2320",
+        "MATH3116",
+        "MATH6222"
+      ],
+      "requisiteText": "Students with excellent results in either the ACT Specialist Mathematics double major, NSW HSC Mathematics Extension 2 or equivalent may take this course together with MATH1115 in the first year. For many students taking MATH1115 in their first year, MATH1005 would be a more appropriate companion choice. If you are not sure which courses to take in your first year, please consult the MSI First-year Coordinator.\nAll other students may enrol in this course if they have completed MATH1116 with a mark of at least 50, or MATH1113 with a mark of at least 60, or MATH1005 with a mark of at least 70, or MATH1013 or MATH1014 with a mark of at least 80.\nIncompatible: MATH2322, MATH3104, MATH2320, MATH3116 or MATH6222.",
+      "offerings": {
+        "2026": [
+          "S1"
+        ],
+        "2027": [
+          "S1"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "MATH2301",
+      "title": "Games, Graphs and Machines",
+      "level": "undergraduate",
+      "units": 6,
+      "subjectArea": "Mathematics",
+      "offeredBy": "Mathematical Sciences Institute",
+      "catalogueYear": 2027,
+      "hasPrerequisite": true,
+      "incompatibleWith": [],
+      "requisiteText": "To enrol in this course you must have completed MATH1005, MATH1013, MATH1113, or MATH1115.",
+      "offerings": {
+        "2026": [
+          "S2"
+        ],
+        "2027": [
+          "S2"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "MATH2307",
+      "title": "Bioinformatics and Biological Modelling",
+      "level": "undergraduate",
+      "units": 6,
+      "subjectArea": "Mathematics",
+      "offeredBy": "Mathematical Sciences Institute",
+      "catalogueYear": 2027,
+      "hasPrerequisite": true,
+      "incompatibleWith": [
+        "MATH6100"
+      ],
+      "requisiteText": "To enrol in this course you must have successfully completed 12 units of 1000 levels Mathematics (MATH) courses including either MATH1014 or MATH1116. You are not able to enrol in this course if you have completed MATH6100.",
+      "offerings": {
+        "2026": [
+          "S2"
+        ],
+        "2027": [
+          "S2"
+        ]
+      },
+      "transdisciplinary": true
+    },
+    {
+      "code": "MATH3301",
+      "title": "Number Theory and Cryptography",
+      "level": "undergraduate",
+      "units": 6,
+      "subjectArea": "Mathematics",
+      "offeredBy": "Mathematical Sciences Institute",
+      "catalogueYear": 2027,
+      "hasPrerequisite": true,
+      "incompatibleWith": [
+        "MATH6114"
+      ],
+      "requisiteText": "To enrol in this course you must have successfully completed:\n*MATH1014 with a mark of at least 80 and 72 units of tertiary study, which must include a minimum of 24 units of MATH coded courses, or\n*MATH1116 with a mark of at least 60 and 72 units of tertiary study, which must include a minimum of 24 units of MATH coded courses, or\nAt least 1x 2000- or 3000- level MATH course\nIncompatible: MATH6114.",
+      "offerings": {
+        "2026": [
+          "S2"
+        ],
+        "2027": [
+          "S2"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "MATH6005",
+      "title": "Discrete Mathematical Models",
+      "level": "postgraduate",
+      "units": 6,
+      "subjectArea": "Mathematics",
+      "offeredBy": "Mathematical Sciences Institute",
+      "catalogueYear": 2027,
+      "hasPrerequisite": true,
+      "incompatibleWith": [
+        "MATH1005"
+      ],
+      "requisiteText": "CECS students must be enrolled in a Graduate Diploma of Computing or a Master of Computing to enrol in this course.\nIncompatible: MATH1005",
+      "offerings": {
+        "2026": [
+          "S1"
+        ],
+        "2027": [
+          "S1"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "MATH6114",
+      "title": "Number Theory and Cryptography",
+      "level": "postgraduate",
+      "units": 6,
+      "subjectArea": "Mathematics",
+      "offeredBy": "Mathematical Sciences Institute",
+      "catalogueYear": 2027,
+      "hasPrerequisite": false,
+      "incompatibleWith": [
+        "MATH3301"
+      ],
+      "requisiteText": "Incompatible: MATH3301.",
+      "offerings": {
+        "2026": [
+          "S2"
+        ],
+        "2027": [
+          "S2"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "MATH8343",
+      "title": "Foundations of Mathematics",
+      "level": "postgraduate",
+      "units": 6,
+      "subjectArea": "Mathematics",
+      "offeredBy": "Mathematical Sciences Institute",
+      "catalogueYear": 2027,
+      "hasPrerequisite": false,
+      "incompatibleWith": [
+        "MATH3343",
+        "MATH4343",
+        "MATH6203"
+      ],
+      "requisiteText": "To enrol in this course you need to be active in the Master of Mathematical Sciences (Advanced) or Master of Science in Mathematical Sciences.\nIncompatible with MATH3343, MATH4343 and MATH6203.",
+      "offerings": {
+        "2026": [
+          "S1"
+        ],
+        "2027": [
+          "S1"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "MGMT2009",
+      "title": "Design Thinking: Human-Centred Innovation",
+      "level": "undergraduate",
+      "units": 6,
+      "subjectArea": "Management",
+      "offeredBy": "Research School of Management",
+      "catalogueYear": 2027,
+      "hasPrerequisite": false,
+      "incompatibleWith": [],
+      "requisiteText": "",
+      "offerings": {
+        "2026": [
+          "S1"
+        ],
+        "2027": []
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "MGMT7020",
+      "title": "Technology and Project Management",
+      "level": "postgraduate",
+      "units": 6,
+      "subjectArea": "Management",
+      "offeredBy": "Research School of Management",
+      "catalogueYear": 2027,
+      "hasPrerequisite": false,
+      "incompatibleWith": [],
+      "requisiteText": "",
+      "offerings": {
+        "2026": [
+          "S1",
+          "Winter",
+          "S2"
+        ],
+        "2027": [
+          "S1",
+          "S2"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "MUSI1110",
+      "title": "Introduction to Music Technology",
+      "level": "undergraduate",
+      "units": 6,
+      "subjectArea": "Music",
+      "offeredBy": "School of Music",
+      "catalogueYear": 2027,
+      "hasPrerequisite": true,
+      "incompatibleWith": [
+        "MUSI6110"
+      ],
+      "requisiteText": "You are not able to enrol in this course if you have previously completed MUSI6110",
+      "offerings": {
+        "2026": [
+          "S1",
+          "S2"
+        ],
+        "2027": [
+          "S1",
+          "S2"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "MUSI3309",
+      "title": "Digital Music: Platforms, Content and AI",
+      "level": "undergraduate",
+      "units": 6,
+      "subjectArea": "Music",
+      "offeredBy": "School of Music",
+      "catalogueYear": 2027,
+      "hasPrerequisite": true,
+      "incompatibleWith": [
+        "MUSI6009"
+      ],
+      "requisiteText": "To enrol in this course you must have completed 72 units of tertiary courses, or with consent of the Convener.\nYou are not able to enrol in this course if you have previously completed MUSI6009.",
+      "offerings": {
+        "2026": [
+          "S1"
+        ],
+        "2027": [
+          "S1"
+        ]
+      },
+      "transdisciplinary": true
+    },
+    {
+      "code": "REGN8014",
+      "title": "Contemporary Issues in Technology Governance",
+      "level": "postgraduate",
+      "units": 6,
+      "subjectArea": "RegNet",
+      "offeredBy": "School of Regulation and Global Governance",
+      "catalogueYear": 2027,
+      "hasPrerequisite": false,
+      "incompatibleWith": [],
+      "requisiteText": "",
+      "offerings": {
+        "2026": [
+          "Summer"
+        ],
+        "2027": [
+          "S1"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "SCOM3029",
+      "title": "Science Communication and Planetary Crises",
+      "level": "undergraduate",
+      "units": 6,
+      "subjectArea": "Science Communication",
+      "offeredBy": "Centre for the Public Awareness of Science",
+      "catalogueYear": 2027,
+      "hasPrerequisite": true,
+      "incompatibleWith": [
+        "SCOM6029"
+      ],
+      "requisiteText": "To enrol in this course you must have completed 72 units of tertiary study.\nIncompatible with SCOM6029.",
+      "offerings": {
+        "2026": [
+          "S2"
+        ],
+        "2027": [
+          "S2"
+        ]
+      },
+      "transdisciplinary": true
+    },
+    {
+      "code": "SOCR3001",
+      "title": "Data for Decision Making",
+      "level": "undergraduate",
+      "units": 6,
+      "subjectArea": "Social Research",
+      "offeredBy": "POLIS: The Centre for Social Policy Research",
+      "catalogueYear": 2027,
+      "hasPrerequisite": true,
+      "incompatibleWith": [],
+      "requisiteText": "To enrol in this course you must have completed at least one of STAT1003, STAT2001, STAT2008, STAT3011, STAT3040, POLS2044, SOCY2038 or with permission of the convenor.",
+      "offerings": {
+        "2026": [
+          "S1"
+        ],
+        "2027": [
+          "S1"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "SOCY2038",
+      "title": "Introduction to Quantitative Research Methods",
+      "level": "undergraduate",
+      "units": 6,
+      "subjectArea": "Sociology",
+      "offeredBy": "School of Sociology",
+      "catalogueYear": 2027,
+      "hasPrerequisite": true,
+      "incompatibleWith": [],
+      "requisiteText": "To enrol in this course you must have completed 24 units of tertiary study or 12 units in the relevant field/discipline.",
+      "offerings": {
+        "2026": [
+          "S1"
+        ],
+        "2027": [
+          "S1"
+        ]
+      },
+      "transdisciplinary": true
+    },
+    {
+      "code": "SOCY2166",
+      "title": "Social Science of the Internet",
+      "level": "undergraduate",
+      "units": 6,
+      "subjectArea": "Sociology",
+      "offeredBy": "School of Sociology",
+      "catalogueYear": 2027,
+      "hasPrerequisite": true,
+      "incompatibleWith": [
+        "SOCY6066"
+      ],
+      "requisiteText": "To enrol in this course you must have completed:\n-12 units of Computer (COMP) or Statistics (STAT) courses , OR\n-12 units of Criminology (CRIM), Political Science (POLS), Social Research (SOCR) or Sociology (SOCY) courses. In addition, if SOCY2038 Introduction to Quantitative Research Methods has not been completed, then it must studied concurrently with SOCY2166.\nStudents not satisfying the above may request permission to enrol from the convener.\nYou are not able to enrol in this course if you have previously completed SOCY6066.",
+      "offerings": {
+        "2026": [
+          "S1"
+        ],
+        "2027": []
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "STAT1003",
+      "title": "Statistical Techniques",
+      "level": "undergraduate",
+      "units": 6,
+      "subjectArea": "Statistics",
+      "offeredBy": "Rsch Sch of Finance, Actuarial Studies &amp; App Stats",
+      "catalogueYear": 2027,
+      "hasPrerequisite": false,
+      "incompatibleWith": [
+        "STAT1008"
+      ],
+      "requisiteText": "Incompatible with STAT1008.",
+      "offerings": {
+        "2026": [
+          "S1"
+        ],
+        "2027": [
+          "S1"
+        ]
+      },
+      "transdisciplinary": false
+    },
+    {
+      "code": "STAT1008",
+      "title": "Quantitative Research Methods",
+      "level": "undergraduate",
+      "units": 6,
+      "subjectArea": "Statistics",
+      "offeredBy": "Rsch Sch of Finance, Actuarial Studies &amp; App Stats",
+      "catalogueYear": 2027,
+      "hasPrerequisite": false,
+      "incompatibleWith": [
+        "STAT1003"
+      ],
+      "requisiteText": "Incompatible with STAT1003.",
+      "offerings": {
+        "2026": [
+          "S1",
+          "S2",
+          "Spring"
+        ],
+        "2027": [
+          "S1",
+          "S2"
+        ]
+      },
+      "transdisciplinary": true
+    }
+  ]
+}
