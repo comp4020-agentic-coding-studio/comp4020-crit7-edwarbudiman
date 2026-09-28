@@ -11,3 +11,7 @@ It started when i almost didnt finish the program on time (2 years), because i m
 - I start by giving the idea on how the design should be and the flow of the app.
 - Giving the idea then discuss with the opus 5.5, then it gave me the brief and we wrote that down into claude.md as harness making it possible to re-iterate without always having in the same session over and over. ( [docs/progress](docs/progress/2026-09-25-skill-tree-planner.md) )
 - Then by that brief, it already created most of the app already, including the scrapping the real data from ANU website about the courses, and i just refined a little bit about the design and the flow.
+
+## The record
+
+The whole planner (skill tree, catalogue data, requirements, profile) landed in one commit: [`b208d39`](https://github.com/comp4020-agentic-coding-studio/comp4020-crit7-edwarbudiman/commit/b208d39e7729be8034211f32bd8df7394e59765c).
